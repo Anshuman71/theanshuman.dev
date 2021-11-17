@@ -6,7 +6,10 @@ const domain = process.env.FAUNA_DB_DOMAIN || "db.eu.fauna.com";
 const collection = process.env.FAUNA_DB_COLLECTION || "<collection-name>";
 const docID = process.env.FAUNA_DB_DOC_ID || "<doc-ref-id>";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function incrementHitCounter(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
     const { Add, Update, Select, query, Ref } = faunadb;
     const client = new faunadb.Client({
@@ -29,4 +32,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } catch (e) {
     res.json({ error: "yes", value: "too hard to count..." });
   }
-};
+}
