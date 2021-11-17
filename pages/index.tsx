@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { contacts, experiences } from "../constants";
 import ExternalLink from "../components/ExternalLink";
+import HitCounter from "../components/HitCounter";
 
 const Home: NextPage = () => {
   return (
@@ -73,6 +74,7 @@ const Home: NextPage = () => {
           ))}
         </section>
         <footer className={"text-gray-300"}>
+          <HitCounter />
           <p className="p-2 text-center tracking-wide">
             Made with ♥ and tailwind.css by Anshuman Bhardwaj
           </p>
