@@ -12,24 +12,12 @@ const containerVariants = {
 
 const mainVariants = {
   initial: {
-    y: -10,
-  },
-  animate: {
-    y: 0,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.5,
-    },
-  },
-};
-
-const sectionVariants = {
-  initial: {
     opacity: 0,
   },
   animate: {
     opacity: 1,
     transition: {
+      delay: 0.7,
       duration: 1,
     },
   },
@@ -53,12 +41,7 @@ const Home: NextPage = () => {
         animate={"animate"}
         className={"w-3/4 mx-auto"}
       >
-        <motion.section
-          variants={sectionVariants}
-          animate={"animate"}
-          initial={"initial"}
-          className="intro w-2/3"
-        >
+        <motion.section className="intro w-2/3">
           <h1 className={"text-gray-100 text-5xl"}>Hi, I&apos;m Anshuman</h1>
           <p className={"text-gray-300 text-lg mt-10"}>
             {" "}
@@ -68,12 +51,7 @@ const Home: NextPage = () => {
             build tools for humans 😎.
           </p>
         </motion.section>
-        <motion.section
-          variants={sectionVariants}
-          animate={"animate"}
-          initial={"initial"}
-          className="what-i-do w-2/3 text-gray-200 my-10"
-        >
+        <motion.section className="what-i-do w-2/3 text-gray-200 my-10">
           <h2 className="text-3xl mb-1 tracking-wider">What I do?</h2>
           <p className="text-gray-300 text-lg mt-4">
             I am a Full Stack Developer. I have been working with ReactJS and
@@ -84,12 +62,7 @@ const Home: NextPage = () => {
             functions and automating workflow using them.
           </p>
         </motion.section>
-        <motion.section
-          variants={sectionVariants}
-          animate={"animate"}
-          initial={"initial"}
-          className={"what-so-far text-gray-200 my-10 w-2/3"}
-        >
+        <motion.section className={"what-so-far text-gray-200 my-10 w-2/3"}>
           <h2 className="text-3xl mb-1 tracking-wider">What so far?</h2>
           <div className={"my-4"}>
             {experiences.map((exp) => (
@@ -103,12 +76,7 @@ const Home: NextPage = () => {
             <ExternalLink key={contact.url} {...contact} />
           ))}
         </motion.section>
-        <motion.footer
-          variants={sectionVariants}
-          animate={"animate"}
-          initial={"initial"}
-          className={"text-gray-300"}
-        >
+        <motion.footer className={"text-gray-300"}>
           <HitCounter />
           <p className="p-2 text-center tracking-wide">
             Made with ♥ and tailwind.css by Anshuman Bhardwaj
