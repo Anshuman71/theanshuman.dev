@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { contacts, experiences } from "../constants";
+import { contacts, experiences, technologies } from "../constants";
 import ExternalLink from "../components/ExternalLink";
 import HitCounter from "../components/HitCounter";
 import { motion } from "framer-motion";
@@ -43,7 +43,7 @@ const Home: NextPage = () => {
       >
         <motion.section className="intro w-2/3">
           <h1 className={"text-gray-100 text-5xl"}>Hi, I&apos;m Anshuman</h1>
-          <p className={"text-gray-300 text-lg mt-10"}>
+          <p className={"text-gray-300 text-lg mt-10 leading-loose"}>
             {" "}
             I love sammy🐶, music (Bollywood & Enrique) and gaming (MOHW and
             DMC). <br /> Like Batman 🦇, I work late at night. I like teaching
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
         </motion.section>
         <motion.section className="what-i-do w-2/3 text-gray-200 my-10">
           <h2 className="text-3xl mb-1 tracking-wider">What I do?</h2>
-          <p className="text-gray-300 text-lg mt-4">
+          <p className="text-gray-300 text-lg mt-4 leading-loose">
             I am a Full Stack Developer. I have been working with ReactJS and
             NodeJS since 2017. On my way I have built many apps utilizing their
             core and many on-the-top libraries. I love working with React and
@@ -61,6 +61,34 @@ const Home: NextPage = () => {
             <b className="font-medium">serverless.</b> <br />I love cloud
             functions and automating workflow using them.
           </p>
+        </motion.section>{" "}
+        <motion.section className="technologies text-gray-200 my-10">
+          <h2 className="text-3xl mb-2 tracking-wider">
+            Favourite technologies
+          </h2>
+          <div className={"flex flex-row flex-wrap"}>
+            {technologies.map((tech) => (
+              <div key={tech.url}>
+                <motion.img
+                  whileHover={
+                    tech.name === "react"
+                      ? {
+                          rotate: 360,
+                          transition: {
+                            ease: "linear",
+                            duration: 4,
+                            repeat: Infinity,
+                          },
+                        }
+                      : { scale: 1.1 }
+                  }
+                  alt="react"
+                  className={"my-4 mr-16 w-32"}
+                  src={tech.url}
+                />
+              </div>
+            ))}
+          </div>
         </motion.section>
         <motion.section className={"what-so-far text-gray-200 my-10 w-2/3"}>
           <h2 className="text-3xl mb-1 tracking-wider">What so far?</h2>

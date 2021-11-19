@@ -45,3 +45,30 @@ export const contacts: LinkInformation[] = [
     url: "https://www.notion.so/Resume-92cc4b433e454b4ab749f3e3f40c6239",
   },
 ];
+
+export const technologies: LinkInformation[] = [
+  {
+    name: "react",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  },
+  {
+    name: "TS",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "CSS",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  },
+  {
+    name: "NodeJS",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain.svg",
+  },
+  {
+    name: "firebase",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg",
+  },
+  {
+    name: "firebase",
+    url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
+  },
+];
