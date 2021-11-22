@@ -3,9 +3,9 @@ import { contacts, experiences, technologies } from "../constants";
 import ExternalLink from "../components/ExternalLink";
 import HitCounter from "../components/HitCounter";
 import { motion, TargetAndTransition, VariantLabels } from "framer-motion";
-import MetaData from "../components/MetaData";
 import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
+import MetaData from "../components/MetaData";
 
 const containerVariants = {
   hidden: { background: "rgba(0,0,0,0.8)" },
@@ -22,6 +22,14 @@ const mainVariants = {
       delay: 0.7,
       duration: 1,
     },
+  },
+};
+
+const techParentVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 1 },
   },
 };
 
@@ -94,13 +102,7 @@ const Home: NextPage = () => {
           <motion.div
             animate={"animate"}
             initial={"initial"}
-            variants={{
-              initial: { opacity: 0 },
-              animate: {
-                opacity: 1,
-                transition: { staggerChildren: 0.2, delayChildren: 1 },
-              },
-            }}
+            variants={techParentVariants}
             className={"flex flex-row flex-wrap"}
           >
             {technologies.map((tech) => (
@@ -115,7 +117,8 @@ const Home: NextPage = () => {
                 <motion.img
                   whileHover={hover[tech.name] || hover.others}
                   alt="react"
-                  className={"w-24"}
+                  width={"96px"}
+                  height={"96px"}
                   src={tech.url}
                 />
               </motion.div>
