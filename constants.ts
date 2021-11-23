@@ -1,3 +1,5 @@
+import { TargetAndTransition, VariantLabels } from "framer-motion";
+
 export type LinkInformation = { name: string; url: string };
 
 export const experiences: LinkInformation[] = [
@@ -72,3 +74,60 @@ export const technologies: LinkInformation[] = [
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
   },
 ];
+
+export const containerVariants = {
+  initial: { background: "rgba(0,0,0,0.8)" },
+  animate: {
+    background: "rgb(0,0,0)",
+    transition: {
+      duration: 0.3,
+      when: "beforeChildren",
+    },
+  },
+};
+
+export const mainVariants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      when: "beforeChildren",
+    },
+  },
+};
+
+export const techParentVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.5 },
+  },
+};
+
+export const techVariants = {
+  initial: {
+    y: 20,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
+export const hover: { [key: string]: VariantLabels | TargetAndTransition } = {
+  react: {
+    rotate: 360,
+    transition: {
+      ease: "linear",
+      duration: 4,
+      repeat: Infinity,
+    },
+  },
+  others: {
+    scale: 1.05,
+  },
+};

@@ -1,83 +1,46 @@
 import type { NextPage } from "next";
-import { contacts, experiences, technologies } from "../constants";
+import {
+  contacts,
+  containerVariants,
+  mainVariants,
+  techVariants,
+  techParentVariants,
+  hover,
+  experiences,
+  technologies,
+} from "../constants";
 import ExternalLink from "../components/ExternalLink";
 import HitCounter from "../components/HitCounter";
-import { motion, TargetAndTransition, VariantLabels } from "framer-motion";
+import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
 import MetaData from "../components/MetaData";
-
-const containerVariants = {
-  hidden: { background: "rgba(0,0,0,0.8)" },
-  enter: { background: "rgb(0,0,0)" },
-};
-
-const mainVariants = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-    transition: {
-      delay: 0.7,
-      duration: 1,
-    },
-  },
-};
-
-const techParentVariants = {
-  initial: { opacity: 0 },
-  animate: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 1 },
-  },
-};
-
-const techVariants = {
-  initial: {
-    y: 20,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
-const hover: { [key: string]: VariantLabels | TargetAndTransition } = {
-  react: {
-    rotate: 360,
-    transition: {
-      ease: "linear",
-      duration: 4,
-      repeat: Infinity,
-    },
-  },
-  others: {
-    scale: 1.05,
-  },
-};
 
 const Home: NextPage = () => {
   return (
     <motion.div
       variants={containerVariants}
-      initial={"hidden"}
-      animate="enter"
-      transition={{
-        duration: 0.5,
-      }}
+      initial={"initial"}
+      animate="animate"
       className={"bg-black p-10 pt-20 min-h-screen"}
     >
       <MetaData />
-      <motion.main
-        variants={mainVariants}
-        initial={"initial"}
-        animate={"animate"}
-        className={"w-3/4 mx-auto"}
-      >
+      <motion.main variants={mainVariants} className={"w-3/4 mx-auto"}>
         <Section>
-          <h1 className={"text-gray-100 text-6xl"}>Hi, I&apos;m Anshuman</h1>
+          <h1 className={"text-gray-100 text-6xl overflow-hidden"}>
+            Hi, I&apos;m{" "}
+            {"Anshuman".split("").map((char, index) => (
+              <motion.p
+                key={char}
+                className={"inline-block"}
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ delay: 0.7 + index * 0.15, duration: 0.35 }}
+              >
+                {char}
+              </motion.p>
+            ))}
+          </h1>
           <p className={"text-gray-300 text-lg mt-4 leading-loose"}>
             {" "}
             I love sammy🐶, music (Bollywood & Enrique) and gaming (MOHW and
