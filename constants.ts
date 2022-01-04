@@ -32,15 +32,23 @@ export const contacts: LinkInformation[] = [
   },
   {
     name: "Twitter",
-    url: "https://twitter.com/_youngbatman",
+    url: "https://twitter.com/sun_anshuman",
   },
   {
-    name: "Medium",
+    name: "Dev.to",
     url: "https://anshuman-bhardwaj.medium.com",
+  },
+   {
+    name: "Medium",
+    url: "https://dev.to/anshuman_bhardwaj",
   },
   {
     name: "Youtube",
-    url: "https://youtube.com/goodtogo71",
+    url: "https://www.youtube.com/c/AnshumanBhardwajTechEd",
+  },
+    {
+    name: "Instagram",
+    url: "https://twitter.com/sun_anshuman",
   },
   {
     name: "Resume",
