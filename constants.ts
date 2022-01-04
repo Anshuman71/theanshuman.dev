@@ -36,11 +36,11 @@ export const contacts: LinkInformation[] = [
   },
   {
     name: "Dev.to",
-    url: "https://anshuman-bhardwaj.medium.com",
+    url: "https://dev.to/anshuman_bhardwaj",
   },
    {
     name: "Medium",
-    url: "https://dev.to/anshuman_bhardwaj",
+    url: "https://anshuman-bhardwaj.medium.com",
   },
   {
     name: "Youtube",
