@@ -44,7 +44,7 @@ export const contacts: LinkInformation[] = [
   },
   {
     name: "Youtube",
-    url: "https://www.youtube.com/c/AnshumanBhardwajTechEd",
+    url: "https://www.youtube.com/c/AnshumanBhardwaj",
   },
     {
     name: "Instagram",
