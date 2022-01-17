@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Script from 'next/script'
 import {
   contacts,
   containerVariants,
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
       className={"bg-black p-10 pt-20 min-h-screen"}
     >
       <MetaData />
+      <Script src="https://relentless-innovator-9696.ck.page/065dbd9f0c/index.js" />
       <motion.main variants={mainVariants} className={"w-3/4 mx-auto"}>
         <Section>
           <h1 className={"text-gray-100 text-6xl overflow-hidden"}>
