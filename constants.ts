@@ -35,10 +35,14 @@ export const contacts: LinkInformation[] = [
     url: "https://twitter.com/sun_anshuman",
   },
   {
-    name: "Dev.to",
+    name: "DEV",
     url: "https://dev.to/anshuman_bhardwaj",
   },
-   {
+  {
+    name: "HashNode",
+    url: "https://hashnode.com/@anshuman-bhardwaj",
+  },
+  {
     name: "Medium",
     url: "https://anshuman-bhardwaj.medium.com",
   },
