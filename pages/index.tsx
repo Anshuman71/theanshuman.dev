@@ -45,10 +45,7 @@ const Home: NextPage = () => {
           </h1>
           <p className={"text-gray-300 text-lg mt-4 leading-loose"}>
             {" "}
-            I love sammy🐶, music (Bollywood & Enrique) and gaming (MOHW and
-            DMC). <br /> Like Batman 🦇, I work late at night. I like teaching
-            and sharing what I learned mostly the hard way. Other than that I
-            build tools for humans 😎.
+            Hey there, I'm Anshuman a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business.
           </p>
         </Section>
         <Section>
