@@ -39,8 +39,8 @@ export const contacts: LinkInformation[] = [
     url: "https://dev.to/anshuman_bhardwaj",
   },
   {
-    name: "HashNode",
-    url: "https://hashnode.com/@anshuman-bhardwaj",
+    name: "Blog",
+    url: "https://blog.theanshuman.dev",
   },
   {
     name: "Medium",
