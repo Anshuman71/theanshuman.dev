@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import Script from 'next/script'
+import Script from "next/script";
 import {
   contacts,
   containerVariants,
@@ -26,7 +26,18 @@ const Home: NextPage = () => {
       className={"bg-black p-10 pt-20 min-h-screen"}
     >
       <MetaData />
-      <Script src="https://relentless-innovator-9696.ck.page/065dbd9f0c/index.js" />
+      <Script
+        async
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-BQD4JC0G5Y"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`window['dataLayer'] = window?.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+          gtag('config', 'G-BQD4JC0G5Y');
+        `}
+      </Script>
       <motion.main variants={mainVariants} className={"w-3/4 mx-auto"}>
         <Section>
           <h1 className={"text-gray-100 text-6xl overflow-hidden"}>
@@ -45,7 +56,10 @@ const Home: NextPage = () => {
           </h1>
           <p className={"text-gray-300 text-lg mt-4 leading-loose"}>
             {" "}
-            Hey there, I'm Anshuman a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business.
+            Hey there, I'm Anshuman a self-taught developer passionate about
+            empowering people with the skills I have learned. I love building an
+            awesomely beautiful frontend for seamless user experience and
+            flawless back end for a scalable & reliable business.
           </p>
         </Section>
         <Section>

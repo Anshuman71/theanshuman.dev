@@ -17,11 +17,11 @@ export default function MetaData() {
       <meta property="og:title" content="Anshuman Bhardwaj" />
       <meta property="og:type" content="website" />
       <meta name="author" content="Anshuman Bhardwaj" />
-      <meta property="og:image" content="https://anshuman.vercel.app" />
+      <meta property="og:image" content="https://theanshuman.dev" />
       <meta property="og:image:height" content="800" />
       <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="480" />
-      <meta property="og:url" content="https://anshuman.vercel.app" />
+      <meta property="og:url" content="https://theanshuman.dev" />
       <meta
         property="og:description"
         content="Hey there, I'm Anshuman a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business. "
