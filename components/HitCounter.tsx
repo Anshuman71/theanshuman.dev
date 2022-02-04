@@ -8,5 +8,5 @@ export default function HitCounter() {
       setValue(data.value);
     })();
   }, []);
-  return <p>Hits {value || "still counting..."}</p>;
+  return <p>Visited {value || "still counting..."} times</p>;
 }

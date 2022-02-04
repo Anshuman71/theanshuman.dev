@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       variants={containerVariants}
       initial={"initial"}
       animate="animate"
-      className={"bg-gray-900 p-10 lg:p-10 lg:pt-20 min-h-screen"}
+      className={"bg-gray-700 p-10 lg:p-10 lg:pt-20 min-h-screen"}
     >
       <MetaData />
       <Script
@@ -38,7 +38,10 @@ const Home: NextPage = () => {
           gtag('config', 'G-BQD4JC0G5Y');
         `}
       </Script>
-      <motion.main variants={mainVariants} className={"md:p-0 lg:3/4 mx-auto"}>
+      <motion.main
+        variants={mainVariants}
+        className={"md:p-0 lg:w-3/4 mx-auto"}
+      >
         <Section>
           <h1 className={"text-gray-100 text-3xl md:text-6xl overflow-hidden"}>
             Hi, I&apos;m{" "}
@@ -81,7 +84,7 @@ const Home: NextPage = () => {
             initial={"initial"}
             variants={techParentVariants}
             className={
-              "grid gap-y-6 place-items-start grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
+              "grid gap-y-6 place-items-start grid-cols-2 md:grid-cols-4 lg:flex"
             }
           >
             {technologies.map((tech) => (
@@ -91,7 +94,9 @@ const Home: NextPage = () => {
                   scale: 1.025,
                 }}
                 key={tech.url}
-                className={"flex justify-center p-4 bg-[#303030] rounded-xl"}
+                className={
+                  "flex justify-center p-4 bg-[#303030] rounded-xl lg:mr-6"
+                }
               >
                 <motion.img
                   whileHover={hover[tech.name] || hover.others}
