@@ -40,7 +40,7 @@ const Home: NextPage = () => {
       </Script>
       <motion.main
         variants={mainVariants}
-        className={"md:p-0 lg:w-3/4 mx-auto"}
+        className={"md:p-0 lg:w-3/4 xl:max-w-[990px] mx-auto"}
       >
         <Section>
           <h1 className={"text-gray-100 text-3xl md:text-6xl overflow-hidden"}>
@@ -73,8 +73,8 @@ const Home: NextPage = () => {
             NodeJS since 2017. On my way I have built many apps utilizing their
             core and many on-the-top libraries. I love working with React and
             ReactNative. I have recently found my new love, in
-            <b className="font-medium">serverless.</b> <br />I love cloud
-            functions and automating workflow using them.
+            <b className="font-medium">serverless.</b> I love cloud functions
+            and automating workflow using them.
           </p>
         </Section>{" "}
         <Section>
@@ -123,7 +123,7 @@ const Home: NextPage = () => {
             <ExternalLink key={contact.url} {...contact} />
           ))}
         </Section>
-        <motion.footer className={"text-gray-300 py-10"}>
+        <motion.footer className={"text-gray-300 lg:py-10"}>
           <HitCounter />
           <p className="p-2 text-lg text-center tracking-wide">
             Made with <span className={"text-2xl text-red-600"}>♥</span> and

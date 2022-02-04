@@ -9,7 +9,7 @@ export default function HitCounter() {
     })();
   }, []);
   return (
-    <p>
+    <p className="text-center">
       Visited <span className="font-bold">{value || "still counting..."}</span>{" "}
       times
     </p>

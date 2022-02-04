@@ -6,7 +6,7 @@ export default function Section({
   className,
 }: PropsWithChildren<any>) {
   return (
-    <motion.section className={`text-gray-200 mb-16 ${className}`}>
+    <motion.section className={`text-gray-200 mb-10 lg:mb-16 ${className}`}>
       {children}
     </motion.section>
   );
