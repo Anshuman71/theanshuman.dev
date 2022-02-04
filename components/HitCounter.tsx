@@ -8,5 +8,10 @@ export default function HitCounter() {
       setValue(data.value);
     })();
   }, []);
-  return <p>Visited {value || "still counting..."} times</p>;
+  return (
+    <p>
+      Visited <span className="font-bold">{value || "still counting..."}</span>{" "}
+      times
+    </p>
+  );
 }
