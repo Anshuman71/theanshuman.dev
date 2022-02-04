@@ -4,46 +4,34 @@ export default function MetaData() {
   return (
     <Head>
       <meta charSet="UTF-8" />
-      <title>Anshuman Bhardwaj</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {/* <!-- Primary Meta Tags --> */}
+      <title>Anshuman Bhardwaj</title>
+      <meta name="title" content="Anshuman Bhardwaj" />
       <meta
         name="description"
         content="Hey there, I'm Anshuman Bhardwaj, a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business. "
       />
-      <meta
-        name="keywords"
-        content="anshuman, anshuman5221, anshuman71, anshuman bhardwaj, Anshuman, Anshuman Bhardwaj Canoo, Anshuman Bhardwaj Delightree, Anshuman Bhardwaj Collegebasket, Anshuman Bhardwaj Keshav Mahavidyalaya, Anshuman Bhardwaj Delhi University, DU, KMV, Delhi, Gurgaon, India, Canoo"
-      />
-      <meta name="theme-color" content="#F1C40F" />
 
-      <meta property="og:title" content="Anshuman Bhardwaj" />
+      {/* <!-- Open Graph / Facebook --> */}
       <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://theanshuman.dev/" />
+      <meta property="og:title" content="Anshuman Bhardwaj" />
       <meta
         property="og:description"
-        content="Hey there, I'm Anshuman a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business. "
+        content="Hey there, I'm Anshuman Bhardwaj, a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business. "
       />
-      <meta property="og:site_name" content="Anshuman Bhardwaj" />
       <meta property="og:image" content="https://theanshuman.dev/me.jpeg" />
-      <meta property="og:image:type" content="image/jpeg" />
-      <meta property="og:image:height" content="400" />
-      <meta property="og:image:width" content="400" />
-      <meta property="og:url" content="https://theanshuman.dev" />
-      <meta name="author" content="Anshuman Bhardwaj" />
 
-      <meta property="twitter:url" content="https://theanshuman.dev" />
+      {/* <!-- Twitter --> */}
       <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://theanshuman.dev/" />
       <meta property="twitter:title" content="Anshuman Bhardwaj" />
       <meta
-        property="twitter:image:src"
-        content="https://theanshuman.dev/me.jpeg"
-      />
-      <meta
         property="twitter:description"
-        content="Hey there, I'm Anshuman a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business."
+        content="Hey there, I'm Anshuman Bhardwaj, a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business. "
       />
-
-      <meta name="robots" content="index, follow" />
-      <link rel="icon" sizes="96x96" type="image/jpeg" href="/icon.jpeg" />
+      <m property="twitter:image" content="https://theanshuman.dev/me.jpeg" />
     </Head>
   );
 }
