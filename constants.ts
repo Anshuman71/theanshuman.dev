@@ -50,9 +50,9 @@ export const contacts: LinkInformation[] = [
     name: "Youtube",
     url: "https://www.youtube.com/c/AnshumanBhardwaj",
   },
-    {
+  {
     name: "Instagram",
-    url: "https://twitter.com/sun_anshuman",
+    url: "https://instagram.com/sun_anshuman",
   },
   {
     name: "Resume",
