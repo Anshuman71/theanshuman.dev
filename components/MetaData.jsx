@@ -35,6 +35,11 @@ export default function MetaData() {
         property="twitter:image"
         content="https://theanshuman.dev/me.jpeg"
       />
+      <link
+        rel="icon"
+        type="image/jpeg"
+        href="https://theanshuman.dev/icon.jpeg"
+      />
     </Head>
   );
 }
