@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       variants={containerVariants}
       initial={"initial"}
       animate="animate"
-      className={"bg-black p-10 pt-20 min-h-screen"}
+      className={"bg-gray-900 p-10 lg:p-10 lg:pt-20 min-h-screen"}
     >
       <MetaData />
       <Script
@@ -38,9 +38,9 @@ const Home: NextPage = () => {
           gtag('config', 'G-BQD4JC0G5Y');
         `}
       </Script>
-      <motion.main variants={mainVariants} className={"w-3/4 mx-auto"}>
+      <motion.main variants={mainVariants} className={"md:p-0 lg:3/4 mx-auto"}>
         <Section>
-          <h1 className={"text-gray-100 text-6xl overflow-hidden"}>
+          <h1 className={"text-gray-100 text-3xl md:text-6xl overflow-hidden"}>
             Hi, I&apos;m{" "}
             {"Anshuman".split("").map((char, index) => (
               <motion.p
@@ -74,12 +74,14 @@ const Home: NextPage = () => {
           </p>
         </Section>{" "}
         <Section>
-          <SectionHeading>Favourite technologies</SectionHeading>
+          <SectionHeading>Favorite technologies</SectionHeading>
           <motion.div
             animate={"animate"}
             initial={"initial"}
             variants={techParentVariants}
-            className={"flex flex-row flex-wrap"}
+            className={
+              "grid gap-y-6 place-items-start grid-cols-2 md:grid-cols-4 lg:grid-cols-6"
+            }
           >
             {technologies.map((tech) => (
               <motion.div
@@ -88,7 +90,7 @@ const Home: NextPage = () => {
                   scale: 1.025,
                 }}
                 key={tech.url}
-                className={"p-4 bg-[#303030] rounded-xl mr-12 my-4"}
+                className={"flex justify-center p-4 bg-[#303030] rounded-xl"}
               >
                 <motion.img
                   whileHover={hover[tech.name] || hover.others}
