@@ -56,10 +56,11 @@ const Home: NextPage = () => {
           </h1>
           <p className={"text-gray-300 text-lg mt-4 leading-loose"}>
             {" "}
-            Hey there, I'm Anshuman a self-taught developer passionate about
-            empowering people with the skills I have learned. I love building an
-            awesomely beautiful frontend for seamless user experience and
-            flawless back end for a scalable & reliable business.
+            Hey there, I&apos;m Anshuman a self-taught developer passionate
+            about empowering people with the skills I have learned. I love
+            building an awesomely beautiful frontend for seamless user
+            experience and flawless back end for a scalable &amp; reliable
+            business.
           </p>
         </Section>
         <Section>
