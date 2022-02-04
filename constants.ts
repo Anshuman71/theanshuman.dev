@@ -88,9 +88,9 @@ export const technologies: LinkInformation[] = [
 ];
 
 export const containerVariants = {
-  initial: { background: "rgba(0,0,0,0.8)" },
+  initial: { background: "#111827" },
   animate: {
-    background: "rgb(0,0,0, 0.95)",
+    background: "#111827",
     transition: {
       duration: 0.3,
       when: "beforeChildren",

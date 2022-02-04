@@ -16,15 +16,11 @@ import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
 import MetaData from "../components/MetaData";
+import HighLightedText from "../components/HighlightedText";
 
 const Home: NextPage = () => {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial={"initial"}
-      animate="animate"
-      className={"bg-gray-700 p-10 lg:p-10 lg:pt-20 min-h-screen"}
-    >
+    <motion.div className={"bg-slate-800 p-10 lg:p-10 lg:pt-20 min-h-screen"}>
       <MetaData />
       <Script
         defer
@@ -48,7 +44,7 @@ const Home: NextPage = () => {
             {"Anshuman".split("").map((char, index) => (
               <motion.p
                 key={char}
-                className={"inline-block"}
+                className={"inline-block text-yellow-400"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.7 + index * 0.15, duration: 0.35 }}
@@ -57,22 +53,22 @@ const Home: NextPage = () => {
               </motion.p>
             ))}
           </h1>
-          <p className={"text-gray-300 text-lg mt-4 leading-loose"}>
+          <p className={"text-gray-200 text-lg mt-4 leading-loose"}>
             {" "}
-            Hey there, I&apos;m Anshuman a self-taught developer passionate
-            about empowering people with the skills I have learned. I love
-            building an awesomely beautiful frontend for seamless user
-            experience and flawless back end for a scalable &amp; reliable
-            business.
+            a self-taught developer passionate about empowering people with the
+            skills I have learned. I love building an awesomely beautiful
+            frontend for seamless user experience and flawless back end for a
+            scalable &amp; reliable business.
           </p>
         </Section>
         <Section>
           <SectionHeading>What I do?</SectionHeading>
-          <p className="text-gray-300 text-lg leading-loose">
-            I am a Full Stack Developer. I have been working with ReactJS and
-            NodeJS since 2017. On my way I have built many apps utilizing their
-            core and many on-the-top libraries. I love working with React and
-            ReactNative. I have recently found my new love, in
+          <p className="text-gray-200 text-lg leading-loose">
+            I am a <HighLightedText>Full Stack Developer</HighLightedText>. I
+            have been working with ReactJS and NodeJS since 2017. On my way I
+            have built many apps utilizing their core and many on-the-top
+            libraries. I love working with React and ReactNative. I have
+            recently found my new love, in
             <b className="font-medium">serverless.</b> I love cloud functions
             and automating workflow using them.
           </p>

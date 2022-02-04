@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
 
-export default function Section({
+export default function HighLightedText({
   children,
-  className = "",
+  className,
 }: PropsWithChildren<any>) {
   return (
-    <motion.section className={`text-gray-200 mb-10 lg:mb-16 ${className}`}>
+    <motion.span className={`text-yellow-400 ${className}`}>
       {children}
-    </motion.section>
+    </motion.span>
   );
 }
