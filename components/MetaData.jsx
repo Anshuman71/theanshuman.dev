@@ -31,7 +31,10 @@ export default function MetaData() {
         property="twitter:description"
         content="Hey there, I'm Anshuman Bhardwaj, a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business. "
       />
-      <m property="twitter:image" content="https://theanshuman.dev/me.jpeg" />
+      <meta
+        property="twitter:image"
+        content="https://theanshuman.dev/me.jpeg"
+      />
     </Head>
   );
 }
