@@ -27,11 +27,11 @@ const Home: NextPage = () => {
     >
       <MetaData />
       <Script
-        async
+        defer
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-BQD4JC0G5Y"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script defer id="google-analytics" strategy="afterInteractive">
         {`window['dataLayer'] = window?.dataLayer || [];
           function gtag(){dataLayer.push(arguments)}
           gtag('js', new Date());
