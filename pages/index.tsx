@@ -105,7 +105,7 @@ const Home: NextPage<PageProps> = (props) => {
                 }}
                 key={tech.url}
                 className={
-                  "flex justify-center p-4 bg-slate-700 rounded-xl lg:mr-6"
+                  "flex justify-center p-4 bg-slate-800 rounded-xl lg:mr-6"
                 }
               >
                 <motion.img
@@ -127,7 +127,6 @@ const Home: NextPage<PageProps> = (props) => {
             ))}
           </div>
         </Section>
-        <hr />
       </motion.main>
       <Footer counter={props.counter} />
     </>

@@ -2,7 +2,7 @@ import type { NextPage, GetStaticPropsContext } from "next";
 import MetaData from "../../components/MetaData";
 import { DEV_API } from "../../constants";
 import { getDevArticles } from "../../utils";
-import { Blog } from "../../types";
+import { Article } from "../../types";
 import ReactMarkdown from "react-markdown";
 import Footer from "../../components/Footer";
 
@@ -11,14 +11,14 @@ type PageParams = {
 };
 
 interface PageProps {
-  blog: Blog;
+  blog: Article;
   error: boolean;
 }
 
 export async function getStaticPaths() {
   const data = await getDevArticles();
   return {
-    paths: data.map((item: Blog) => ({ params: { slug: item.slug } })),
+    paths: data.map((item: Article) => ({ params: { slug: item.slug } })),
     fallback: false, // false or 'blocking'
   };
 }
@@ -41,10 +41,10 @@ export async function getStaticProps({
   };
 }
 
-const Blog: NextPage<PageProps> = ({ blog, error }) => {
+const Article: NextPage<PageProps> = ({ blog, error }) => {
   return (
     <>
-      <main className="content-container mb-4">
+      <main className="mb-4">
         <MetaData title={`${blog?.title} | Anshuman Bhardwaj`} />
         {error ? (
           <h1>No blogs found</h1>
@@ -65,4 +65,4 @@ const Blog: NextPage<PageProps> = ({ blog, error }) => {
   );
 };
 
-export default Blog;
+export default Article;
