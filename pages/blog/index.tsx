@@ -41,7 +41,7 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
         <MetaData title={`Blog | Anshuman Bhardwaj`} />
         <h1 className={"text-gray-100 text-3xl md:text-6xl mb-6"}>Blog</h1>
         <hr />
-        <div className="py-4 min-h-[60vh]">
+        <div className="py-4 flex-1">
           <input
             type={"text"}
             placeholder="Search react..."
@@ -83,7 +83,17 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
               </Link>
             ))
           ) : (
-            <p className="text-slate-200 text-lg">No Articles found</p>
+            <div className="flex my-20 w-1/2 text-center mx-auto">
+              <p className="text-slate-200 text-lg mr-1">
+                Sorry, no matching article is currently available, but you can
+                always{" "}
+                <Link passHref href={"mailto:hi@theanshuman.dev"}>
+                  <a className="rounded text-yellow-400 hover:underline text-lg">
+                    request an article
+                  </a>
+                </Link>
+              </p>
+            </div>
           )}
         </div>
       </main>

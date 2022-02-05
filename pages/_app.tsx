@@ -23,7 +23,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div
-      className={"bg-slate-900 p-10 lg:p-0 lg:pt-10 min-h-screen text-gray-200"}
+      className={
+        "bg-slate-900 p-10 lg:p-0 lg:pt-10  flex flex-col  min-h-screen text-gray-200"
+      }
     >
       <Component {...pageProps} />
     </div>
