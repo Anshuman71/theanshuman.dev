@@ -32,7 +32,6 @@ export async function getServerSideProps() {
       { $inc: { value: 1 } },
       { returnDocument: "after" }
     );
-    //@ts-ignore
     return {
       props: {
         counter: document?.value?.value || 3670,
@@ -120,7 +119,7 @@ const Home: NextPage<PageProps> = (props) => {
                 }}
                 key={tech.url}
                 className={
-                  "flex justify-center p-4 bg-[#303030] rounded-xl lg:mr-6"
+                  "flex justify-center p-4 bg-slate-700 rounded-xl lg:mr-6"
                 }
               >
                 <motion.img
