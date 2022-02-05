@@ -32,6 +32,20 @@ export const contacts: LinkInformationType[] = [
     sameTab: true,
   },
   {
+    name: "Email",
+    url: "mailto:hi@theanshuman.dev",
+    sameTab: true,
+  },
+  {
+    name: "Newsletter",
+    url: "https://www.getrevue.co/profile/anshuman_bhardwaj",
+    sameTab: true,
+  },
+  {
+    name: "DEV",
+    url: "https://dev.to/anshuman_bhardwaj",
+  },
+  {
     name: "LinkedIn",
     url: "https://linkedin.com/in/itsanshuman",
   },
@@ -42,10 +56,6 @@ export const contacts: LinkInformationType[] = [
   {
     name: "Twitter",
     url: "https://twitter.com/sun_anshuman",
-  },
-  {
-    name: "DEV",
-    url: "https://dev.to/anshuman_bhardwaj",
   },
   {
     name: "Hashnode",
@@ -62,11 +72,6 @@ export const contacts: LinkInformationType[] = [
   {
     name: "Instagram",
     url: "https://instagram.com/sun_anshuman",
-  },
-  {
-    name: "Email",
-    url: "mailto:hi@theanshuman.dev",
-    sameTab: true,
   },
   {
     name: "Resume",
