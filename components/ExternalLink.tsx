@@ -1,6 +1,6 @@
-import { LinkInformation } from "../constants";
+import { LinkInformationType } from "../types";
 
-export default function ExternalLink({ url, name }: LinkInformation) {
+export default function ExternalLink({ url, name }: LinkInformationType) {
   return (
     <a
       target={"_blank"}
