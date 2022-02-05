@@ -4,6 +4,6 @@
 
 @layer components {
   .content-container {
-    @apply flex-1 md:p-0 lg:w-3/4 xl:max-w-[990px] mx-auto;
+    @apply flex-1 md:p-0 w-full lg:w-3/4 xl:max-w-[990px] mx-auto;
   }
 }

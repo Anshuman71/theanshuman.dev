@@ -59,24 +59,26 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
             <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
               {article.title}
             </h1>
-            {article?.tags &&
-              article?.tags?.map((item) => (
-                <span
-                  className="mr-2 text-sm text-yellow-400 bg-slate-700 p-1 px-2 rounded"
-                  key={item}
-                >
-                  {item}
-                </span>
-              ))}
+            <div className="flex flex-row flex-wrap">
+              {article?.tags &&
+                article?.tags?.map((item) => (
+                  <span
+                    className="mr-2 mb-2 text-sm text-yellow-400 bg-slate-700 p-1 px-2 rounded"
+                    key={item}
+                  >
+                    {item}
+                  </span>
+                ))}
+            </div>
             {article.cover_image && (
               <img
                 src={article.cover_image}
                 alt="cover image"
-                className="w-full my-10 rounded"
+                className="w-full my-4 lg:my-10 rounded"
               />
             )}
             <div className="prose max-w-none lg:prose-lg text-gray-100 mx-auto pb-10">
-              <ReactMarkdown>{article.body_markdown}</ReactMarkdown>
+              <ReactMarkdown skipHtml>{article.body_markdown}</ReactMarkdown>
             </div>
           </div>
         )}

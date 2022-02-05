@@ -48,12 +48,12 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
             placeholder="Search react..."
             value={search}
             onChange={(e) => setState(e.target.value)}
-            className="w-full block md:w-1/2 lg:1/3 text-slate-800 mt-4 mb-6 mx-auto pl-6 p-2 outline-none rounded-lg ring-yellow-400 hover:ring-4 focus:ring-4"
+            className="w-full block md:w-1/2 lg:1/3 text-slate-800 mt-4 mb-6 mx-auto p-2  pl-6   rounded-lg outline-none ring-yellow-400 hover:ring-4 focus:ring-4"
           />
           {filteredArticles.length ? (
             filteredArticles.map((article) => (
               <Link passHref href={`/blog/${article.slug}`} key={article.id}>
-                <a className="group flex my-4 py-2 md:p-4 bg-slate-800 rounded transform duration-100 outline-none hover:-translate-y-[2px] focus:ring-4 hover:ring-4 ring-yellow-400">
+                <a className="group flex my-4 p-2 px-4 md:p-4 bg-slate-800 rounded transform duration-100 outline-none hover:-translate-y-[2px] focus:ring-4 hover:ring-4 ring-yellow-400">
                   <img
                     className="rounded hidden md:block w-1/4 h-28 object-fill"
                     alt="cover image"
@@ -62,14 +62,14 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
                       "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
                     }
                   />
-                  <span className="flex flex-col ml-4">
+                  <span className="flex flex-col md:ml-4">
                     <span className="text-lg group-hover:underline">
                       {article.title}
                     </span>
-                    <span className="mt-1">
+                    <span className="flex flex-row flex-wrap mt-1">
                       {article.tag_list.slice(0, 4).map((item) => (
                         <span
-                          className="mr-2 text-sm text-yellow-400 bg-slate-700 p-1 px-2 rounded"
+                          className="mr-2 mb-2 text-sm text-yellow-400 bg-slate-700 p-1 px-2 rounded"
                           key={item}
                         >
                           {item}
@@ -84,7 +84,7 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
               </Link>
             ))
           ) : (
-            <div className="flex my-20 w-1/2 text-center mx-auto">
+            <div className="flex my-20 md:w-1/2 text-center mx-auto">
               <p className="text-slate-200 text-lg mr-1">
                 Sorry, no matching article is currently available, but you can
                 always{" "}
