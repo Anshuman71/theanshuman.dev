@@ -12,8 +12,6 @@ export interface Article {
   published_at: string;
   description: string;
   cover_image: string;
-  tags: string | string[];
-  tag_list: string | string[];
   canonical_url: string[];
   reading_time_minutes: number;
 }

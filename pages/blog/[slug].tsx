@@ -11,7 +11,7 @@ type PageParams = {
 };
 
 interface PageProps {
-  article: Article;
+  article: Article & { tags: string[]; tag_list: string };
   error: boolean;
 }
 

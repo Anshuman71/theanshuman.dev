@@ -6,8 +6,9 @@ import { getDevArticles } from "../../utils";
 import Footer from "../../components/Footer";
 import { useState } from "react";
 
+type ArticleInList = Article & { tags: string; tag_list: string[] };
 interface PageProps {
-  articles: Article[];
+  articles: ArticleInList[];
   error: boolean;
 }
 
@@ -26,7 +27,7 @@ export async function getStaticProps() {
 const BlogHome: NextPage<PageProps> = ({ articles }) => {
   const [search, setState] = useState("");
 
-  function filterArticles(item: Article) {
+  function filterArticles(item: ArticleInList) {
     return (
       item.title.includes(search) ||
       item.tag_list.some((tag) => tag.includes(search))
