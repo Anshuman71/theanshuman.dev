@@ -11,7 +11,7 @@ type PageParams = {
 };
 
 interface PageProps {
-  blog: Article;
+  article: Article;
   error: boolean;
 }
 
@@ -35,26 +35,44 @@ export async function getStaticProps({
       notFound: true,
     };
   }
-  const blog = await res.json();
+  const article = await res.json();
   return {
-    props: { blog },
+    props: { article },
   };
 }
 
-const Article: NextPage<PageProps> = ({ blog, error }) => {
+const Article: NextPage<PageProps> = ({ article, error }) => {
   return (
     <>
-      <main className="mb-4">
-        <MetaData title={`${blog?.title} | Anshuman Bhardwaj`} />
+      <main className="mb-4 content-container">
+        <MetaData title={`${article?.title} | Anshuman Bhardwaj`} />
         {error ? (
-          <h1>No blogs found</h1>
+          <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
+            No articles found
+          </h1>
         ) : (
           <div>
             <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
-              {blog.title}
+              {article.title}
             </h1>
+            {article?.tags &&
+              article?.tags?.map((item) => (
+                <span
+                  className="mr-2 text-sm text-yellow-400 bg-slate-700 p-1 px-2 rounded"
+                  key={item}
+                >
+                  {item}
+                </span>
+              ))}
+            {article.cover_image && (
+              <img
+                src={article.cover_image}
+                alt="cover image"
+                className="w-full my-10 rounded"
+              />
+            )}
             <div className="prose max-w-none lg:prose-lg text-gray-100 mx-auto pb-10">
-              <ReactMarkdown>{blog.body_markdown}</ReactMarkdown>
+              <ReactMarkdown>{article.body_markdown}</ReactMarkdown>
             </div>
           </div>
         )}

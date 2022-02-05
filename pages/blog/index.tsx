@@ -47,7 +47,7 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
             placeholder="Search react..."
             value={search}
             onChange={(e) => setState(e.target.value)}
-            className="w-full block md:w-1/2 lg:1/3 text-slate-800 my-4 mx-auto pl-6 p-2 outline-none rounded-lg ring-yellow-400 hover:ring-4 focus:ring-4"
+            className="w-full block md:w-1/2 lg:1/3 text-slate-800 mt-4 mb-6 mx-auto pl-6 p-2 outline-none rounded-lg ring-yellow-400 hover:ring-4 focus:ring-4"
           />
           {filteredArticles.length ? (
             filteredArticles.map((article) => (

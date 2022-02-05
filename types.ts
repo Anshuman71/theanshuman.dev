@@ -11,6 +11,7 @@ export interface Article {
   body_markdown: string;
   published_at: string;
   cover_image: string;
+  tags: string[];
   tag_list: string[];
   canonical_url: string[];
   reading_time_minutes: number;
