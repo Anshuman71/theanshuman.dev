@@ -57,7 +57,7 @@ const Home: NextPage<PageProps> = (props) => {
             Hi, I&apos;m{" "}
             {"Anshuman".split("").map((char, index) => (
               <motion.p
-                key={char}
+                key={char + index}
                 className={"inline-block text-yellow-400"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}

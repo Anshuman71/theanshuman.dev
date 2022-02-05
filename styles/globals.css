@@ -6,4 +6,11 @@
   .content-container {
     @apply flex-1 md:p-0 w-full lg:w-3/4 xl:max-w-[990px] mx-auto;
   }
+
+  .markdown {
+    @apply lg:prose-lg text-gray-300 mx-auto pb-10 prose-h2:text-gray-100 prose-h3:text-gray-100;
+    @apply prose-blockquote:text-yellow-400 prose-a:text-yellow-400 prose-code:text-yellow-400;
+    @apply prose-img:rounded-sm prose-pre:bg-gray-50;
+    @apply prose-strong:font-bold prose-strong:text-gray-200 prose-pre:bg-gray-50;
+  }
 }
