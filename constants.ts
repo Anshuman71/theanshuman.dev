@@ -1,4 +1,3 @@
-import axios from "axios";
 import { TargetAndTransition, VariantLabels } from "framer-motion";
 
 export type LinkInformation = { name: string; url: string };
@@ -152,10 +151,10 @@ export const DEV_API = {
 };
 
 export async function getDevArticles() {
-  const res = await axios.get(`${DEV_API.baseUrl}/articles/me/published`, {
+  const res = await fetch(`${DEV_API.baseUrl}/articles/me/published`, {
     headers: {
       "api-key": DEV_API.key,
     },
   });
-  return res.data;
+  return res.json();
 }

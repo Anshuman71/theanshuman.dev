@@ -1,4 +1,3 @@
-import axios from "axios";
 import type { NextPage, GetStaticPropsContext } from "next";
 import MetaData from "../../components/MetaData";
 import { DEV_API, getDevArticles } from "../../constants";
@@ -30,7 +29,7 @@ export async function getStaticProps({
   params,
 }: GetStaticPropsContext<PageParams>) {
   const { slug } = params as PageParams;
-  const res = await axios.get(
+  const res = await fetch(
     `${DEV_API.baseUrl}/articles/${DEV_API.username}/${slug}`
   );
   if (res.status !== 200) {
@@ -38,8 +37,9 @@ export async function getStaticProps({
       notFound: true,
     };
   }
+  const blog = await res.json();
   return {
-    props: { blog: res.data },
+    props: { blog },
   };
 }
 
