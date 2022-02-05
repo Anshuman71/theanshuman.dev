@@ -3,6 +3,8 @@ import MetaData from "../../components/MetaData";
 import { DEV_API } from "../../constants";
 import { getDevArticles } from "../../utils";
 import { Blog } from "../../types";
+import ReactMarkdown from "react-markdown";
+import Footer from "../../components/Footer";
 
 type PageParams = {
   slug: string;
@@ -41,10 +43,25 @@ export async function getStaticProps({
 
 const Blog: NextPage<PageProps> = ({ blog, error }) => {
   return (
-    <main className="content-container">
-      <MetaData title={`${blog?.title} | Anshuman Bhardwaj`} />
-      {error ? <h1>No blogs found</h1> : blog?.title || "not found"}
-    </main>
+    <>
+      <main className="content-container mb-4">
+        <MetaData title={`${blog?.title} | Anshuman Bhardwaj`} />
+        {error ? (
+          <h1>No blogs found</h1>
+        ) : (
+          <div>
+            <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
+              {blog.title}
+            </h1>
+            <div className="prose max-w-none lg:prose-lg text-gray-100 mx-auto pb-10">
+              <ReactMarkdown>{blog.body_markdown}</ReactMarkdown>
+            </div>
+          </div>
+        )}
+        <hr />
+      </main>
+      <Footer />
+    </>
   );
 };
 

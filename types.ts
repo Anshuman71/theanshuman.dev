@@ -8,4 +8,5 @@ export interface Blog {
   title: string;
   id: number;
   slug: string;
+  body_markdown: string;
 }

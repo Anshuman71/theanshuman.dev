@@ -129,14 +129,7 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <hr />
       </motion.main>
-      <motion.footer className={"text-gray-300 lg:py-4"}>
-        <Footer />
-        <HitCounter counter={props?.counter} />
-        <p className="p-2 text-lg text-center tracking-wide">
-          Made with <span className={"text-2xl text-red-600"}>♥</span> and
-          tailwindcss by <i>Anshuman Bhardwaj</i>
-        </p>
-      </motion.footer>
+      <Footer counter={props.counter} />
     </>
   );
 };
