@@ -5,6 +5,7 @@ import { getDevArticles } from "../../utils";
 import { Article } from "../../types";
 import ReactMarkdown from "react-markdown";
 import Footer from "../../components/Footer";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 type PageParams = {
   slug: string;
@@ -35,16 +36,34 @@ export async function getStaticProps({
       notFound: true,
     };
   }
-  const article = await res.json();
+  const article: Article = await res.json();
+  article.body_markdown = removeDevLinks(article.body_markdown);
   return {
     props: { article },
   };
 }
 
+function removeDevLinks(markdown: string): string {
+  let finalString = markdown;
+  const linkStart = /{% link/g;
+  const endExp = /%}/g;
+  let exists = true;
+  while (exists) {
+    const startIndex = finalString.search(linkStart);
+    const endIndex = finalString.search(endExp);
+    if (startIndex === -1) {
+      exists = false;
+    }
+    finalString =
+      finalString.slice(0, startIndex) + finalString.slice(endIndex + 2);
+  }
+  return finalString;
+}
+
 const Article: NextPage<PageProps> = ({ article, error }) => {
   return (
     <>
-      <main className="mb-4 content-container">
+      <main className="mb-4 content-container bg-none">
         <MetaData
           title={`${article?.title} | Anshuman Bhardwaj`}
           description={article?.description || ""}
@@ -66,7 +85,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
                     className="mr-2 mb-2 text-sm text-yellow-400 bg-slate-700 p-1 px-2 rounded"
                     key={item}
                   >
-                    {item}
+                    #{item}
                   </span>
                 ))}
             </div>
@@ -77,12 +96,32 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
                 className="w-full my-4 lg:my-10 rounded"
               />
             )}
-            <div className="prose max-w-none lg:prose-lg text-gray-100 mx-auto pb-10">
-              <ReactMarkdown skipHtml>{article.body_markdown}</ReactMarkdown>
+            <div className="prose max-w-none markdown">
+              <ReactMarkdown
+                components={{
+                  code({ node, inline, className, children, ...props }: any) {
+                    const match = /language-(\w+)/.exec(className || "");
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        children={String(children).replace(/\n$/, "")}
+                        language={"tsx"}
+                        PreTag="div"
+                        {...props}
+                      />
+                    ) : (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    );
+                  },
+                }}
+                skipHtml
+              >
+                {article.body_markdown}
+              </ReactMarkdown>
             </div>
           </div>
         )}
-        <hr />
       </main>
       <Footer />
     </>
