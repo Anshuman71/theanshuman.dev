@@ -39,7 +39,6 @@ export const contacts: LinkInformationType[] = [
   {
     name: "Newsletter",
     url: "https://www.getrevue.co/profile/anshuman_bhardwaj",
-    sameTab: true,
   },
   {
     name: "DEV",

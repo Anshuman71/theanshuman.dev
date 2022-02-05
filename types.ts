@@ -10,9 +10,10 @@ export interface Article {
   slug: string;
   body_markdown: string;
   published_at: string;
+  description: string;
   cover_image: string;
-  tags: string[];
-  tag_list: string[];
+  tags: string | string[];
+  tag_list: string | string[];
   canonical_url: string[];
   reading_time_minutes: number;
 }
