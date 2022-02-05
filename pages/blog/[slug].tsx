@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   const data = await getDevArticles();
   return {
     paths: data.map((item: Blog) => ({ params: { slug: item.slug } })),
-    fallback: true, // false or 'blocking'
+    fallback: false, // false or 'blocking'
   };
 }
 
