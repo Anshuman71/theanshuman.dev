@@ -28,7 +28,7 @@ export async function getStaticProps() {
 
 const BlogHome: NextPage<PageProps> = ({ blogs, error }) => {
   return (
-    <main>
+    <main className="content-container">
       <MetaData title={`Blog | Anshuman Bhardwaj`} />
       {error ? (
         <h1>No blogs found</h1>

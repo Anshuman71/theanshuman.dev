@@ -17,6 +17,7 @@ import Section from "../components/Section";
 import MetaData from "../components/MetaData";
 import HighLightedText from "../components/HighlightedText";
 import connectToDatabase from "../mongodb";
+import Footer from "../components/Footer";
 
 interface PageProps {
   counter: number;
@@ -50,18 +51,6 @@ const Home: NextPage<PageProps> = (props) => {
   return (
     <>
       <MetaData />
-      <Script
-        defer
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-BQD4JC0G5Y"
-      />
-      <Script defer id="google-analytics" strategy="afterInteractive">
-        {`window['dataLayer'] = window?.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-          gtag('config', 'G-BQD4JC0G5Y');
-        `}
-      </Script>
       <motion.main variants={mainVariants} className={"content-container"}>
         <Section>
           <h1 className={"text-gray-100 text-3xl md:text-6xl overflow-hidden"}>
@@ -138,20 +127,16 @@ const Home: NextPage<PageProps> = (props) => {
             ))}
           </div>
         </Section>
-        <Section>
-          <SectionHeading>Where to find me?</SectionHeading>
-          {contacts.map((contact) => (
-            <ExternalLink key={contact.url} {...contact} />
-          ))}
-        </Section>
-        <motion.footer className={"text-gray-300 lg:py-10"}>
-          <HitCounter counter={props?.counter} />
-          <p className="p-2 text-lg text-center tracking-wide">
-            Made with <span className={"text-2xl text-red-600"}>♥</span> and
-            tailwindcss by <i>Anshuman Bhardwaj</i>
-          </p>
-        </motion.footer>
+        <hr />
       </motion.main>
+      <motion.footer className={"text-gray-300 lg:py-4"}>
+        <Footer />
+        <HitCounter counter={props?.counter} />
+        <p className="p-2 text-lg text-center tracking-wide">
+          Made with <span className={"text-2xl text-red-600"}>♥</span> and
+          tailwindcss by <i>Anshuman Bhardwaj</i>
+        </p>
+      </motion.footer>
     </>
   );
 };
