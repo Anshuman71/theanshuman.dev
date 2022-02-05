@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Script from "next/script";
 import {
   contacts,
-  containerVariants,
   mainVariants,
   techVariants,
   techParentVariants,
@@ -17,8 +16,38 @@ import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
 import MetaData from "../components/MetaData";
 import HighLightedText from "../components/HighlightedText";
+import connectToDatabase from "../mongodb";
 
-const Home: NextPage = () => {
+interface PageProps {
+  counter: number;
+}
+
+export async function getServerSideProps() {
+  try {
+    const db = await connectToDatabase();
+    const collection = db.collection("hit-counter");
+
+    const document = await collection.findOneAndUpdate(
+      { id: "hit-counter" },
+      { $inc: { value: 1 } },
+      { returnDocument: "after" }
+    );
+    //@ts-ignore
+    return {
+      props: {
+        counter: document?.value?.value || 3670,
+      },
+    };
+  } catch (e) {
+    return {
+      props: {
+        counter: 3670,
+      },
+    };
+  }
+}
+
+const Home: NextPage<PageProps> = (props) => {
   return (
     <motion.div className={"bg-slate-800 p-10 lg:p-10 lg:pt-20 min-h-screen"}>
       <MetaData />
@@ -120,7 +149,7 @@ const Home: NextPage = () => {
           ))}
         </Section>
         <motion.footer className={"text-gray-300 lg:py-10"}>
-          <HitCounter />
+          <HitCounter counter={props?.counter} />
           <p className="p-2 text-lg text-center tracking-wide">
             Made with <span className={"text-2xl text-red-600"}>♥</span> and
             tailwindcss by <i>Anshuman Bhardwaj</i>
