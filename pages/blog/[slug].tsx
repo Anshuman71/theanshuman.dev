@@ -1,16 +1,12 @@
 import type { NextPage, GetStaticPropsContext } from "next";
 import MetaData from "../../components/MetaData";
-import { DEV_API, getDevArticles } from "../../constants";
+import { DEV_API } from "../../constants";
+import { getDevArticles } from "../../utils";
+import { Blog } from "../../types";
 
 type PageParams = {
   slug: string;
 };
-
-interface Blog {
-  title: string;
-  id: number;
-  slug: string;
-}
 
 interface PageProps {
   blog: Blog;

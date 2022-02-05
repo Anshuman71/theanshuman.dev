@@ -1,8 +1,7 @@
 import { TargetAndTransition, VariantLabels } from "framer-motion";
+import { LinkInformationType } from "./types";
 
-export type LinkInformation = { name: string; url: string; sameTab?: boolean };
-
-export const experiences: LinkInformation[] = [
+export const experiences: LinkInformationType[] = [
   {
     name: "Canoo",
     url: "https://canoo.com",
@@ -21,7 +20,7 @@ export const experiences: LinkInformation[] = [
   },
 ];
 
-export const contacts: LinkInformation[] = [
+export const contacts: LinkInformationType[] = [
   {
     name: "Home",
     url: "/",
@@ -75,7 +74,7 @@ export const contacts: LinkInformation[] = [
   },
 ];
 
-export const technologies: LinkInformation[] = [
+export const technologies: LinkInformationType[] = [
   {
     name: "react",
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
@@ -164,12 +163,3 @@ export const DEV_API = {
   baseUrl: "https://dev.to/api",
   username: process.env.DEV_USERNAME as string,
 };
-
-export async function getDevArticles() {
-  const res = await fetch(`${DEV_API.baseUrl}/articles/me/published`, {
-    headers: {
-      "api-key": DEV_API.key,
-    },
-  });
-  return res.json();
-}

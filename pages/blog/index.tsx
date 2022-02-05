@@ -1,13 +1,8 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import MetaData from "../../components/MetaData";
-import { getDevArticles } from "../../constants";
-
-interface Blog {
-  title: string;
-  id: number;
-  slug: string;
-}
+import { Blog } from "../../types";
+import { getDevArticles } from "../../utils";
 
 interface PageProps {
   blogs: Blog[];
