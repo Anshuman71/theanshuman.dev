@@ -1,3 +1,4 @@
+import axios from "axios";
 import { TargetAndTransition, VariantLabels } from "framer-motion";
 
 export type LinkInformation = { name: string; url: string };
@@ -143,3 +144,18 @@ export const hover: { [key: string]: VariantLabels | TargetAndTransition } = {
     scale: 1.05,
   },
 };
+
+export const DEV_API = {
+  key: process.env.DEV_API_KEY as string,
+  baseUrl: "https://dev.to/api",
+  username: process.env.DEV_USERNAME as string,
+};
+
+export async function getDevArticles() {
+  const res = await axios.get(`${DEV_API.baseUrl}/articles/me/published`, {
+    headers: {
+      "api-key": DEV_API.key,
+    },
+  });
+  return res.data;
+}

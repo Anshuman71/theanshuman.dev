@@ -48,7 +48,7 @@ export async function getServerSideProps() {
 
 const Home: NextPage<PageProps> = (props) => {
   return (
-    <motion.div className={"bg-slate-800 p-10 lg:p-10 lg:pt-20 min-h-screen"}>
+    <>
       <MetaData />
       <Script
         defer
@@ -62,10 +62,7 @@ const Home: NextPage<PageProps> = (props) => {
           gtag('config', 'G-BQD4JC0G5Y');
         `}
       </Script>
-      <motion.main
-        variants={mainVariants}
-        className={"md:p-0 lg:w-3/4 xl:max-w-[990px] mx-auto"}
-      >
+      <motion.main variants={mainVariants} className={"content-container"}>
         <Section>
           <h1 className={"text-gray-100 text-3xl md:text-6xl overflow-hidden"}>
             Hi, I&apos;m{" "}
@@ -155,7 +152,7 @@ const Home: NextPage<PageProps> = (props) => {
           </p>
         </motion.footer>
       </motion.main>
-    </motion.div>
+    </>
   );
 };
 
