@@ -1,6 +1,6 @@
 import { TargetAndTransition, VariantLabels } from "framer-motion";
 
-export type LinkInformation = { name: string; url: string };
+export type LinkInformation = { name: string; url: string; sameTab?: boolean };
 
 export const experiences: LinkInformation[] = [
   {
@@ -23,6 +23,16 @@ export const experiences: LinkInformation[] = [
 
 export const contacts: LinkInformation[] = [
   {
+    name: "Home",
+    url: "/",
+    sameTab: true,
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+    sameTab: true,
+  },
+  {
     name: "LinkedIn",
     url: "https://linkedin.com/in/itsanshuman",
   },
@@ -39,7 +49,7 @@ export const contacts: LinkInformation[] = [
     url: "https://dev.to/anshuman_bhardwaj",
   },
   {
-    name: "Blog",
+    name: "Hashnode",
     url: "https://blog.theanshuman.dev",
   },
   {
@@ -53,6 +63,11 @@ export const contacts: LinkInformation[] = [
   {
     name: "Instagram",
     url: "https://instagram.com/sun_anshuman",
+  },
+  {
+    name: "Email",
+    url: "mailto:hi@theanshuman.dev",
+    sameTab: true,
   },
   {
     name: "Resume",
