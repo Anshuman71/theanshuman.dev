@@ -45,7 +45,11 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
   return (
     <>
       <main className="mb-4 content-container">
-        <MetaData title={`${article?.title} | Anshuman Bhardwaj`} />
+        <MetaData
+          title={`${article?.title} | Anshuman Bhardwaj`}
+          description={article?.description || ""}
+          keywords={(article?.tag_list as string) || ""}
+        />
         {error ? (
           <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
             No articles found
