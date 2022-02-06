@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import NavBar from "../components/NavBar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -22,11 +23,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
 
   return (
-    <div
-      className={
-        "bg-slate-900 p-4 py-6 md:p-10 lg:p-0 lg:py-10  flex flex-col  min-h-screen text-gray-200"
-      }
-    >
+    <div className={"bg-slate-900 flex flex-col min-h-screen text-gray-200"}>
+      <NavBar />
       <Component {...pageProps} />
     </div>
   );
