@@ -30,7 +30,7 @@ export default function NavBar() {
         <div className="flex flex-row mx-auto lg:mx-0 lg:ml-16">
           {NavLinks.map((item) => (
             <Link passHref key={item.url} href={item.url}>
-              <a className="mr-24 last:mr-0 outline-none text-lg rounded p-2 hover:bg-slate-800 focus:ring-4 ring-yellow-400">
+              <a className="mr-16 md:mr-24 last:mr-0 outline-none text-lg rounded p-2 hover:bg-slate-800 focus:ring-4 ring-yellow-400">
                 {item.name}
               </a>
             </Link>
