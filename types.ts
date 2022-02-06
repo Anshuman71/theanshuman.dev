@@ -9,6 +9,7 @@ export interface Article {
   id: number;
   slug: string;
   body_markdown: string;
+  body_html: string;
   published_at: string;
   description: string;
   cover_image: string;

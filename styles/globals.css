@@ -12,7 +12,7 @@
     @apply lg:prose-lg text-gray-300 mx-auto pb-10 prose-h2:text-gray-100 prose-h3:text-gray-100;
     @apply prose-blockquote:text-yellow-400 prose-a:text-yellow-400;
     @apply prose-code:text-yellow-400 prose-code:bg-slate-800 prose-code:p-1 prose-code:rounded;
-    @apply prose-img:rounded-sm prose-pre:bg-[#f5f2f0];
+    @apply prose-img:rounded-sm;
     @apply prose-strong:font-bold prose-strong:text-gray-200;
   }
 }

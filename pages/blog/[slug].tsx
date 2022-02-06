@@ -1,11 +1,9 @@
 import type { NextPage, GetStaticPropsContext } from "next";
 import MetaData from "../../components/MetaData";
 import { DEV_API } from "../../constants";
-import { getDevArticles } from "../../utils";
+import markdownToHtml, { getDevArticles, removeDevLinks } from "../../utils";
 import { Article } from "../../types";
-import ReactMarkdown from "react-markdown";
 import Footer from "../../components/Footer";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 type PageParams = {
   slug: string;
@@ -38,32 +36,10 @@ export async function getStaticProps({
   }
   const article: Article = await res.json();
   article.body_markdown = removeDevLinks(article.body_markdown);
+  article.body_html = await markdownToHtml(article.body_markdown);
   return {
     props: { article },
   };
-}
-
-function removeDevLinks(markdown: string): string {
-  let finalString = markdown;
-  const linkStart = /{% link/g;
-  const endExp = /%}/g;
-  let exists = true;
-  while (exists) {
-    const startIndex = finalString.search(linkStart);
-    console.log("startIndex", startIndex, finalString[startIndex]);
-    const endIndex = finalString.search(endExp);
-    console.log(
-      "endIndex",
-      endIndex,
-      finalString.substring(startIndex, endIndex)
-    );
-    if (startIndex === -1) {
-      exists = false;
-    }
-    finalString =
-      finalString.slice(0, startIndex - 1) + finalString.slice(endIndex + 2);
-  }
-  return finalString;
 }
 
 const Article: NextPage<PageProps> = ({ article, error }) => {
@@ -102,30 +78,10 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
                 className="w-full my-4 lg:my-10 rounded"
               />
             )}
-            <div className="prose markdown">
-              <ReactMarkdown
-                components={{
-                  code({ node, inline, className, children, ...props }: any) {
-                    const match = /language-(\w+)/.exec(className || "");
-                    return !inline && match ? (
-                      <SyntaxHighlighter
-                        children={String(children).replace(/\n$/, "")}
-                        language={"tsx"}
-                        PreTag="div"
-                        {...props}
-                      />
-                    ) : (
-                      <code className={className} {...props}>
-                        {children}
-                      </code>
-                    );
-                  },
-                }}
-                skipHtml
-              >
-                {article.body_markdown}
-              </ReactMarkdown>
-            </div>
+            <div
+              className="prose markdown"
+              dangerouslySetInnerHTML={{ __html: article.body_html }}
+            />
           </div>
         )}
         <img
