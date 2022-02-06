@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
 hljs.registerLanguage("typescript", typescript);
-import "highlight.js/styles/atom-one-dark.css";
+import "highlight.js/styles/github-dark.css";
 
 type PageParams = {
   slug: string;
