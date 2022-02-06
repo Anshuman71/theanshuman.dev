@@ -50,12 +50,18 @@ function removeDevLinks(markdown: string): string {
   let exists = true;
   while (exists) {
     const startIndex = finalString.search(linkStart);
+    console.log("startIndex", startIndex, finalString[startIndex]);
     const endIndex = finalString.search(endExp);
+    console.log(
+      "endIndex",
+      endIndex,
+      finalString.substring(startIndex, endIndex)
+    );
     if (startIndex === -1) {
       exists = false;
     }
     finalString =
-      finalString.slice(0, startIndex) + finalString.slice(endIndex + 2);
+      finalString.slice(0, startIndex - 1) + finalString.slice(endIndex + 2);
   }
   return finalString;
 }
@@ -96,7 +102,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
                 className="w-full my-4 lg:my-10 rounded"
               />
             )}
-            <div className="prose max-w-none markdown">
+            <div className="prose markdown">
               <ReactMarkdown
                 components={{
                   code({ node, inline, className, children, ...props }: any) {
@@ -122,6 +128,11 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
             </div>
           </div>
         )}
+        <img
+          alt="captain-america waving off"
+          className={"w-full md:w-96 mx-auto mb-4"}
+          src="https://media.giphy.com/media/kRkJXYahXjSE0/giphy.gif"
+        />
       </main>
       <Footer />
     </>
