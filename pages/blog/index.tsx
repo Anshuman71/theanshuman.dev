@@ -40,7 +40,9 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
     <>
       <main className="content-container">
         <MetaData title={`Blog | Anshuman Bhardwaj`} />
-        <h1 className={"text-gray-100 text-3xl md:text-6xl mb-6"}>Blog</h1>
+        <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>
+          Recent Articles
+        </h1>
         <hr />
         <div className="py-4 flex-1">
           <input
