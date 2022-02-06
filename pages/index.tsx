@@ -53,7 +53,7 @@ const Home: NextPage<PageProps> = (props) => {
       <MetaData />
       <motion.main variants={mainVariants} className={"content-container"}>
         <Section>
-          <h1 className={"text-gray-100 text-3xl md:text-6xl overflow-hidden"}>
+          <h1 className={"text-gray-100 text-3xl md:text-5xl overflow-hidden"}>
             Hi, I&apos;m{" "}
             {"Anshuman".split("").map((char, index) => (
               <motion.p
