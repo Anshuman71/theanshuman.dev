@@ -20,18 +20,7 @@ class MyDocument extends Document {
             });
           `,
           }}
-        />
-        <script
-          type="module"
-          dangerouslySetInnerHTML={{
-            __html: `
-import hljs from 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/es/highlight.min.js';
-//  and it's easy to individually load & register additional languages
-import typescript from 'https://unpkg.com/@highlightjs/cdn-assets@11.4.0/es/languages/typescript.min.js';
-hljs.registerLanguage('typescript', typescript);
-`,
-          }}
-        />
+        />{" "}
         <body>
           <Main />
           <NextScript />

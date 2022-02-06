@@ -42,10 +42,6 @@ export default function MetaData({
         type="image/jpeg"
         href="https://theanshuman.dev/icon.jpeg"
       />
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/atom-one-dark.min.css"
-      />
     </Head>
   );
 }
