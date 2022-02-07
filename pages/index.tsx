@@ -91,7 +91,7 @@ const Home: NextPage<PageProps> = (props) => {
           <SectionHeading>What I do?</SectionHeading>
           <p className="text-gray-200 text-lg leading-loose">
             I am a <HighLightedText>Full Stack Developer</HighLightedText>. I
-            have been working with ReactJS and NodeJS since 2017. On my way I
+            have been working with ReactJS and NodeJS since 2018. On my way I
             have built many apps utilizing their core and many on-the-top
             libraries. I love working with React and ReactNative. I have
             recently found my new love, in
@@ -99,38 +99,6 @@ const Home: NextPage<PageProps> = (props) => {
             and automating workflow using them.
           </p>
         </Section>{" "}
-        <Section>
-          <SectionHeading>Favorite technologies</SectionHeading>
-          <motion.div
-            animate={"animate"}
-            initial={"initial"}
-            variants={techParentVariants}
-            className={
-              "grid gap-y-6 place-items-start grid-cols-2 md:grid-cols-4 lg:flex"
-            }
-          >
-            {technologies.map((tech) => (
-              <motion.div
-                variants={techVariants}
-                whileHover={{
-                  scale: 1.025,
-                }}
-                key={tech.url}
-                className={
-                  "flex justify-center p-4 bg-slate-800 rounded-xl lg:mr-6"
-                }
-              >
-                <motion.img
-                  whileHover={hover[tech.name] || hover.others}
-                  alt="react"
-                  width={"96px"}
-                  height={"96px"}
-                  src={tech.url}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </Section>
         <Section>
           <SectionHeading>What so far?</SectionHeading>
           <div>
