@@ -40,8 +40,8 @@ const About: NextPage = () => {
         <Section className="mt-10">
           <SectionHeading>Personal life</SectionHeading>
           <p>
-            I like to travel and walk alone. Recently I been to the "Queen of
-            Hills: Mussoorie"
+            I like to travel and walk alone. Recently I been to the &quot;Queen
+            of Hills: Mussoorie&quot;
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             <ImageHolder src={bikePic} />
