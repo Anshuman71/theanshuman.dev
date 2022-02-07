@@ -73,7 +73,7 @@ const Home: NextPage<PageProps> = (props) => {
                 className={"inline-block text-yellow-400"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
-                transition={{ delay: 0.7 + index * 0.15, duration: 0.35 }}
+                transition={{ delay: 0.3 + index * 0.15, duration: 0.35 }}
               >
                 {char}
               </motion.p>
@@ -82,9 +82,9 @@ const Home: NextPage<PageProps> = (props) => {
           <p className={"text-gray-200 text-lg mt-4 leading-loose"}>
             {" "}
             a self-taught developer passionate about empowering people with the
-            skills I have learned. I love building an awesomely beautiful
-            frontend for seamless user experience and flawless back end for a
-            scalable &amp; reliable business.
+            skills I have learned. I love building beautiful frontend for
+            seamless user experience and flawless back end for a scalable &amp;
+            reliable business.
           </p>
         </Section>
         <Section>
