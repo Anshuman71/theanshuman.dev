@@ -15,4 +15,7 @@ export interface Article {
   cover_image: string;
   canonical_url: string[];
   reading_time_minutes: number;
+  page_views_count: number;
 }
+
+export type ArticleInList = Article & { tag_list: string[] };

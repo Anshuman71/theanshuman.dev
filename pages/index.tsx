@@ -18,15 +18,21 @@ import MetaData from "../components/MetaData";
 import HighLightedText from "../components/HighlightedText";
 import connectToDatabase from "../mongodb";
 import Footer from "../components/Footer";
+import { getDevArticles } from "../utils";
+import { ArticleInList } from "../types";
+import Article from "../components/Article";
+import Link from "next/link";
 
 interface PageProps {
   counter: number;
+  articles: ArticleInList[];
 }
 
 export async function getServerSideProps() {
   try {
     const db = await connectToDatabase();
     const collection = db.collection("hit-counter");
+    const data = await getDevArticles();
 
     const document = await collection.findOneAndUpdate(
       { id: "hit-counter" },
@@ -36,6 +42,12 @@ export async function getServerSideProps() {
     return {
       props: {
         counter: document?.value?.value || 3670,
+        articles: data
+          .sort(
+            (a: ArticleInList, b: ArticleInList) =>
+              b.page_views_count - a.page_views_count
+          )
+          .slice(0, 3),
       },
     };
   } catch (e) {
@@ -126,6 +138,19 @@ const Home: NextPage<PageProps> = (props) => {
               <ExternalLink key={exp.url} {...exp} />
             ))}
           </div>
+        </Section>
+        <Section className="flex flex-col">
+          <SectionHeading>Popular articles</SectionHeading>
+          <div>
+            {props.articles.map((article) => (
+              <Article key={article.id} article={article} />
+            ))}
+          </div>
+          <Link passHref href={"/blog"}>
+            <a className="self-center p-2 px-4 text-md bg-slate-800 rounded text-yellow-400 hover:underline">
+              View More
+            </a>
+          </Link>
         </Section>
       </motion.main>
       <Footer counter={props.counter} />

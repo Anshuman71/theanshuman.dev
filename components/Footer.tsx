@@ -23,8 +23,8 @@ export default function Footer({ counter }: { counter?: number }) {
       </div>
       {counter ? <HitCounter counter={counter} /> : null}
       <p className="p-2 text-lg text-center tracking-wide">
-        Made with <span className={"text-2xl text-red-600"}>♥</span> and
-        tailwindcss by <i>Anshuman Bhardwaj</i>
+        Made with <span className={"text-2xl text-red-600"}>♥</span> using
+        Next.js by <i>Anshuman Bhardwaj</i>
       </p>
     </footer>
   );
