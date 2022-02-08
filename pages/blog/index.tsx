@@ -12,6 +12,12 @@ interface PageProps {
   error: boolean;
 }
 
+enum SORT_TYPE {
+  published_at = "published_at",
+  reading_time_minutes = "reading_time_minutes",
+  page_views_count = "page_views_count",
+}
+
 export async function getStaticProps() {
   const data = await getDevArticles();
   if (!data) {
@@ -26,6 +32,7 @@ export async function getStaticProps() {
 
 const BlogHome: NextPage<PageProps> = ({ articles }) => {
   const [search, setState] = useState("");
+  const [sort, setSort] = useState(SORT_TYPE.published_at);
 
   function filterArticles(item: ArticleInList) {
     return (
@@ -34,7 +41,12 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
     );
   }
 
-  const filteredArticles = articles.filter(filterArticles);
+  const filteredArticles = articles.filter(filterArticles).sort((a, b) => {
+    if (sort === SORT_TYPE.published_at) {
+      return new Date(b[sort]).getTime() - new Date(a[sort]).getTime();
+    }
+    return Number(b[sort]) - Number(a[sort]);
+  });
 
   return (
     <>
@@ -45,13 +57,36 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
         </h1>
         <hr />
         <div className="py-4 flex-1">
-          <input
-            type={"text"}
-            placeholder="Search react..."
-            value={search}
-            onChange={(e) => setState(e.target.value)}
-            className="w-full block md:w-1/2 lg:1/3 text-slate-800 mt-4 mb-6 mx-auto p-2  pl-6   rounded-lg outline-none ring-yellow-400 hover:ring-4 focus:ring-4"
-          />
+          <div
+            className={
+              "flex flex-col sm:flex-row sm:justify-between mt-6 mb-10"
+            }
+          >
+            <input
+              type={"text"}
+              placeholder="Search react..."
+              value={search}
+              onChange={(e) => setState(e.target.value)}
+              className="block mb-4 sm:mb-0 sm:w-1/2 sm:mr-10 sm:max-w-[450px] bg-dark border-2 border-slate-800 text-slate-300 p-2 pl-6 rounded-lg outline-none ring-yellow-400 hover:ring-2 focus:ring-2"
+            />
+            <select
+              className={
+                "sm:w-1/2 sm:max-w-[200px] p-2 rounded text-slate-300 bg-dark border-2 border-slate-800 shadow-slate-800 outline-none focus:ring-2 ring-yellow-400"
+              }
+              value={sort}
+              onChange={(e) => setSort(e.target.value as SORT_TYPE)}
+            >
+              <option className={"p-2"} value={SORT_TYPE.published_at}>
+                Published
+              </option>
+              <option className={"p-2"} value={SORT_TYPE.page_views_count}>
+                Popular
+              </option>
+              <option className={"p-2"} value={SORT_TYPE.reading_time_minutes}>
+                Reading time
+              </option>
+            </select>
+          </div>
           {filteredArticles.length ? (
             filteredArticles.map((article) => (
               <Article key={article.id} article={article} />
