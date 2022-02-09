@@ -22,7 +22,7 @@ export async function getStaticPaths() {
   const data = await getDevArticles();
   return {
     paths: data.map((item: Article) => ({ params: { slug: item.slug } })),
-    fallback: false, // false or 'blocking'
+    fallback: true, // false or 'blocking'
   };
 }
 
@@ -62,7 +62,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
         ) : (
           <div>
             <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
-              {article.title}
+              {article?.title}
             </h1>
             <div className="flex flex-row flex-wrap">
               {article?.tags &&
@@ -75,7 +75,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
                   </span>
                 ))}
             </div>
-            {article.cover_image && (
+            {article?.cover_image && (
               <img
                 src={article.cover_image}
                 alt="cover image"
@@ -84,7 +84,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
             )}
             <div
               className="prose markdown"
-              dangerouslySetInnerHTML={{ __html: article.body_html }}
+              dangerouslySetInnerHTML={{ __html: article?.body_html }}
             />
           </div>
         )}
