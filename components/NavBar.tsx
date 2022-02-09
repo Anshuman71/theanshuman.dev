@@ -25,7 +25,7 @@ export default function NavBar() {
         style={{
           transform: `translateX(${completion - 100}%)`,
         }}
-        className={`absolute bottom-0 w-full h-1 bg-yellow-400`}
+        className={`absolute bottom-0 w-full transition-transform duration-150 h-1 bg-yellow-400`}
       />
       <div className="w-full flex flex-row items-end px-6 lg:px-0 lg:w-3/4 xl:max-w-[990px] mx-auto ">
         <h2
