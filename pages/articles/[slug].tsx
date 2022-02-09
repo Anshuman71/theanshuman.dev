@@ -1,4 +1,4 @@
-import type { NextPage, GetStaticPropsContext } from "next";
+import type { GetStaticPropsContext, NextPage } from "next";
 import MetaData from "../../components/MetaData";
 import { DEV_API } from "../../constants";
 import markdownToHtml, { getDevArticles, removeDevLinks } from "../../utils";
@@ -6,8 +6,9 @@ import { Article } from "../../types";
 import Footer from "../../components/Footer";
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
-hljs.registerLanguage("typescript", typescript);
 import "highlight.js/styles/github-dark.css";
+
+hljs.registerLanguage("typescript", typescript);
 
 type PageParams = {
   slug: string;
