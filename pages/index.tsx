@@ -1,16 +1,6 @@
 import type { NextPage } from "next";
-import Script from "next/script";
-import {
-  contacts,
-  mainVariants,
-  techVariants,
-  techParentVariants,
-  hover,
-  experiences,
-  technologies,
-} from "../constants";
+import { experiences, mainVariants } from "../constants";
 import ExternalLink from "../components/ExternalLink";
-import HitCounter from "../components/HitCounter";
 import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
@@ -114,7 +104,7 @@ const Home: NextPage<PageProps> = (props) => {
               <Article key={article.id} article={article} />
             ))}
           </div>
-          <Link passHref href={"/blog"}>
+          <Link passHref href={"/articles"}>
             <a className="self-center p-2 px-4 text-md bg-slate-800 rounded text-yellow-400 hover:underline">
               View More
             </a>
