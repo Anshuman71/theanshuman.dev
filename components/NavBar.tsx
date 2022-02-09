@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useReadingProgress } from "../hooks";
 
 const NavLinks = [
   {
@@ -17,8 +18,15 @@ const NavLinks = [
 ];
 
 export default function NavBar() {
+  const completion = useReadingProgress();
   return (
-    <nav className="sticky z-50 top-0 backdrop-blur-3xl py-2 md:py-4">
+    <nav className="sticky z-50 top-0 backdrop-blur-3xl py-2">
+      <span
+        style={{
+          transform: `translateX(${completion - 100}%)`,
+        }}
+        className={`absolute bottom-0 w-full h-1 bg-yellow-400`}
+      />
       <div className="w-full flex flex-row items-end px-6 lg:px-0 lg:w-3/4 xl:max-w-[990px] mx-auto ">
         <h2
           className={
