@@ -6,6 +6,7 @@ import { getDevArticles } from "../../utils";
 import Footer from "../../components/Footer";
 import { useState } from "react";
 import Article from "../../components/Article";
+import { SearchIcon } from "@heroicons/react/outline";
 
 interface PageProps {
   articles: ArticleInList[];
@@ -62,13 +63,22 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
               "flex flex-col sm:flex-row sm:justify-between mt-6 mb-10"
             }
           >
-            <input
-              type={"text"}
-              placeholder="Search react..."
-              value={search}
-              onChange={(e) => setState(e.target.value)}
-              className="block mb-4 sm:mb-0 sm:w-1/2 sm:mr-10 sm:max-w-[450px] bg-dark border-2 border-slate-800 text-slate-300 p-2 pl-6 rounded-lg outline-none ring-yellow-400 hover:ring-2 focus:ring-2"
-            />
+            <div
+              className={
+                "relative mb-4 sm:mb-0 sm:w-1/2 sm:mr-10 sm:max-w-[450px]"
+              }
+            >
+              <input
+                type={"text"}
+                placeholder="Search keywords..."
+                value={search}
+                onChange={(e) => setState(e.target.value)}
+                className="w-full bg-dark border-2 border-slate-800 text-slate-300 p-2 pl-6 rounded-lg outline-none ring-yellow-400 hover:ring-2 focus:ring-2"
+              />
+              <SearchIcon
+                className={"text-slate-400 h-6 w-6 absolute right-4 top-2.5"}
+              />
+            </div>
             <select
               className={
                 "sm:w-1/2 sm:max-w-[200px] p-2 rounded text-slate-300 bg-dark border-2 border-slate-800 shadow-slate-800 outline-none focus:ring-2 ring-yellow-400"
