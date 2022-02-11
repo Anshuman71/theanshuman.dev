@@ -72,20 +72,19 @@ const Home: NextPage<PageProps> = (props) => {
           <p className={"text-gray-200 text-lg mt-4 leading-loose"}>
             {" "}
             a self-taught developer passionate about empowering people with the
-            skills I have learned. I love building beautiful frontend for
-            seamless user experience and flawless back end for a scalable &amp;
-            reliable business.
+            skills I have learned. As an experienced engineer, I&apos;m able to
+            self manage and come up with solution to complex problems.
           </p>
         </Section>
         <Section>
           <SectionHeading>What I do?</SectionHeading>
           <p className="text-gray-200 text-lg leading-loose">
-            I am a <HighLightedText>Full Stack Developer</HighLightedText>. I
-            have been working with ReactJS and NodeJS since 2018. On my way I
-            have built many apps utilizing their core and many on-the-top
-            libraries. I love working with React and ReactNative. I have
-            recently found my new love, in
-            <b className="font-medium">serverless.</b> I love cloud functions
+            I am a <HighLightedText>Full Stack Engineer</HighLightedText>. I
+            have been working with React and Node since 2018. On my way I have
+            built many apps utilizing their core and many on-the-top libraries.
+            I love working with React, Next.js and ReactNative. I have recently
+            found my new love, in
+            <b className="font-medium"> serverless.</b> I love cloud functions
             and automating workflow using them.
           </p>
         </Section>{" "}
