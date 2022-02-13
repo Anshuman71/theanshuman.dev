@@ -6,7 +6,6 @@ import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
 import MetaData from "../components/MetaData";
 import HighLightedText from "../components/HighlightedText";
-import connectToDatabase from "../mongodb";
 import Footer from "../components/Footer";
 import { getDevArticles } from "../utils";
 import { ArticleInList } from "../types";
@@ -18,20 +17,11 @@ interface PageProps {
   articles: ArticleInList[];
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
-    const db = await connectToDatabase();
-    const collection = db.collection("hit-counter");
     const data = await getDevArticles();
-
-    const document = await collection.findOneAndUpdate(
-      { id: "hit-counter" },
-      { $inc: { value: 1 } },
-      { returnDocument: "after" }
-    );
     return {
       props: {
-        counter: document?.value?.value || 3670,
         articles: data
           .sort(
             (a: ArticleInList, b: ArticleInList) =>
@@ -110,7 +100,7 @@ const Home: NextPage<PageProps> = (props) => {
           </Link>
         </Section>
       </motion.main>
-      <Footer counter={props.counter} />
+      <Footer />
     </>
   );
 };
