@@ -57,6 +57,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
         <MetaData
           title={`${article?.title} | Anshuman Bhardwaj`}
           description={article?.description || ""}
+          canonicalLink={article?.canonical_url}
           keywords={(article?.tag_list as string) || ""}
         />
         {error ? (

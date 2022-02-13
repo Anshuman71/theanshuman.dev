@@ -13,7 +13,7 @@ export interface Article {
   published_at: string;
   description: string;
   cover_image: string;
-  canonical_url: string[];
+  canonical_url: string;
   reading_time_minutes: number;
   page_views_count: number;
 }
