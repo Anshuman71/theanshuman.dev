@@ -38,12 +38,12 @@ export default function NavBar() {
         >
           Anshuman Bhardwaj
         </h2>
-        <div className="flex flex-row mx-auto lg:mx-0 lg:ml-16">
+        <div className="w-full sm:w-auto flex flex-row justify-between mx-auto sm:justify-start lg:mr-0 lg:ml-16">
           {NavLinks.map((item) => (
             <Link passHref key={item.url} href={item.url}>
               <a
                 className={clsx(
-                  "mr-16 md:mr-24 last:mr-0 outline-none text-lg rounded p-1 px-4 hover:text-yellow-400 focus:text-yellow-400 focus:ring-2 ring-yellow-400",
+                  "sm:mr-24 last:mr-0 outline-none text-lg rounded p-1 px-4 first:pl-0 last:pr-0 sm:first:pl-4 sm:last:pr-4 hover:text-yellow-400 focus:text-yellow-400 focus:ring-2 ring-yellow-400",
                   {
                     "text-yellow-400": router.pathname === item.url,
                   }
