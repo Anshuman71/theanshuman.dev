@@ -1,9 +1,12 @@
 import type { GetStaticPropsContext, NextPage } from "next";
+import Link from "next/link";
 import MetaData from "../../components/MetaData";
 import { DEV_API } from "../../constants";
 import markdownToHtml, { getDevArticles, removeDevLinks } from "../../utils";
 import { Article } from "../../types";
 import Footer from "../../components/Footer";
+import { ArrowLeftIcon } from "@heroicons/react/outline";
+
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
 import "highlight.js/styles/github-dark.css";
@@ -91,9 +94,19 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
         )}
         <img
           alt="captain-america waving off"
-          className={"w-full md:w-96 mx-auto mb-4"}
+          className={"w-full md:w-96"}
           src="https://media.giphy.com/media/kRkJXYahXjSE0/giphy.gif"
         />
+        <Link href={"/articles"} passHref>
+          <a
+            className={
+              "mt-8 px-4 py-2 uppercase rounded border border-slate-400 text-yellow-400 tracking-wider inline-block"
+            }
+          >
+            <ArrowLeftIcon className={"mr-2 h-4 inline"} />
+            Return to All Articles
+          </a>
+        </Link>
       </main>
       <Footer />
     </>
