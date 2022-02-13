@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useReadingProgress } from "../hooks";
+import clsx from "clsx";
 
 const NavLinks = [
   {
@@ -19,8 +21,9 @@ const NavLinks = [
 
 export default function NavBar() {
   const completion = useReadingProgress();
+  const router = useRouter();
   return (
-    <nav className="sticky z-50 top-0 backdrop-blur-3xl py-2">
+    <nav className="sticky z-50 top-0 backdrop-blur-3xl py-3">
       <span
         style={{
           transform: `translateX(${completion - 100}%)`,
@@ -38,7 +41,14 @@ export default function NavBar() {
         <div className="flex flex-row mx-auto lg:mx-0 lg:ml-16">
           {NavLinks.map((item) => (
             <Link passHref key={item.url} href={item.url}>
-              <a className="mr-16 md:mr-24 last:mr-0 outline-none text-lg rounded p-2 hover:bg-slate-800 focus:ring-4 ring-yellow-400">
+              <a
+                className={clsx(
+                  "mr-16 md:mr-24 last:mr-0 outline-none text-lg rounded p-1 px-4 hover:text-yellow-400 focus:text-yellow-400 focus:ring-2 ring-yellow-400",
+                  {
+                    "text-yellow-400": router.pathname === item.url,
+                  }
+                )}
+              >
                 {item.name}
               </a>
             </Link>
