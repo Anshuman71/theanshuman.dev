@@ -26,7 +26,7 @@ export async function getStaticPaths() {
   const data = await getDevArticles();
   return {
     paths: data.map((item: Article) => ({ params: { slug: item.slug } })),
-    fallback: true, // false or 'blocking'
+    fallback: "blocking",
   };
 }
 
