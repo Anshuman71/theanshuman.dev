@@ -3,6 +3,10 @@ import { LinkInformationType } from "./types";
 
 export const experiences: LinkInformationType[] = [
   {
+    name: "Frontastic",
+    url: "https://frontastic.cloud",
+  },
+  {
     name: "Canoo",
     url: "https://canoo.com",
   },
