@@ -56,6 +56,18 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
         <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>
           Recent Articles
         </h1>
+        <p className="text-lg mb-4">
+          I&apos;m big on technical writing and developer advocacy. I regularly
+          publish articles on DEV and Medium about things I learned or want to
+          teach. This page is a curation of my articles published across
+          platforms, you can search or sort them as needed and you can also
+          reach me out suggesting a topic of your interest on my{" "}
+          <a href="mailto:hi@theanshuman.dev" className="text-yellow-400">
+            {" "}
+            email
+          </a>
+          .
+        </p>
         <hr />
         <div className="py-4 flex-1">
           <div
