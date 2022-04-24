@@ -87,8 +87,7 @@ const Home: NextPage<PageProps> = (props) => {
                 Designing and developing features for the mobile application
                 using ReactNative, React-navigation, and Firebase, along with
                 writing performant cloud functions for backend tasks as a
-                Product owner at Jynx I get excited about opportunities to use
-                my leadership and communication skills.
+                Product owner at Jynx.
               </li>
             </ul>
           </p>
