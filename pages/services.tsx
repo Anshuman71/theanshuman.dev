@@ -72,7 +72,7 @@ const About: NextPage = () => {
           </p>
         </Section>
         <a
-          className="text-gray-900 text-lg bg-yellow-500 rounded p-3"
+          className="inline-block text-gray-900 text-lg bg-yellow-500 rounded p-2 shadow-lg transition-all hover:-translate-y-1"
           href="mailto:hi@theanshuman.dev"
         >
           Contact me 🚀
