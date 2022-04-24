@@ -62,7 +62,7 @@ const Home: NextPage<PageProps> = (props) => {
           </h1>
           <p className={"text-gray-200 text-lg mt-4 leading-loose"}>
             {" "}
-            I'm a creative Software Engineer with more than{" "}
+            I&apos;m a creative Software Engineer with more than{" "}
             <b>{experienceInYears}</b> years of experience in software
             development ranging from being an <i>Engineering Manager</i> to
             developing a Full Stack application on my own. I help companies
