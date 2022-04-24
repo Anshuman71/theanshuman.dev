@@ -8,14 +8,17 @@ const NavLinks = [
     url: "/",
     name: "Home",
   },
-
-  {
-    url: "/about",
-    name: "About",
-  },
   {
     url: "/articles",
     name: "Articles",
+  },
+  {
+    url: "/services",
+    name: "Services",
+  },
+  {
+    url: "/about",
+    name: "About",
   },
 ];
 
@@ -23,7 +26,7 @@ export default function NavBar() {
   const completion = useReadingProgress();
   const router = useRouter();
   return (
-    <nav className="sticky z-50 top-0 backdrop-blur-3xl py-3">
+    <nav className="print:hidden sticky z-50 top-0 backdrop-blur-3xl py-3">
       <span
         style={{
           transform: `translateX(${completion - 100}%)`,
