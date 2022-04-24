@@ -23,11 +23,11 @@ export async function getStaticProps() {
     return {
       props: {
         articles: data
+          .filter((item: ArticleInList) => item.page_views_count >= 1500)
           .sort(
             (a: ArticleInList, b: ArticleInList) =>
               b.page_views_count - a.page_views_count
-          )
-          .slice(0, 3),
+          ),
       },
     };
   } catch (e) {
