@@ -5,7 +5,7 @@ export default function ExternalLink({ url, name }: LinkInformationType) {
     <a
       target={"_blank"}
       rel="noreferrer"
-      className="font-light tracking-widest text-lg inline-block my-2 mr-10 pb-1 border-gray-100 border-solid border-b-2"
+      className="tracking-widest text-lg inline-block my-2 mr-10 pb-1 border-gray-300 border-solid border-b-2 hover:border-transparent transition-all duration-75"
       href={url}
     >
       {name}

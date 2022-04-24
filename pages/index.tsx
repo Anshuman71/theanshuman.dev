@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
-import { experiences, mainVariants } from "../constants";
+import { experiences, mainVariants, NUM_TO_WORD } from "../constants";
 import ExternalLink from "../components/ExternalLink";
 import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
 import MetaData from "../components/MetaData";
-import HighLightedText from "../components/HighlightedText";
 import Footer from "../components/Footer";
 import { getDevArticles } from "../utils";
 import { ArticleInList } from "../types";
@@ -40,6 +39,8 @@ export async function getStaticProps() {
 }
 
 const Home: NextPage<PageProps> = (props) => {
+  const experienceInYears =
+    NUM_TO_WORD[new Date().getFullYear() - 2018] || "decade";
   return (
     <>
       <MetaData />
@@ -61,23 +62,37 @@ const Home: NextPage<PageProps> = (props) => {
           </h1>
           <p className={"text-gray-200 text-lg mt-4 leading-loose"}>
             {" "}
-            a self-taught developer passionate about empowering people with the
-            skills I have learned. As an experienced engineer, I&apos;m able to
-            self manage and come up with solution to complex problems.
+            I'm a creative Software Engineer with more than{" "}
+            <b>{experienceInYears}</b> years of experience in software
+            development ranging from being an <i>Engineering Manager</i> to
+            developing a Full Stack application on my own. I help companies
+            create valuable software and reach business goals.
+            <br />
+            Some examples of my contribution:
+            <ul className="pl-10">
+              <li className="list-disc">
+                Spearheaded effort on Over-the-Air updates and internal fleet
+                manager at Canoo, developing React and Next.js web application
+              </li>
+              <li className="list-disc">
+                Delivering the &ldquo;Pre-order&rdquo; landing page section and
+                payment integration for Canoo Pickup truck under a tight
+                deadline
+              </li>
+              <li className="list-disc">
+                Led the mobile app development as a Product Engineer at
+                Delightree using React Native
+              </li>
+              <li className="list-disc">
+                Designing and developing features for the mobile application
+                using ReactNative, React-navigation, and Firebase, along with
+                writing performant cloud functions for backend tasks as a
+                Product owner at Jynx I get excited about opportunities to use
+                my leadership and communication skills.
+              </li>
+            </ul>
           </p>
         </Section>
-        <Section>
-          <SectionHeading>What I do?</SectionHeading>
-          <p className="text-gray-200 text-lg leading-loose">
-            I am a <HighLightedText>Full Stack Engineer</HighLightedText>. I
-            have been working with React and Node since 2018. On my way I have
-            built many apps utilizing their core and many on-the-top libraries.
-            I love working with React, Next.js and ReactNative. I have recently
-            found my new love, in
-            <b className="font-medium"> serverless.</b> I love cloud functions
-            and automating workflow using them.
-          </p>
-        </Section>{" "}
         <Section>
           <SectionHeading>What so far?</SectionHeading>
           <div>
@@ -88,6 +103,11 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <Section className="flex flex-col">
           <SectionHeading>Popular articles</SectionHeading>
+          <p className="text-lg">
+            I&apos;m big on technical writing and developer advocacy. I
+            regularly publish articles on DEV and Medium about things I learned
+            or want to teach. You can read some of my popular articles below.
+          </p>
           <div>
             {props.articles.map((article) => (
               <Article key={article.id} article={article} />

@@ -171,3 +171,12 @@ export const DEV_API = {
   baseUrl: "https://dev.to/api",
   username: process.env.DEV_USERNAME as string,
 };
+
+export const NUM_TO_WORD: { [k: number]: string } = {
+  4: "four",
+  5: "five",
+  6: "six",
+  7: "seven",
+  8: "eight",
+  9: "nine",
+};
