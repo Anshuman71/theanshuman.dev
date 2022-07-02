@@ -58,6 +58,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
           title={`${article?.title} | Anshuman Bhardwaj`}
           description={article?.description || ""}
           canonicalLink={article?.canonical_url}
+          imageUrl={article?.cover_image}
           keywords={(article?.tag_list as string) || ""}
           readingTime={article.reading_time_minutes}
         />

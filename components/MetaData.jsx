@@ -11,7 +11,8 @@ export default function MetaData({
   description = DEFAULT_DESCRIPTION,
   keywords = "",
   canonicalLink = "",
-  readingTime = 2
+  readingTime = 2,
+  imageUrl = "https://theanshuman.dev/me.jpeg",
 }) {
   return (
     <Head>
@@ -29,7 +30,7 @@ export default function MetaData({
       <meta property="og:url" content="https://theanshuman.dev/" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="https://theanshuman.dev/me.jpeg" />
+      <meta property="og:image" content={imageUrl} />
 
       {/* <!-- Twitter --> */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -37,10 +38,7 @@ export default function MetaData({
       <meta property="twitter:url" content="https://theanshuman.dev/" />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
-      <meta
-        property="twitter:image"
-        content="https://theanshuman.dev/me.jpeg"
-      />
+      <meta property="twitter:image:src" content={imageUrl} />
       <meta name="twitter:label1" content="Est. reading time" />
       <meta name="twitter:data1" content={`${readingTime} minutes`} />
       <link
