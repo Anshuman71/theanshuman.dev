@@ -59,6 +59,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
           description={article?.description || ""}
           canonicalLink={article?.canonical_url}
           keywords={(article?.tag_list as string) || ""}
+          readingTime={article.reading_time_minutes}
         />
         {error ? (
           <h1 className="text-3xl lg:text-5xl mb-6 font-bold">

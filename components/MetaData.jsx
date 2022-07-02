@@ -11,6 +11,7 @@ export default function MetaData({
   description = DEFAULT_DESCRIPTION,
   keywords = "",
   canonicalLink = "",
+  readingTime = 2
 }) {
   return (
     <Head>
@@ -40,6 +41,8 @@ export default function MetaData({
         property="twitter:image"
         content="https://theanshuman.dev/me.jpeg"
       />
+      <meta name="twitter:label1" content="Est. reading time" />
+      <meta name="twitter:data1" content={`${readingTime} minutes`} />
       <link
         rel="icon"
         type="image/jpeg"
