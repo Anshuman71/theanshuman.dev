@@ -43,7 +43,7 @@ export async function getStaticProps({
     };
   }
   const article: Article = await res.json();
-  article.body_markdown = removeDevLinks(article.body_markdown);
+  article.body_markdown = removeDevLinks(article.body_markdown || "");
   article.body_html = await markdownToHtml(article.body_markdown);
   return {
     props: { article },
@@ -91,7 +91,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
             )}
             <div
               className="prose markdown"
-              dangerouslySetInnerHTML={{ __html: article?.body_html }}
+              dangerouslySetInnerHTML={{ __html: article.body_html || "" }}
             />
           </div>
         )}
