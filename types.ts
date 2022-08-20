@@ -6,12 +6,12 @@ export type LinkInformationType = {
 
 export interface Article {
   title: string;
-  id: number;
+  id?: number;
   slug: string;
-  body_markdown: string;
-  body_html: string;
+  body_markdown?: string;
+  body_html?: string;
   published_at: string;
-  description: string;
+  description?: string;
   cover_image: string;
   canonical_url: string;
   reading_time_minutes: number;

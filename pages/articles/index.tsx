@@ -7,6 +7,7 @@ import Footer from "../../components/Footer";
 import { useState } from "react";
 import Article from "../../components/Article";
 import { SearchIcon } from "@heroicons/react/outline";
+import { externalArticles } from "../../constants";
 
 interface PageProps {
   articles: ArticleInList[];
@@ -28,7 +29,7 @@ export async function getStaticProps() {
     };
   }
   return {
-    props: { articles: data },
+    props: { articles: [...externalArticles, ...data] },
   };
 }
 
@@ -118,7 +119,7 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
           </div>
           {filteredArticles.length ? (
             filteredArticles.map((article) => (
-              <Article key={article.id} article={article} />
+              <Article key={article.slug} article={article} />
             ))
           ) : (
             <div className="flex my-20 md:w-1/2 text-center mx-auto">

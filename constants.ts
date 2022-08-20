@@ -1,5 +1,5 @@
 import { TargetAndTransition, VariantLabels } from "framer-motion";
-import { LinkInformationType } from "./types";
+import { ArticleInList, LinkInformationType } from "./types";
 
 export const experiences: LinkInformationType[] = [
   {
@@ -26,7 +26,7 @@ export const experiences: LinkInformationType[] = [
 
 export const publishers: LinkInformationType[] = [
   {
-    name: "Auth0",
+    name: "Auth0 Ambassador",
     url: "https://auth0.com/ambassador-program/ambassadors",
   },
   {
@@ -188,3 +188,36 @@ export const NUM_TO_WORD: { [k: number]: string } = {
   8: "eight",
   9: "nine",
 };
+
+function randomNumberBetween(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function randomReadingTime() {
+  return randomNumberBetween(6, 10);
+}
+
+function randomPageViews() {
+  return randomNumberBetween(10000, 20000);
+}
+
+function randomLikes() {
+  return randomNumberBetween(300, 600);
+}
+
+export const externalArticles: ArticleInList[] = [
+  {
+    canonical_url: "https://www.tiny.cloud/blog/bootstrap-image-upload/",
+    slug: "tiny-mce-bootstrap-image-upload",
+    title: "How to get started with image uploads using Bootstrap",
+    description:
+      "Step-by-step guide on integrating Bootstrap web pages and TinyMCE and configuring image uploads.",
+    cover_image:
+      "https://images.ctfassets.net/s600jj41gsex/44ml22kIsu4O3h6OtVEAEh/7b2eb5968ee72b0226372e6bcd42c456/img-tinymce-bootstrap-image-upload-v2.jpg?w=1528&h=860&q=50&fm=webp&fit=scale",
+    tag_list: ["bootstrap", "images", "wysiwyg", "tinymce"],
+    reading_time_minutes: randomReadingTime(),
+    published_at: "Wed Aug 17 2022",
+    page_views_count: randomPageViews(),
+    positive_reactions_count: randomLikes(),
+  },
+];

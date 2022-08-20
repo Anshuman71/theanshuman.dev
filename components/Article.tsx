@@ -2,9 +2,16 @@ import Link from "next/link";
 import { ArticleInList } from "../types";
 
 export default function Article({ article }: { article: ArticleInList }) {
+  const isExternal = !article.canonical_url.includes("dev.to");
   return (
-    <Link passHref href={`/articles/${article.slug}`} key={article.id}>
-      <a className="group flex my-4 p-2 px-4 md:p-4 bg-slate-800 rounded-md shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-400">
+    <Link
+      passHref
+      href={isExternal ? article.canonical_url : `/articles/${article.slug}`}
+    >
+      <a
+        target={isExternal ? "_blank" : ""}
+        className="group flex my-4 p-2 px-4 md:p-4 bg-slate-800 rounded-md shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-400"
+      >
         <img
           className="rounded hidden md:block w-1/4 h-28 object-fill"
           alt="cover image"

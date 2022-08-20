@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import {
   experiences,
+  externalArticles,
   mainVariants,
   NUM_TO_WORD,
   publishers,
@@ -24,14 +25,15 @@ interface PageProps {
 export async function getStaticProps() {
   try {
     const data = await getDevArticles();
+    const topArticlesFromDev = data
+      .sort(
+        (a: ArticleInList, b: ArticleInList) =>
+          b.positive_reactions_count - a.positive_reactions_count
+      )
+      .slice(0, 3);
     return {
       props: {
-        articles: data
-          .sort(
-            (a: ArticleInList, b: ArticleInList) =>
-              b.positive_reactions_count - a.positive_reactions_count
-          )
-          .slice(0, 3),
+        articles: [...externalArticles, ...topArticlesFromDev],
       },
     };
   } catch (e) {
@@ -76,17 +78,18 @@ const Home: NextPage<PageProps> = (props) => {
             Some examples of my contribution:
             <ul className="pl-10">
               <li className="list-disc">
-                Spearheaded effort on Over-the-Air updates and internal fleet
-                manager at Canoo, developing React and Next.js web application
+                Spearheaded effort on <i>Over-the-Air updates</i> and{" "}
+                <i>connected fleet manager</i> at Canoo, developing React and
+                Next.js web application.
               </li>
               <li className="list-disc">
-                Delivering the &ldquo;Pre-order&rdquo; landing page section and
-                payment integration for Canoo Pickup truck under a tight
-                deadline
+                Delivering the <i>&ldquo;Pre-order&rdquo;</i> landing page
+                section and payment integration for Canoo Pickup truck under a
+                tight deadline.
               </li>
               <li className="list-disc">
                 Led the mobile app development as a Product Engineer at
-                Delightree using React Native
+                Delightree using React Native.
               </li>
               <li className="list-disc">
                 Designing and developing features for the mobile application
@@ -99,6 +102,11 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <Section>
           <SectionHeading>What so far?</SectionHeading>
+          <p className="text-lg">
+            I&apos;ve worked with some great people around the world on projects
+            such as <i>next-generation electric vehicles</i> and{" "}
+            <i>large scale eCommerce solution</i>.
+          </p>
           <div>
             {experiences.map((exp) => (
               <ExternalLink key={exp.url} {...exp} />
@@ -106,7 +114,11 @@ const Home: NextPage<PageProps> = (props) => {
           </div>
         </Section>
         <Section>
-          <SectionHeading>Programmes and publishers</SectionHeading>
+          <SectionHeading>Publishers</SectionHeading>
+          <p className="text-lg">
+            I&apos;m big on developer advocacy and part of the following
+            programmes.
+          </p>
           <div>
             {publishers.map((exp) => (
               <ExternalLink key={exp.url} {...exp} />
@@ -115,11 +127,6 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <Section className="flex flex-col">
           <SectionHeading>Popular articles</SectionHeading>
-          <p className="text-lg">
-            I&apos;m big on technical writing and developer advocacy. I
-            regularly publish articles on DEV and Medium about things I learned
-            or want to teach. You can read some of my popular articles below.
-          </p>
           <div>
             {props.articles.map((article) => (
               <Article key={article.id} article={article} />
