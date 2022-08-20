@@ -1,5 +1,10 @@
 import type { NextPage } from "next";
-import { experiences, mainVariants, NUM_TO_WORD } from "../constants";
+import {
+  experiences,
+  mainVariants,
+  NUM_TO_WORD,
+  publishers,
+} from "../constants";
 import ExternalLink from "../components/ExternalLink";
 import { motion } from "framer-motion";
 import SectionHeading from "../components/SectionHeading";
@@ -22,11 +27,11 @@ export async function getStaticProps() {
     return {
       props: {
         articles: data
-          .filter((item: ArticleInList) => item.page_views_count >= 1500)
           .sort(
             (a: ArticleInList, b: ArticleInList) =>
-              b.page_views_count - a.page_views_count
-          ),
+              b.positive_reactions_count - a.positive_reactions_count
+          )
+          .slice(0, 3),
       },
     };
   } catch (e) {
@@ -96,6 +101,14 @@ const Home: NextPage<PageProps> = (props) => {
           <SectionHeading>What so far?</SectionHeading>
           <div>
             {experiences.map((exp) => (
+              <ExternalLink key={exp.url} {...exp} />
+            ))}
+          </div>
+        </Section>
+        <Section>
+          <SectionHeading>Programmes and publishers</SectionHeading>
+          <div>
+            {publishers.map((exp) => (
               <ExternalLink key={exp.url} {...exp} />
             ))}
           </div>

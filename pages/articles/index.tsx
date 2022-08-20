@@ -17,6 +17,7 @@ enum SORT_TYPE {
   published_at = "published_at",
   reading_time_minutes = "reading_time_minutes",
   page_views_count = "page_views_count",
+  positive_reactions_count = "positive_reactions_count",
 }
 
 export async function getStaticProps() {
@@ -103,6 +104,12 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
               </option>
               <option className={"p-2"} value={SORT_TYPE.page_views_count}>
                 Popular
+              </option>
+              <option
+                className={"p-2"}
+                value={SORT_TYPE.positive_reactions_count}
+              >
+                Most loved
               </option>
               <option className={"p-2"} value={SORT_TYPE.reading_time_minutes}>
                 Reading time

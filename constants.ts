@@ -3,8 +3,8 @@ import { LinkInformationType } from "./types";
 
 export const experiences: LinkInformationType[] = [
   {
-    name: "Frontastic",
-    url: "https://frontastic.cloud",
+    name: "commercetools",
+    url: "https://commercetools.com",
   },
   {
     name: "Canoo",
@@ -21,6 +21,25 @@ export const experiences: LinkInformationType[] = [
   {
     name: "CollegeBasket",
     url: "https://collegebasket.now.sh",
+  },
+];
+
+export const publishers: LinkInformationType[] = [
+  {
+    name: "Auth0",
+    url: "https://auth0.com/ambassador-program/ambassadors",
+  },
+  {
+    name: "LogRocket",
+    url: "https://logrocket.com",
+  },
+  {
+    name: "Draft.dev",
+    url: "https://portal.draft.dev/writers/recHFWSYFJ2b2wPCs",
+  },
+  {
+    name: "JavaScript in PlainEnglish",
+    url: "https://javascript.plainenglish.io/",
   },
 ];
 
@@ -108,17 +127,6 @@ export const technologies: LinkInformationType[] = [
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
   },
 ];
-
-export const containerVariants = {
-  initial: { background: "#111827" },
-  animate: {
-    background: "#111827",
-    transition: {
-      duration: 0.3,
-      when: "beforeChildren",
-    },
-  },
-};
 
 export const mainVariants = {
   initial: {

@@ -16,6 +16,7 @@ export interface Article {
   canonical_url: string;
   reading_time_minutes: number;
   page_views_count: number;
+  positive_reactions_count: number;
 }
 
 export type ArticleInList = Article & { tag_list: string[] };
