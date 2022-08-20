@@ -7,7 +7,10 @@ import Footer from "../../components/Footer";
 import { useState } from "react";
 import Article from "../../components/Article";
 import { SearchIcon } from "@heroicons/react/outline";
-import { externalArticles } from "../../constants";
+import { externalArticles, publishers } from "../../constants";
+import SectionHeading from "../../components/SectionHeading";
+import ExternalLink from "../../components/ExternalLink";
+import Section from "../../components/Section";
 
 interface PageProps {
   articles: ArticleInList[];
@@ -58,18 +61,16 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
         <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>
           Recent Articles
         </h1>
-        <p className="text-lg mb-4">
-          I&apos;m big on technical writing and developer advocacy. I regularly
-          publish articles on DEV and Medium about things I learned or want to
-          teach. This page is a curation of my articles published across
-          platforms, you can search or sort them as needed and you can also
-          reach me out suggesting a topic of your interest on my{" "}
-          <a href="mailto:hi@theanshuman.dev" className="text-yellow-400">
-            {" "}
-            email
-          </a>
-          .
+        <p className="text-lg">
+          I&apos;m big on developer advocacy and part of the following
+          programmes:
         </p>
+        <div>
+          {publishers.map((exp) => (
+            <ExternalLink key={exp.url} {...exp} />
+          ))}
+        </div>
+        <br />
         <hr />
         <div className="py-4 flex-1">
           <div

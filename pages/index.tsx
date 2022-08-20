@@ -117,7 +117,7 @@ const Home: NextPage<PageProps> = (props) => {
           <SectionHeading>Publishers</SectionHeading>
           <p className="text-lg">
             I&apos;m big on developer advocacy and part of the following
-            programmes.
+            programmes:
           </p>
           <div>
             {publishers.map((exp) => (
