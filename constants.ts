@@ -194,7 +194,7 @@ function randomNumberBetween(min: number, max: number): number {
 }
 
 function randomReadingTime() {
-  return randomNumberBetween(5, 8);
+  return randomNumberBetween(5, 7);
 }
 
 function randomPageViews() {
