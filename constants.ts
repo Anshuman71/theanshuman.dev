@@ -215,7 +215,7 @@ export const externalArticles: ArticleInList[] = [
     cover_image:
       "https://images.ctfassets.net/s600jj41gsex/44ml22kIsu4O3h6OtVEAEh/7b2eb5968ee72b0226372e6bcd42c456/img-tinymce-bootstrap-image-upload-v2.jpg?w=1528&h=860&q=50&fm=webp&fit=scale",
     tag_list: ["bootstrap", "images", "wysiwyg", "tinymce"],
-    reading_time_minutes: randomReadingTime(),
+    reading_time_minutes: 5,
     published_at: "Wed Aug 17 2022",
     page_views_count: randomPageViews(),
     positive_reactions_count: randomLikes(),
@@ -229,7 +229,7 @@ export const externalArticles: ArticleInList[] = [
     cover_image:
       "https://uploads-ssl.webflow.com/62796ab9647626cbab663f42/62f5dcd8b443335c48504fa8_Zenefits_API_Integration_Logo.jpeg",
     tag_list: ["merge_api", "developer", "hris", "payroll"],
-    reading_time_minutes: randomReadingTime(),
+    reading_time_minutes: 5,
     published_at: "Wed Aug 10 2022",
     page_views_count: randomPageViews(),
     positive_reactions_count: randomLikes(),
