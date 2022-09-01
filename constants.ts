@@ -194,7 +194,7 @@ function randomNumberBetween(min: number, max: number): number {
 }
 
 function randomReadingTime() {
-  return randomNumberBetween(5, 8);
+  return randomNumberBetween(5, 7);
 }
 
 function randomPageViews() {
@@ -215,8 +215,22 @@ export const externalArticles: ArticleInList[] = [
     cover_image:
       "https://images.ctfassets.net/s600jj41gsex/44ml22kIsu4O3h6OtVEAEh/7b2eb5968ee72b0226372e6bcd42c456/img-tinymce-bootstrap-image-upload-v2.jpg?w=1528&h=860&q=50&fm=webp&fit=scale",
     tag_list: ["bootstrap", "images", "wysiwyg", "tinymce"],
-    reading_time_minutes: randomReadingTime(),
+    reading_time_minutes: 5,
     published_at: "Wed Aug 17 2022",
+    page_views_count: randomPageViews(),
+    positive_reactions_count: randomLikes(),
+  },
+  {
+    canonical_url: "https://merge.dev/blog/how-to-build-a-zenefits-api-integration-developer-guide",
+    slug: "how-to-build-a-zenefits-api-integration-developer-guide",
+    title: "How to Build a Zenefits API Integration: Developer Guide",
+    description:
+      "Zenefits is a popular HRIS with features that range from onboarding and exiting, payroll, benefits, and time tracking. As you’re building out your own app’s integration support, providing users an easy way to sync their Zenefits data with your own app can drive more sales. This guide will teach you how!",
+    cover_image:
+      "https://uploads-ssl.webflow.com/62796ab9647626cbab663f42/62f5dcd8b443335c48504fa8_Zenefits_API_Integration_Logo.jpeg",
+    tag_list: ["merge_api", "developer", "hris", "payroll"],
+    reading_time_minutes: 5,
+    published_at: "Wed Aug 10 2022",
     page_views_count: randomPageViews(),
     positive_reactions_count: randomLikes(),
   },
