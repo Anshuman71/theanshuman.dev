@@ -31,7 +31,7 @@ export const publishers: LinkInformationType[] = [
   },
   {
     name: "LogRocket",
-    url: "https://logrocket.com",
+    url: "https://blog.logrocket.com/author/anshumanbhardwaj/",
   },
   {
     name: "Draft.dev",
@@ -234,4 +234,18 @@ export const externalArticles: ArticleInList[] = [
     page_views_count: randomPageViews(),
     positive_reactions_count: randomLikes(),
   },
+    {
+    canonical_url: "https://blog.logrocket.com/using-convex-for-state-management/",
+    slug: "using-convex-for-state-management",
+    title: "A guide to using Convex for state management",
+    description: "Managing an application's state has become easier, but the global state concept is still a pain for developers, which Convex aims to solve.",
+    cover_image:
+      "https://blog.logrocket.com/wp-content/uploads/2022/09/guide-using-convex-state-management-nocdn.png",
+    tag_list: ["convex", "state management", "nextjs", "global state"],
+    reading_time_minutes: 9,
+    published_at: "Wed Sep 21 2022",
+    page_views_count: randomPageViews(),
+    positive_reactions_count: randomLikes(),
+  },
+  
 ];
