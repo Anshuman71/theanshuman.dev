@@ -1,16 +1,9 @@
-import { motion } from "framer-motion";
 import { NextPage } from "next/types";
 import Image, { ImageProps } from "next/image";
 import Footer from "../components/Footer";
 import MetaData from "../components/MetaData";
 import Section from "../components/Section";
 import SectionHeading from "../components/SectionHeading";
-import {
-  hover,
-  technologies,
-  techParentVariants,
-  techVariants,
-} from "../constants";
 import bikePic from "../public/assets/bike.jpg";
 import selfiePic from "../public/assets/selfie.jpg";
 import hillPic from "../public/assets/hill.jpg";

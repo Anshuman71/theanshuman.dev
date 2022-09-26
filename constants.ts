@@ -221,7 +221,8 @@ export const externalArticles: ArticleInList[] = [
     positive_reactions_count: randomLikes(),
   },
   {
-    canonical_url: "https://merge.dev/blog/how-to-build-a-zenefits-api-integration-developer-guide",
+    canonical_url:
+      "https://merge.dev/blog/how-to-build-a-zenefits-api-integration-developer-guide",
     slug: "how-to-build-a-zenefits-api-integration-developer-guide",
     title: "How to Build a Zenefits API Integration: Developer Guide",
     description:
@@ -234,11 +235,13 @@ export const externalArticles: ArticleInList[] = [
     page_views_count: randomPageViews(),
     positive_reactions_count: randomLikes(),
   },
-    {
-    canonical_url: "https://blog.logrocket.com/using-convex-for-state-management/",
+  {
+    canonical_url:
+      "https://blog.logrocket.com/using-convex-for-state-management/",
     slug: "using-convex-for-state-management",
     title: "A guide to using Convex for state management",
-    description: "Managing an application's state has become easier, but the global state concept is still a pain for developers, which Convex aims to solve.",
+    description:
+      "Managing an application's state has become easier, but the global state concept is still a pain for developers, which Convex aims to solve.",
     cover_image:
       "https://blog.logrocket.com/wp-content/uploads/2022/09/guide-using-convex-state-management-nocdn.png",
     tag_list: ["convex", "state management", "nextjs", "global state"],
@@ -247,5 +250,19 @@ export const externalArticles: ArticleInList[] = [
     page_views_count: randomPageViews(),
     positive_reactions_count: randomLikes(),
   },
-  
+  {
+    canonical_url:
+      "https://blog.tigrisdata.com/http2-websockets-future-of-real-time",
+    slug: "http2-websockets-future-of-real-time",
+    title:
+      "HTTP/2, WebSockets, and the Future of Real-Time Client-Server Interactions",
+    description:
+      "Real-time client-server interactions will only become more vital as  applications and use cases continue to evolve. Though both the WebSocket and  HTTP/2 protocols can work well for real-time communication, HTTP/2 is the  better option in certain situations.",
+    cover_image: "https://imgur.com/qsOEaIn.png",
+    tag_list: ["tigris", "tigris data", "real-time", "http/2", "websockets"],
+    reading_time_minutes: 11,
+    published_at: "Wed Sep 26 2022",
+    page_views_count: randomPageViews(),
+    positive_reactions_count: randomLikes(),
+  },
 ];
