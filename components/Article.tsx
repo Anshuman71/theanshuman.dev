@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArticleInList } from "../types";
+import Image from "next/image";
 
 export default function Article({ article }: { article: ArticleInList }) {
   const isExternal = !article.canonical_url.includes("dev.to");
@@ -12,14 +13,17 @@ export default function Article({ article }: { article: ArticleInList }) {
         target={isExternal ? "_blank" : ""}
         className="group flex my-4 p-2 px-4 md:p-4 bg-slate-800 rounded-md shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-400"
       >
-        <img
-          className="rounded object-cover hidden md:block w-1/4 h-28"
-          alt="cover image"
-          src={
-            article.cover_image ||
-            "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-          }
-        />
+        <div className="relative rounded overflow-hidden object-cover hidden md:block w-1/4 h-28">
+          <Image
+            alt="cover image"
+            src={
+              article.cover_image ||
+              "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+            }
+            layout={"fill"}
+            objectFit={"cover"}
+          />
+        </div>
         <span className="flex flex-col md:ml-4">
           <span className="text-lg group-hover:underline">{article.title}</span>
           <span className="flex flex-row flex-wrap mt-1">
