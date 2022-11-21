@@ -6,6 +6,8 @@ module.exports = {
     domains: [
       "res.cloudinary.com",
       "cdn.jsdelivr.net",
+      "hygraph.com",
+      "clerk.dev",
       "imgur.com",
       "blog.logrocket.com",
       "images.ctfassets.net",

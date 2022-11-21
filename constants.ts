@@ -215,10 +215,11 @@ export const externalArticles: ArticleInList[] = [
     cover_image:
       "https://hygraph.com/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2Fresize%3Dfit%3Aclip%2Cwidth%3A760%2FK6b4pUlbTssHEjKqQFXI&w=1920&q=100",
     tag_list: [
-      "hygraph",
+      "Hygraph",
       "e learning",
       "Headless CMS",
       "GraphQL",
+      "GraphCMS",
       "CMS",
       "API CMS",
     ],
