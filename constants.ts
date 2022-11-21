@@ -207,6 +207,42 @@ function randomLikes() {
 
 export const externalArticles: ArticleInList[] = [
   {
+    canonical_url: "https://hygraph.com/blog/build-elearning-platform",
+    slug: "build-elearning-platform",
+    title: "How to Build an E-Learning Platform with Hygraph",
+    description:
+      "In this tutorial, we will build an e-learning platform using Next.js and Hygraph.",
+    cover_image:
+      "https://hygraph.com/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2Fresize%3Dfit%3Aclip%2Cwidth%3A760%2FK6b4pUlbTssHEjKqQFXI&w=1920&q=100",
+    tag_list: [
+      "hygraph",
+      "e learning",
+      "Headless CMS",
+      "GraphQL",
+      "CMS",
+      "API CMS",
+    ],
+    reading_time_minutes: 9,
+    published_at: "Wed Nov 9 2022",
+    page_views_count: randomPageViews(),
+    positive_reactions_count: randomLikes(),
+  },
+  {
+    canonical_url:
+      "https://clerk.dev/blog/build-a-user-switcher-just-like-gmail",
+    slug: "build-a-user-switcher-just-like-gmail",
+    title: "Quickly Build a User Switcher, Just Like Gmail",
+    description:
+      "Build an app with complete authentication and a user switcher just like gmail has.",
+    cover_image:
+      "https://clerk.dev/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fe1ql88v4%2Fproduction%2F86a619eaf65169c6de36c881a52eed5dcd0c1410-2400x1260.png%3Ffit%3Dmax%26auto%3Dformat&w=3840&q=75",
+    tag_list: ["Clerk.dev", "Gmail", "authentication", "Auth", "user switcher"],
+    reading_time_minutes: 8,
+    published_at: "Fri Jun 3 2022",
+    page_views_count: randomPageViews(),
+    positive_reactions_count: randomLikes(),
+  },
+  {
     canonical_url:
       "https://blog.tigrisdata.com/http2-websockets-future-of-real-time",
     slug: "http2-websockets-future-of-real-time",
