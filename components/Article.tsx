@@ -11,9 +11,9 @@ export default function Article({ article }: { article: ArticleInList }) {
     >
       <a
         target={isExternal ? "_blank" : ""}
-        className="group flex my-4 p-2 px-4 md:p-4 bg-slate-800 rounded-md shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-400"
+        className="group flex flex-col p-2 px-4 md:p-4 bg-slate-800 rounded-md shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-400"
       >
-        <div className="relative rounded overflow-hidden object-cover hidden md:block w-1/4 h-28">
+        <div className="relative rounded overflow-hidden object-cover w-full h-56 lg:h-40">
           <Image
             alt="cover image"
             src={
@@ -24,9 +24,19 @@ export default function Article({ article }: { article: ArticleInList }) {
             objectFit={"cover"}
           />
         </div>
-        <span className="flex flex-col md:ml-4">
-          <span className="text-lg group-hover:underline">{article.title}</span>
-          <span className="flex flex-row flex-wrap mt-1">
+        <span className="flex flex-col flex-1 justify-between my-4">
+          <span className="text-xl block sm:h-20 font-medium tracking-wider group-hover:underline">
+            {article.title}
+          </span>
+          <span className={"flex flex-col text-sm my-2 text-gray-400 block"}>
+            <span className="mr-4 text-gray-300">
+              {article.reading_time_minutes} minute read
+            </span>{" "}
+            <span className="mr-4 mt-1 text-gray-300">
+              Published: {new Date(article.published_at).toDateString()}
+            </span>
+          </span>{" "}
+          <span className="flex flex-row flex-wrap mt-2">
             {article.tag_list.slice(0, 4).map((item) => (
               <span
                 className="mr-2 mb-2 text-sm text-yellow-400 bg-dark p-1 px-2 rounded"
@@ -35,12 +45,6 @@ export default function Article({ article }: { article: ArticleInList }) {
                 {item}
               </span>
             ))}
-          </span>
-          <span className={"text-sm text-gray-400 mt-2 block"}>
-            <span className="inline-block mr-4 text-gray-300">
-              {article.reading_time_minutes} minute read
-            </span>
-            Published: {new Date(article.published_at).toDateString()}
           </span>
         </span>
       </a>

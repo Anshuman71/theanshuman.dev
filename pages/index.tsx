@@ -127,13 +127,17 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <Section className="flex flex-col">
           <SectionHeading>Popular articles</SectionHeading>
-          <div>
+          <div
+            className={
+              "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6"
+            }
+          >
             {props.articles.map((article) => (
               <Article key={article.id} article={article} />
             ))}
           </div>
           <Link passHref href={"/articles"}>
-            <a className="self-center p-2 px-4 text-md bg-slate-800 rounded text-yellow-400 hover:underline">
+            <a className="mt-10 self-center p-2 px-4 text-md bg-slate-800 rounded text-yellow-400 hover:underline">
               View More
             </a>
           </Link>

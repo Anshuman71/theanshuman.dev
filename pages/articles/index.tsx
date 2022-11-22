@@ -118,10 +118,17 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
               </option>
             </select>
           </div>
+
           {filteredArticles.length ? (
-            filteredArticles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))
+            <div
+              className={
+                "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-6"
+              }
+            >
+              {filteredArticles.map((article) => (
+                <Article key={article.slug} article={article} />
+              ))}
+            </div>
           ) : (
             <div className="flex my-20 md:w-1/2 text-center mx-auto">
               <p className="text-slate-200 text-lg mr-1">
