@@ -6,15 +6,15 @@ export default function Article({ article }: { article: ArticleInList }) {
   const isExternal = !article.canonical_url.includes("dev.to");
   return (
     <Link
-      key={article.slug}
       passHref
       href={isExternal ? article.canonical_url : `/articles/${article.slug}`}
     >
       <a
         target={isExternal ? "_blank" : ""}
+        key={article.slug}
         className="group flex flex-col p-4 py-6 bg-slate-800 rounded-md shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-400"
       >
-        <div className="relative rounded overflow-hidden object-cover w-full h-56 lg:h-40">
+        <div className="relative rounded overflow-hidden object-cover h-[45vw] w-full md:h-52 xl:h-40">
           <Image
             alt="cover image"
             src={
