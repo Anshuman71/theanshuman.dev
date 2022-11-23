@@ -30,7 +30,7 @@ export async function getStaticProps() {
         (a: ArticleInList, b: ArticleInList) =>
           b.positive_reactions_count - a.positive_reactions_count
       )
-      .slice(0, 3);
+      .slice(0, 2);
     return {
       props: {
         articles: [...externalArticles, ...topArticlesFromDev],

@@ -225,8 +225,8 @@ export const externalArticles: ArticleInList[] = [
     ],
     reading_time_minutes: 9,
     published_at: "Wed Nov 9 2022",
-    page_views_count: randomPageViews(),
-    positive_reactions_count: randomLikes(),
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
   },
   {
     canonical_url:
@@ -240,8 +240,23 @@ export const externalArticles: ArticleInList[] = [
     tag_list: ["Clerk.dev", "Gmail", "authentication", "Auth", "user switcher"],
     reading_time_minutes: 8,
     published_at: "Fri Jun 3 2022",
-    page_views_count: randomPageViews(),
-    positive_reactions_count: randomLikes(),
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
+    canonical_url:
+      "https://blog.logrocket.com/using-convex-for-state-management/",
+    slug: "using-convex-for-state-management",
+    title: "A guide to using Convex for state management",
+    description:
+      "Managing an application's state has become easier, but the global state concept is still a pain for developers, which Convex aims to solve.",
+    cover_image:
+      "https://blog.logrocket.com/wp-content/uploads/2022/09/guide-using-convex-state-management-nocdn.png",
+    tag_list: ["convex", "state management", "nextjs", "global state"],
+    reading_time_minutes: 9,
+    published_at: "Wed Sep 21 2022",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
   },
   {
     canonical_url:
@@ -258,21 +273,7 @@ export const externalArticles: ArticleInList[] = [
     page_views_count: randomPageViews(),
     positive_reactions_count: randomLikes(),
   },
-  {
-    canonical_url:
-      "https://blog.logrocket.com/using-convex-for-state-management/",
-    slug: "using-convex-for-state-management",
-    title: "A guide to using Convex for state management",
-    description:
-      "Managing an application's state has become easier, but the global state concept is still a pain for developers, which Convex aims to solve.",
-    cover_image:
-      "https://blog.logrocket.com/wp-content/uploads/2022/09/guide-using-convex-state-management-nocdn.png",
-    tag_list: ["convex", "state management", "nextjs", "global state"],
-    reading_time_minutes: 9,
-    published_at: "Wed Sep 21 2022",
-    page_views_count: randomPageViews(),
-    positive_reactions_count: randomLikes(),
-  },
+
   {
     canonical_url: "https://www.tiny.cloud/blog/bootstrap-image-upload/",
     slug: "tiny-mce-bootstrap-image-upload",
