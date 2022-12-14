@@ -12,6 +12,7 @@ module.exports = {
       "blog.logrocket.com",
       "images.ctfassets.net",
       "uploads-ssl.webflow.com",
+      "handsontable.com",
     ],
   },
   experimental: {

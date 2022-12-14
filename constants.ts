@@ -244,6 +244,43 @@ export const externalArticles: ArticleInList[] = [
     positive_reactions_count: randomLikes() * 1.5,
   },
   {
+    canonical_url: "https://hygraph.com/blog/graphql-backend-for-frontend",
+    slug: "graphql-backend-for-frontend",
+    title: "How to use GraphQL to build backend-for-frontends (BFFs)",
+    description:
+      "In this article, you'll learn about backend-for-frontend architecture by building a backend-for-frontend to serve blog posts from Hygraph.",
+    cover_image:
+      "https://hygraph.com/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2Fresize%3Dfit%3Aclip%2Cwidth%3A1500%2F0bOvwNCKRValsRXm1sq9&w=1920&q=75",
+    tag_list: [
+      "Hygraph",
+      "BFF",
+      "Headless CMS",
+      "GraphQL",
+      "GraphCMS",
+      "CMS",
+      "Backed for frontend",
+    ],
+    reading_time_minutes: 9,
+    published_at: "Wed Dec 7 2022",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
+    canonical_url:
+      "https://handsontable.com/blog/articles/2022/12/decrease-your-handsontable-javascript-bundle-size-using-modules",
+    slug: "decrease-your-handsontable-javascript-bundle-size-using-modules",
+    title: "Decrease your Handsontable bundle size using modules",
+    description:
+      "Handsontable is a JavaScript Data Grid Component with Spreadsheet Look & Feel. Available for React, Vue and Angular.",
+    cover_image:
+      "https://handsontable.com/blog/wp-content/uploads/2022/12/image.png",
+    tag_list: ["Handsontable", "Bundle size", "Code splitting", "Tree shaking"],
+    reading_time_minutes: 7,
+    published_at: "Thu Dec 8 2022",
+    page_views_count: randomPageViews(),
+    positive_reactions_count: randomLikes(),
+  },
+  {
     canonical_url:
       "https://blog.logrocket.com/using-convex-for-state-management/",
     slug: "using-convex-for-state-management",
