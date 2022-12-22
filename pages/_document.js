@@ -7,20 +7,10 @@ class MyDocument extends Document {
         <Head />
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-              page_path: window.location.pathname,
-            });
-          `,
-          }}
-        />{" "}
+          defer
+          data-website-id="8dbd6653-b1a4-4081-9f9a-ea3642d2d7ed"
+          src="https://umami.theanshuman.dev/umami.js"
+        ></script>
         <body>
           <Main />
           <NextScript />
