@@ -42,6 +42,17 @@ export default function MetaData({
       <meta name="twitter:label1" content="Est. reading time" />
       <meta name="twitter:data1" content={`${readingTime} minutes`} />
       <link
+        rel="author"
+        href="https://twitter.com/sun_anshuman"
+        data-rh="true"
+      ></link>
+      <meta
+        property="article:author"
+        content="https://twitter.com/sun_anshuman"
+        data-rh="true"
+      ></meta>
+      <meta name="author" content="Anshuman Bhardwaj" data-rh="true"></meta>
+      <link
         rel="icon"
         type="image/jpeg"
         href="https://theanshuman.dev/icon.jpeg"
