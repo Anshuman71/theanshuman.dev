@@ -1,5 +1,6 @@
 import Countdown from "react-countdown";
 const date = new Date(2022, 8, 3, 11).getTime();
+
 export default function FooBarBaz() {
   return (
     <main className="content-container">
