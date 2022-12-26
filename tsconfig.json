@@ -14,8 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "module": "esnext"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.jsx"],
+  "include": ["next-env.d.ts", "sitemap.js", "**/*.ts", "**/*.tsx", "**/*.jsx"],
   "exclude": ["node_modules"]
 }

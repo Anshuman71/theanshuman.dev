@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  swcMinify: true,
+  swcMinify: false,
   images: {
     domains: [
       "res.cloudinary.com",
@@ -14,8 +14,5 @@ module.exports = {
       "uploads-ssl.webflow.com",
       "handsontable.com",
     ],
-  },
-  experimental: {
-    scrollRestoration: true,
   },
 };

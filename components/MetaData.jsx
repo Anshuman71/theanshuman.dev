@@ -1,19 +1,21 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const DEFAULT_DESCRIPTION =
-  "Hey there, I'm Anshuman Bhardwaj, a self-taught developer passionate about empowering people with the skills I have learned. I love building an awesomely beautiful frontend for seamless user experience and flawless back end for a scalable & reliable business. ";
+  "Hey there, I'm Anshuman Bhardwaj, a seasoned developer passionate about empowering people. Currently building https://useglossary.com";
 
 const DEFAULT_KEYWORDS =
   "sun_anshuman, anshuman_bhardwaj, anshuman-bhardwaj, Anshuman Bhardwaj Canoo,  Collegebasket, Keshav Mahavidyalaya, Delhi University, India";
 
 export default function MetaData({
-  title = "Anshuman Bhardwaj",
+  title = "Anshuman Bhardwaj | Software Engineer",
   description = DEFAULT_DESCRIPTION,
   keywords = "",
   canonicalLink = "",
   readingTime = 2,
   imageUrl = "https://theanshuman.dev/me.jpeg",
 }) {
+  const router = useRouter();
   return (
     <Head>
       <meta charSet="UTF-8" />
@@ -57,7 +59,10 @@ export default function MetaData({
         type="image/jpeg"
         href="https://theanshuman.dev/icon.jpeg"
       />
-      {canonicalLink && <link rel="canonical" href={canonicalLink} />}
+      <link
+        rel="canonical"
+        href={canonicalLink || `https://theanshuman.dev${router.asPath}`}
+      />
     </Head>
   );
 }

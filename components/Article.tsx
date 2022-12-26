@@ -3,7 +3,7 @@ import { ArticleInList } from "../types";
 import Image from "next/image";
 
 export default function Article({ article }: { article: ArticleInList }) {
-  const isExternal = !article.canonical_url.includes("dev.to");
+  const isExternal = !article.canonical_url.includes("theanshuman.dev");
   return (
     <Link
       passHref
