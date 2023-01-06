@@ -8,7 +8,7 @@ class MyDocument extends Document {
         <script
           async
           defer
-          data-website-id="8dbd6653-b1a4-4081-9f9a-ea3642d2d7ed"
+          data-website-id="adce9dab-0e15-44be-919e-5fb06b21e6b4"
           src="https://umami.theanshuman.dev/umami.js"
         ></script>
         <body>
