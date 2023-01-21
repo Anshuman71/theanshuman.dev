@@ -156,7 +156,7 @@ const Article: NextPage<PageProps> = ({ error, source }) => {
         <Link href={"/articles"} passHref>
           <a
             className={
-              "mt-8 py-2 underline underline-offset-4 text-blue-400 tracking-wider inline-block"
+              "mt-8 py-2 underline underline-offset-4 text-yellow-500 tracking-wider inline-block"
             }
           >
             <ArrowLeftIcon className={"mr-2 h-4 inline"} />

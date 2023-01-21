@@ -43,7 +43,7 @@ export default function Article({ article }: { article: ArticleInList }) {
       <a
         target={isExternal ? "_blank" : ""}
         key={article.slug}
-        className={`group flex flex-col p-1  hover:bg-none focus:bg-none rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-blue-400`}
+        className={`group flex flex-col p-1  rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-500`}
       >
         <div className="h-full overflow-hidden rounded-b-lg">
           <div className="relative rounded-t-lg overflow-hidden h-[45vw] w-full md:h-52 xl:h-40">
@@ -57,7 +57,7 @@ export default function Article({ article }: { article: ArticleInList }) {
               objectFit={"cover"}
             />
           </div>
-          <div className="bg-gray-800 p-4 h-full rounded-md rounded-t-none">
+          <div className="bg-zinc-800 p-4 h-full rounded-md rounded-t-none">
             <span className="flex flex-col flex-1 justify-between mb-4">
               <span className="text-xl block font-medium tracking-wider group-hover:underline">
                 {article.title}{" "}
@@ -77,7 +77,7 @@ export default function Article({ article }: { article: ArticleInList }) {
                     className="p-1 px-2 rounded bg-dark mr-2 mb-2"
                     key={item}
                   >
-                    <span className={`text-sm  text-blue-400`}>{item}</span>
+                    <span className={`text-sm  text-yellow-500`}>{item}</span>
                   </span>
                 ))}
               </span>

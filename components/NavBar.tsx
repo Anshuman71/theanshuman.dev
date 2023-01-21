@@ -34,7 +34,7 @@ export default function NavBar() {
         style={{
           transform: `translateX(${completion - 100}%)`,
         }}
-        className={`absolute bottom-0 w-full h-0.5 bg-blue-400`}
+        className={`absolute bottom-0 w-full h-0.5 bg-yellow-500`}
       />
       <div className="w-full flex flex-row justify-between items-end px-6 lg:px-0 lg:w-3/4 xl:max-w-[990px] mx-auto ">
         <div className="w-full sm:w-auto flex flex-row justify-between sm:justify-start">
@@ -43,9 +43,9 @@ export default function NavBar() {
               <a
                 key={item.url}
                 className={clsx(
-                  "sm:mr-12 last:mr-0 font-medium outline-none text-lg rounded p-1 px-4 first:pl-0 last:pr-0 hover:text-blue-400 focus:text-blue-400 focus:ring-2 ring-blue-400",
+                  "sm:mr-12 last:mr-0 font-medium outline-none text-lg rounded p-1 px-4 first:pl-0 hover:text-yellow-500 focus:text-yellow-500 focus:ring-2 ring-yellow-500",
                   {
-                    "text-blue-400": router.pathname === item.url,
+                    "text-yellow-500": router.pathname === item.url,
                     "text-gray-400": router.pathname !== item.url,
                   }
                 )}
