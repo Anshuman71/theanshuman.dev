@@ -11,10 +11,13 @@ export default function Footer({ counter }: { counter?: number }) {
           <Link passHref key={contact.url} href={contact.url}>
             <a
               target={contact.sameTab ? "_self" : "_blank"}
-              className={clsx("py-1 hover:underline", {
-                "ml-auto w-24": index % 3 === 2,
-                "mx-auto w-24": index % 3 === 1,
-              })}
+              className={clsx(
+                "py-1 hover:text-yellow-400 underline-offset-2 hover:underline",
+                {
+                  "ml-auto w-24": index % 3 === 2,
+                  "mx-auto w-24": index % 3 === 1,
+                }
+              )}
             >
               {contact.name}
             </a>

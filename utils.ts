@@ -12,10 +12,9 @@ export default async function markdownToHtml(
 ): Promise<string> {
   const result = await unified()
     .use(remarkParse)
-    .use(remarkRehype)
-    .use(rehypeHighlight, { subset: false, plainText: ["txt", "text"] })
+    .use(remarkRehype, {})
     .use(rehypeDocument)
-    .use(rehypeFormat)
+    .use(rehypeHighlight, { subset: false, plainText: ["txt", "text"] })
     .use(rehypeStringify)
     .process(markdown);
   return result.toString();

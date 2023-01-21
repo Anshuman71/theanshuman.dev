@@ -1,0 +1,261 @@
+---
+title: Create a Live Twitter Profile Banner to show followers counter
+cover: https://res.cloudinary.com/practicaldev/image/fetch/s--vApQYoUe--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ymhzqfgbdbet74svmaet.png
+description: In the previous part of this series, we learned how to automatically Tweet your popular articles.    ...
+published_at: Mon Jan 31 2022
+reading_time_in_minutes: 6
+tags: javascript, beginners, webdev, tutorial
+---
+
+In the [previous part](https://dev.to/anshuman_bhardwaj/automatically-tweet-popular-article-from-dev-246f) of this series, we learned how to automatically Tweet your popular articles.
+
+
+Now as most developers, I didn't just stop there, lol. I went one step further, to create a service to automatically update my Twitter Banner with my followers count from [DEV](https://dev.to/anshuman_bhardwaj), [Medium](https://anshuman-bhardwaj.medium.com), and [YouTube](https://www.youtube.com/channel/UC9-rIQbbBVxJyTIWPdhK4YA).
+
+
+Believe me, it's much simpler than we think, or is it?
+
+Let's find out -
+
+---
+
+## Breakdown
+
+1. Create a sassy Twitter banner image with placeholders to fill in
+2. Read followers from DEV, Medium, and YouTube
+3. Use the Twitter API to update the banner
+4. Do this at a regular interval
+
+---
+
+## Creating an Image template
+
+The first and foremost step to start is to create a template that we can later fill in with live data. 
+
+I always use [Canva](https://canva.com) to create images for Twitter and YouTube. So, I went there and used their Twitter Banner template to create one for myself.
+
+I added usernames for all of the three accounts and left some space to fill in the live counter value.
+
+I took inspiration from some Twitter accounts, and Tada 🎉!
+
+![My Twitter banner](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9zmnlqp7zr9nl752lwq3.png)
+  
+---
+
+## Fetching DEV followers
+
+This one was the easiest, all you have to do is
+- get an API from your DEV account
+- use their followers API to get all followers
+- they only send 1000 followers per page  at max, so we have to run a loop, as long as followers are returned
+
+### Code Snippet
+
+```ts
+// fetch all followers
+export async function getFollowersFromDev(): Promise<any[]> {
+  // start with page 1
+  let page = 1,
+    limit = 1000;
+  const followers = [];
+  // repeat until page number exists
+  while (page) {
+    const res = await fetch(
+      `${process.env.DEV_API_URL}/followers/users?per_page=${limit}&page=${page}`,
+      {
+        headers: {
+          "api-key": process.env.DEV_API_KEY as string,
+        },
+      }
+    );
+    const answer = await res.json();
+    if (answer && Array.isArray(answer) && answer.length) {
+      followers.push(...answer);
+      // increment page number if this page is full, otherwise set to 0
+      page = answer.length === limit ? page + 1 : 0;
+    } else {
+      // no more followers, so set page to 0
+      page = 0;
+    }
+  }
+  return followers;
+}
+```
+
+---
+
+## Fetching YouTube subscribers
+
+We have a REST API available for this one,
+
+- create an API Key in your Google Cloud Platform project and allow access to YouTube API's
+![Google Cloud console](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/07ea4j4o67szdjc76vzz.png) 
+- visit [YouTube Studio](https://studio.youtube.com/) to get your channel ID, like shown in the image below
+![Channel ID](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/41ds6kjuc017m8ueiara.png)
+ 
+- all you have to do next is to call the API and read the data
+
+### Code Snippet
+
+```ts
+export async function getYoutubeSubscribers() {
+  const res = await fetch(
+    `https://youtube.googleapis.com/youtube/v3/channels?part=statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`
+  );
+  const data = await res.json();
+  return data?.items[0]?.statistics?.subscriberCount || 330;
+}
+```
+
+---
+
+## Fetching Medium followers
+
+Well, this was the toughest, Medium doesn't seem to provide an API to get followers count. But googling this I ended up finding this [Gist](https://gist.github.com/newhouse/843c444ddefe084ea7f01603627dbcfd) from GitHub user newhouse, lots of thanks to them.
+
+It turns out if you add a `?format=json` to the end of your Medium profile URL you'll get a JSON response with a bunch of data including "SocialStats". 
+
+But, "Wait...Wait...Wait, not so fast" said the Medium team.
+
+They have added some text in front of the actual JSON to restrict usage as an API. 
+
+> Also it didn't resolve when I did a fetch request but worked when using Insomnia, so I used Insomnia as the user-agent when making network requests.
+
+### Code Snippet
+
+```ts
+export async function getMediumFollowers() {
+  const res = await fetch("https://medium.com/@anshuman-bhardwaj?format=json", {
+    headers: {
+      "user-agent": "insomnia/2021.7.2", // didn't work without this for me
+    },
+  });
+  // Medium adds this to the JSON text
+  const hijackString = "])}while(1);</x>";
+  const jsonText = await res.text();
+  // remove the hijackString from JSON before parsing
+  const data = JSON.parse(jsonText.replace(hijackString, ""));
+  return (
+    data?.payload?.references?.SocialStats?.[MEDIUM_USER_ID]
+      ?.usersFollowedByCount || 20
+  );
+}
+```
+
+---
+
+## Updating my Twitter Profile banner
+
+Now that we have all the information needed, we simply need to create an API handler function that will
+
+1. fetch data from all three of the methods made above
+2. update the placeholder image we created with the values fetched from the above methods
+3. upload the updated image to my Twitter account using v1 API's [update_profile_banner](https://developer.twitter.com/en/docs/twitter-api/v1/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile_banner) endpoint.
+
+### Updating the Image
+
+We will use the `jimp` [npm package](https://www.npmjs.com/package/jimp) to add text on top of our image. For that, we have to find the exact coordinates of the placeholders. (hit and trial worked fine for me)
+
+We use the `print` method from jimp to put the text on top of the image.
+
+> I've explained how to get Twitter API credentials in the [previous article](https://dev.to/anshuman_bhardwaj/automatically-tweet-popular-article-from-dev-246f). So, please refer to that article and I'll skip that for now.  
+
+### Limitations
+
+- The Twitter API accepts `base64` encoding of the image but I was hitting max payload size when using `fetch` call but using the [Twitter API Client](https://github.com/FeedHive/twitter-api-client) npm package fixed the issue for me.
+- My NextJS API handler function was unable to resolve the fonts from `jimp` module at runtime so I copied them into the public folder to fix the issue.
+- As I was using the NextJS functions, I couldn't write the image on the disk.
+- Yeah, I know `getBase64Async` exists in `jimp` but it was giving a huge return value ~6x of the original size. So, I chained the `getBufferAsync` utility with a `toString` call and that worked fine for me.
+
+### Code Snippet
+
+```ts
+import { NextApiRequest, NextApiResponse } from "next";
+import {
+  formatLog,
+  getFollowersFromDev,
+  getMediumFollowers,
+  getYoutubeSubscribers,
+  twitterClient,
+} from "../../../utils";
+import path from "path";
+import jimp from "jimp";
+
+export default async function views(
+  request: NextApiRequest,
+  response: NextApiResponse
+) {
+  console.info(formatLog("Running Update Twitter Header Function"));
+  try {
+    const devFollowers = await getFollowersFromDev();
+    const ytSubs = await getYoutubeSubscribers();
+    const mediumFollowers = await getMediumFollowers();
+
+    const filePath = path.resolve("./public/yellow_twitter_header.png");
+    const jimpFont = path.resolve(
+      "./public/open-sans-32-black/open-sans-32-black.fnt"
+    );
+    path.resolve("./public/open-sans-32-black/open-sans-32-black.png");
+
+    const image = await jimp.read(filePath);
+    const font = await jimp.loadFont(jimpFont);
+    image.print(font, 150, 98, ytSubs);
+    image.print(font, 620, 98, devFollowers.length);
+    image.print(font, 1130, 98, mediumFollowers);
+    const fromImage = await image.getBufferAsync(image.getMIME());
+    const updatedHeader =
+      await twitterClient.accountsAndUsers.accountUpdateProfileBanner({
+        banner: fromImage.toString("base64"),
+        width: 1500,
+        height: 500,
+      });
+    response.status(200).send({
+      type: "success",
+      updatedHeader,
+      devFollowers: devFollowers.length,
+      ytSubs,
+      mediumFollowers,
+    });
+  } catch (e: any) {
+    console.log(e);
+    response.status(500).send({
+      type: "error",
+      message: e.message,
+    });
+  }
+}
+```
+
+### Scheduling the updates
+
+Now that we have done all the heavy lifting, we just have to call the API handler created above.
+
+For scheduling, I created a Cron job using GitHub actions to run every 5 minutes to update my profile picture. The Cron Job calls the API handler created above and that's it.
+
+And as of now, it is working pretty well.
+
+> Note: Twitter's Update Banner API is rate-limited, couldn't find the exact number but it's somewhere around 30 calls in 15 minutes or something. If you know it, please put down in comments.
+
+---
+
+## Resources
+
+- [YouTube API](https://developers.google.com/youtube/v3/guides/implementation/channels)
+- [DEV API](https://developers.forem.com/api)
+[Twitter API Client](https://github.com/FeedHive/twitter-api-client)
+- [Gist from newhouse](https://gist.github.com/newhouse/843c444ddefe084ea7f01603627dbcfd)
+- [GtiHub Repo](https://github.com/Anshuman71/tweet-my-articles)
+
+
+---
+
+Well, that's all, my friends. You can check out the complete guide and use it by forking this [GtiHub Repo](https://github.com/Anshuman71/tweet-my-articles). 
+
+I hope you find this article helpful! Should you have any feedback or questions, please feel free to put them in the comments below, I would love to hear and work on them.
+
+For more such content, please follow me [Twitter](https://twitter.com/sun_anshuman)
+
+> Until next time
+
+ 
+    

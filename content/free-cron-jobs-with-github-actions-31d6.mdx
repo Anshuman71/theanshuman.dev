@@ -1,0 +1,133 @@
+---
+title: Free Cron Jobs with Github Actions
+cover: https://res.cloudinary.com/practicaldev/image/fetch/s--5T5PpMK7--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rs5iw249ybn5hxqmvbna.png
+description: Scheduling tasks can be a handy way to automate work, and Cron Jobs is the way to do it. We all have...
+published_at: Mon Feb 07 2022
+reading_time_in_minutes: 4
+tags: github, javascript, webdev, beginners
+---
+
+Scheduling tasks can be a handy way to automate work, and Cron Jobs is the way to do it. We all have that one recurring task we wish could be done automatically without manual intervention. Not to forget, "That is also for FREE".
+
+Cron jobs are meant for performing regularly scheduled actions such as backups, report generation, and so on. Each of those tasks should be configured to recur indefinitely (for example: once a day/week/month); you can define the point in time within that interval when the job should start.
+
+## What is a Cron job?
+A cron job is a task that runs periodically on a given schedule, defined by the Cron expression (* * * * *).
+
+```
+# ┌────────── minute (0 - 59)
+# │ ┌────────── hour (0 - 23)
+# │ │ ┌────────── day of the month (1 - 31)
+# │ │ │ ┌────────── month (1 - 12)
+# │ │ │ │ ┌────────── day of the week (0 - 6)
+# │ │ │ │ │                                  
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *
+```
+
+Don't worry about the syntax, we can use [Crontab Guru](https://crontab.guru/) to create one very easily.
+
+## How to set up a Cron job?
+
+There are a lot of ways to set up Cron Jobs
+
+### at the OS level
+
+1. You can use the inbuilt [Windows scheduler](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)
+2. If you are on Ubuntu, you can use the [Cron Utility](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-ubuntu-1804)
+
+But most of the time, you would want to keep it away from OS, and closer to your application for that, we can use
+
+### at the Application level
+1. use packages like [Cron](https://www.npmjs.com/package/cron) to create a cron job in your NodeJS application, but this cannot run on a serverless stack
+2. use a serverless solution like [AWS Lambda]( https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html), but it requires a lot of setup and credit card
+3. use Firebase cloud functions with scheduling, it is a lot simpler than AWS but requires credit card.
+4. use a SAAS tool like [EasyCron](https://www.easycron.com)
+
+
+### Our Winner (GitHub actions)
+While all of the above are good solutions, the simplest way to do this for hobby projects would be to use GitHub actions because it
+1. is easy to set up through code and coupled with the application code itself
+2. is free for public repos
+3. provides up to 4000 minutes/month for private repos (extremely hard to consume)
+4. allows us to create unlimited jobs and schedules
+
+I am sure by now you must be asking 
+
+<img width="100%" src="https://media.giphy.com/media/jskVGCYTsc3lGM1zpB/giphy.gif" />
+
+## How do GitHub Actions help?
+
+GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. You can read more about them [here](https://github.com/features/actions).
+
+Now to set up your own Cron job using GitHub actions,
+
+1. Go to your GitHub repository (create one if required).  
+2. Go to the Actions tab and create a new action workflow.
+   ![Create new action](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p2j6r78ekmgp9919pu35.png)
+ 
+3. Add your Cron schedule and task to it. Commit the change.
+   
+```yaml
+   # This is a basic workflow to help you get started with Actions
+
+name: First Cron Job
+
+       # Controls when the workflow will run
+on:
+  # Triggers the workflow every 5 minutes
+  schedule:
+    - cron: "*/5 * * * *"
+
+     # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "cron"
+  cron:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+```
+
+This will run a job to echo "Hello, world!" every 5 minutes.
+   
+Go to the Actions tab and wait for the log to show up. When you click on any execution you'll see details like this          
+![Execution details](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6j2sodmnw7ye6l897bd.png)
+
+That is how you can schedule a Cron job using GitHub actions.
+
+> Note: The scheduled event can be delayed during periods of high loads of GitHub Actions workflow runs. High load times include the start of every hour. To decrease the chance of delay, schedule your workflow to run at a different time of the hour.
+
+![Example](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qu16e8p7pnf9amo5l300.png)
+
+See how the job scheduled to run every 5 minutes was delayed a couple of times. Please be mindful of how you use the free resources.
+
+## How do I use Cron Jobs with GitHub Actions?
+
+I use GitHub Actions to regularly update my Twitter banner with the latest DEV follower count and Tweet milestones like 500 views on an article or reaching 100 followers on my DEV account. 
+
+You can read my articles explaining the above use cases [here](https://dev.to/anshuman_bhardwaj/automatically-tweet-popular-article-from-dev-246f).
+
+You can find the GitHub repo [here](https://github.com/Anshuman71/tweet-my-articles). Feel free to fork and use for your profile. 
+
+---
+
+## Fair use
+
+Although GitHub actions are free, we should use them sensibly to respect the provider's effort. In this age of advanced technologies, the giants like GitHub and Vercel make it super easy for us to get off the ground, so it's our responsibility to not misuse the tools.
+
+---
+
+That's it for now. I hope you find this article helpful! Should you have any feedback or questions, please feel free to put them in the comments below, I would love to hear and work on them.
+
+For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
+
+> Until next time
+
+ 
+    

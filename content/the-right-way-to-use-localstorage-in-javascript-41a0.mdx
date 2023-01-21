@@ -1,0 +1,183 @@
+---
+title: The right way to use LocalStorage in JavaScript
+cover: https://res.cloudinary.com/practicaldev/image/fetch/s--DxcxThWL--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/764r8cz73grqy9tvy18f.png
+description: Being a web developer we all have been into a situation, where we want to persist a piece of...
+published_at: Mon Mar 28 2022
+reading_time_in_minutes: 4
+tags: javascript, webdev, beginners, tutorial
+---
+
+Being a web developer we all have been into a situation, where we want to persist a piece of information like user data, theme preference, or the selected filters, to give our users a consistent experience across browser sessions.
+
+Well, that's exactly where the LocalStorage API comes into the picture.
+
+<img width="100%" src="https://media.giphy.com/media/1YZQJBcZWgdaoUoVRd/giphy.gif" />
+
+Hold on, Hold on! Let's start from the basics
+
+## What is LocalStorage?
+
+The LocalStorage API of web browsers allows to store and then read the stored data across browser sessions.
+
+Let's break it down:
+- It allows us to store data into persistent memory so that the data is still available when we restart the browser or even the computer.
+- It stores the data locally to that origin, meaning you can only read/write the data to LocalStorage for the current origin i.e the following combination (protocol+domain+port)
+
+> It is to be noted that the LocalStorage starts empty and the items added during a private session get cleared as soon as the last private tab is closed.
+
+---
+
+## Internals of LocalStorage
+
+The LocalStorage is a key-value store, meaning it stores the given value against the provided key, just like a JavaScript object but _persistent_. 
+
+Key-Value store provides fast lookup and writes because of its structure finding the right element will always take constant time (apart from the time to do I/O). This means having hundreds of keys in your LocalStorage wouldn't slow down the lookup. _(Not sure why you would be doing that.)_
+
+With its speed comes one limitation, the `key` and `value` both have to be a string to be stored in the LocalStorage.
+Well, this isn't so hard to get around.
+
+> Currently the Web Storage specification allows you to store up to 5MB per app per browser.
+
+---
+## How to use LocalStorage?
+
+Thankfully the LocalStorage API is fairly simple to interface with. 
+
+Let's go ahead and see how we can do the basic operations like Create/Read/Update/Delete on LocalStorage,
+
+### Writing data
+
+The `localStorage.setItem()` accepts a string as `key` and the `value` is also accepted as string.
+
+```ts
+    localStorage.setItem('<key>', '<value>')
+```
+
+The above line of code will write the value against the given key, if the already exists, the existing value will be overwritten.
+
+### Reading data
+
+To read the stored information, we need to provide the `key`
+
+```ts
+  const value = localStorage.getItem('<key>')
+  // value will be null or string
+```
+
+`null` is returned if no data is found with the given `key`.
+
+#### Storing Objects in LocalStorage
+
+You might be wondering, "Strings! Jeez, what am I going to do about an object?". Don't worry.
+
+We are still allowed to store a serialized version of the object, 
+
+```ts
+    // storing an object in LocalStorage
+    const user = { name: 'anshuman_bhardwaj' }
+    localStorage.setItem('user', JSON.stringify(user))
+
+    // reading the object from LocalStorage
+    const strinifiedUser = localStorage.getItem('user')
+    if(strinifiedUser) {
+      const retrivedUser = JSON.parse(strinifiedUser)
+    }
+```
+
+### Deleting data
+
+There are two methods for removing stored data from LocalStorage programmatically
+
+#### `removeItem`
+
+If you already know which item to delete, `removeItem` is the way to go.
+
+```ts
+    localStorage.removeItem('<key>')
+```
+
+#### `clear`
+
+If you want to remove all keys from the storage, then `clear` is a _clear_ choice. (you see what I did there?)
+
+```ts
+    localStorage.clear()
+```
+
+As exciting as it may sound, the `clear` method shouldn't be used all that much because it clears **everything** and not just the items that _you_ added. 
+
+This means if you are interacting with services that use LocalStorage e.g. authentication modules like Firebase Auth or Okta, clearing the LocalStorage will also delete the data those services had put in and it'll break their behavior.
+
+<img width="100%" src="https://media.giphy.com/media/SWd9mTHEMIxQ4/giphy.gif" />
+
+Yeah, don't worry, I got you.
+
+In computer science we should always focus on encapsulation, meaning we should hide the information or encapsulate it, so to say. Well, that's exactly how we are going to solve our little problem here.
+
+> The following pattern was suggested to me by my friend & colleague [Ryan](https://www.linkedin.com/in/ryanirilli).
+
+---
+## Creating and using Namespace in LocalStorage?
+
+We can apply the principle of encapsulation here by putting all of our data under a predefined & unique key or namespace. This will allow us to hide our from other parts of the application (which we don't control) and also save us from mistakenly updating the data which we shouldn't.
+
+"Sounds good, but how do we do that?", you might be wondering.
+
+Well, it's simpler than it sounds and works by enclosing the whole application state under one single key rather than using a new key for each information.
+
+### Step 1
+Create a key, predictable yet unique. A good example would be [your-app-name]+[some-unique-token] i.e. DEV-007
+
+### Step 2
+While storing information, we read the namespace value from the LocalStorage, deserialize it, update the value against the key inside the object and then serialize it again before writing to LocalStorage.
+
+### Step 3
+While reading the information, we read the namespace value from the LocalStorage, deserialize it and return the value of the key from the object.
+
+> This way we treat the namespace like it's own little LocalStorage.
+
+Below is a code implementation of the above
+
+```ts
+const NAMESPACE = "DEV-007";
+
+function writeToStorage(key, value) {
+  const serializedData = localStorage.getItem(NAMESPACE);
+  const data = serializedData ? JSON.parse(serializedData) : {};
+  data[key] = value;
+  localStorage.setItem(NAMESPACE, JSON.stringify(data));
+}
+
+function readFromStorage(key) {
+  const serializedData = localStorage.getItem(NAMESPACE);
+  const data = JSON.parse(serializedData);
+  return data ? data[key] : undefined;
+}
+
+function clear() {
+  localStorage.setItem(NAMESPACE, JSON.stringify({}));
+}
+
+function removeItem(key) {
+  const serializedData = localStorage.getItem(NAMESPACE);
+  const data = serializedData ? JSON.parse(serializedData) : {};
+  delete data[key]
+  localStorage.setItem(NAMESPACE, JSON.stringify(data));
+}
+```
+
+The above implementation of `clear` and `removeItem` is safe to use and solves our issue.
+
+Don't worry you will not have to write your own implementation because there exists an npm package [store2](https://www.npmjs.com/package/store2) that solves the above problem and provides  smarter localstorage.
+
+<img width="100%" src="https://media.giphy.com/media/Urn1lBNWpaCGFpuA1c/giphy.gif" />
+
+---
+
+That's all for today. Should you have any questions or suggestions please feel free to drop them in the comments below.
+For more such content, please [follow me on Twitter](https://twitter.com/sun_anshuman)
+
+> Until next time
+
+ 
+    

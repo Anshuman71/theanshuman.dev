@@ -1,0 +1,265 @@
+---
+title: Create your own URL shortener with Next.js and MongoDB in 10 Minutes
+cover: https://res.cloudinary.com/practicaldev/image/fetch/s--X9D2wQDO--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fjhm3pew8twv7suf3cin.png
+description: Motivation   A few weeks back, I was working on a Twitter bot to post my popular articles...
+published_at: Mon Mar 14 2022
+reading_time_in_minutes: 4
+tags: javascript, beginners, webdev, nextjs
+---
+
+## Motivation
+
+A few weeks back, I was working on a Twitter bot to post my popular articles and I realized that links of some articles are not parsed well in the Tweet. However, shortening them using [Rebrandly](https://www.rebrandly.com/) worked well. 
+
+So, I decided to make a URL shortener for myself.
+
+---
+## Breakdown
+
+We need a
+
+- service to create a unique hash for each long URL
+- database to persist long to short URL mapping
+- service to redirect short links to their destination
+
+As always, **Next.js** was my first choice for building the complete service and **MongoDB** for storing links.
+
+---
+## Development
+
+Now that we have figured out the steps, let's work on them one by one
+
+### Setup the project
+
+Let's use the `npx create-next-app url-shortener` command to generate a boilerplate for our app.
+
+```
+./.env.local
+
+DB_NAME=url-shortner
+ATLAS_URI_PROD=mongodb+srv://<user>:<password><cluster>.mongodb.net/url-shortner?retryWrites=true&w=majority
+
+API_KEY=<a-long-random-string>
+HOST=http://localhost:3000
+```
+
+These environment variables should also be stored in your Vercel project.
+
+> The value of `HOST` should be set to your domain when you host this project. If you don't have a public domain, just you `NEXT_PUBLIC_VERCEL_URL` environment variable instead of `HOST`.
+
+### Setting up MongoDB
+
+1. Run `npm i --save mongodb`
+2. Create a `mongodb.ts` file at the root of the repo.
+
+```ts
+// ./mongodb.ts
+
+import { Db, MongoClient } from "mongodb";
+import { formatLog } from "./utils";
+
+// Create cached connection variable
+let cachedDB: Db | null = null;
+
+// A function for connecting to MongoDB,
+export default async function connectToDatabase(): Promise<Db> {
+  // If the database connection is cached, use it instead of creating a new connection
+  if (cachedDB) {
+    console.info(formatLog("Using cached client!"));
+    return cachedDB;
+  }
+  const opts = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  };
+  console.info(formatLog("No client found! Creating a new one."));
+  // If no connection is cached, create a new one
+  const client = new MongoClient(process.env.ATLAS_URI_PROD as string, opts);
+  await client.connect();
+  const db: Db = client.db(process.env.DB_NAME);
+  cachedDB = db;
+  return cachedDB;
+}
+
+```
+
+### Add create-short-link service
+
+Go ahead and add a `./api/create-link.ts` file to create a REST endpoint for this service.
+
+Couple of things we need to be aware of
+1. A unique Hash is required to make short URLs. I used `nanoid` to generate a random short hash for the long URL.
+2. This endpoint should only be accessed by the POST method.
+3. We should set up an API-KEY authentication to secure the endpoint. This can be done by generating a long string and using it as an API-KEY header.
+
+
+```ts
+// ./api/create-link.ts
+
+import { NextApiRequest, NextApiResponse } from "next";
+import connectToDatabase from "../../mongodb";
+import { customAlphabet } from "nanoid";
+import { COLLECTION_NAMES } from "../../types";
+
+const characters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const getHash = customAlphabet(characters, 4);
+
+export default async function CreateLink(
+  request: NextApiRequest,
+  response: NextApiResponse
+) {
+  const apiKey = request.headers["api-key"] as string;
+  if (request.method !== "POST" || apiKey !== process.env.API_KEY) {
+    return response.status(405).json({
+      type: "Error",
+      code: 405,
+      message: "Only POST method is accepted on this route",
+    });
+  }
+  const { link } = request.body;
+
+  if (!link) {
+    response.status(400).send({
+      type: "Error",
+      code: 400,
+      message: "Expected {link: string}",
+    });
+    return;
+  }
+  try {
+    const database = await connectToDatabase();
+    const urlInfoCollection = database.collection(COLLECTION_NAMES["url-info"]);
+    const hash = getHash();
+    const linkExists = await urlInfoCollection.findOne({
+      link,
+    });
+    const shortUrl = `${process.env.HOST}/${hash}`;
+    if (!linkExists) {
+      await urlInfoCollection.insertOne({
+        link,
+        uid: hash,
+        shortUrl: shortUrl,
+        createdAt: new Date(),
+      });
+    }
+    response.status(201);
+    response.send({
+      type: "success",
+      code: 201,
+      data: {
+        shortUrl: linkExists?.shortUrl || shortUrl,
+        link,
+      },
+    });
+  } catch (e: any) {
+    response.status(500);
+    response.send({
+      code: 500,
+      type: "error",
+      message: e.message,
+    });
+  }
+}
+
+```
+
+### Redirect short links to destination
+
+Now that we can create short links, let's add the logic to redirect users to the actual destination.
+
+For that, we can make a dynamic route in Next.js app and write the redirect logic on the server-side.
+
+```ts
+// ./pages/[hash].tsx
+
+import { NextApiRequest, NextApiResponse, NextPage } from "next";
+import Head from "next/head";
+import connectToDatabase from "../mongodb";
+import { COLLECTION_NAMES } from "../types";
+
+export async function getServerSideProps(request: NextApiRequest) {
+  const hash = request.query.hash as string;
+  const database = await connectToDatabase();
+  const campaign = await database
+    .collection(COLLECTION_NAMES["url-info"])
+    .findOne({ uid: hash });
+
+  if (campaign) {
+    return {
+      redirect: {
+        destination: campaign.link,
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+}
+
+const HashPage: NextPage = () => {
+  return (
+    <div>
+      <Head>
+        <title>URL Shortener</title>
+        <meta name="description" content="Generated by create next app" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <h1>Requested link not found</h1>
+    </div>
+  );
+};
+
+export default HashPage;
+
+```
+
+This page will redirect the user to the destination if the `hash` value is available in the database otherwise, it'll show the "Link not found" message.
+
+---
+## Hosting
+
+Hosting this project is a piece of cake because Next.js integration with Vercel is excellent. 
+
+A simplified list of steps:
+1. Push your Next.js project to a GitHub repository
+2. Go to https://vercel.app and login with your GitHub account
+3. Import the `url-shortener` repository by clicking on the "New Project" button on the Vercel dashboard.
+
+You can also read about this in detail [here](https://vercel.com/docs/concepts/projects/overview).
+
+Once done with the above steps, head to project settings and add the environment variables we defined in our `.env.local` file to the Vercel project's environment variables.
+
+> You can also connect your custom domain to this project from the settings. 
+
+🎉 Tada! Your URL shortener is ready and hosted now.
+
+---
+
+## What's next?
+
+Well, you can continue to use this project as a REST API like I do or you can create a front-end to make it a web app.
+
+> Before making it a public web app, make sure you put in additional security.
+
+---
+
+You can clone this project from this [GitHub Repo](https://github.com/Anshuman71/url-shotener).
+
+---
+
+This article is not meant to be followed in production and should only be taken for learning purposes. 
+
+Many optimizations can be made in the above approach like using a better database or indexing it properly to make it faster.
+
+I hope you find this article helpful! Should you have any feedback or questions, please feel free to put them in the comments below.
+
+For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
+
+> Until next time
+
+ 
+
+    

@@ -27,7 +27,7 @@ const NavLinks = [
 export default function NavBar() {
   const completion = useReadingProgress();
   const router = useRouter();
-
+  console.log(router.pathname);
   return (
     <nav className="flex flex-row justify-between items-center print:hidden sticky z-50 top-0 bg-inherit py-3">
       <span
@@ -41,10 +41,12 @@ export default function NavBar() {
           {NavLinks.map((item) => (
             <Link passHref key={item.url} href={item.url}>
               <a
+                key={item.url}
                 className={clsx(
-                  "sm:mr-12 text-gray-400 last:mr-0 outline-none text-lg rounded p-1 px-4 first:pl-0 last:pr-0 sm:first:pl-4 sm:last:pr-4 hover:text-blue-400 focus:text-blue-400 focus:ring-2 ring-blue-400",
+                  "sm:mr-12 last:mr-0 font-medium outline-none text-lg rounded p-1 px-4 first:pl-0 last:pr-0 hover:text-blue-400 focus:text-blue-400 focus:ring-2 ring-blue-400",
                   {
-                    "text-blue-400 font-medium": router.pathname === item.url,
+                    "text-blue-400": router.pathname === item.url,
+                    "text-gray-400": router.pathname !== item.url,
                   }
                 )}
               >

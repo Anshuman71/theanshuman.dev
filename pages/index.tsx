@@ -148,9 +148,13 @@ const Home: NextPage<PageProps> = (props) => {
               <Article key={article.slug} article={article} />
             ))}
           </div>
-          <Link passHref href={"/articles"}>
-            <a className="mt-10 self-center p-2 px-4 text-md bg-slate-800 rounded text-blue-400 underline underline-offset-4">
-              View More
+          <Link href={"/articles"} passHref>
+            <a
+              className={
+                "mt-8 py-2 underline underline-offset-4 text-blue-400 tracking-wider inline-block"
+              }
+            >
+              View all articles
             </a>
           </Link>
         </Section>

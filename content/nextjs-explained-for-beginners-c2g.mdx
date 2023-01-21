@@ -1,0 +1,96 @@
+---
+title: Next.js for beginners
+cover: https://res.cloudinary.com/practicaldev/image/fetch/s--nn6gXPMx--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b77zc61h9msb5ywhn7xa.png
+description: Next.js is already a widely known framework for React applications when writing this article....
+published_at: Mon Apr 18 2022
+reading_time_in_minutes: 4
+tags: javascript, react, beginners, nextjs
+---
+
+**Next.js** is already a widely known framework for React applications when writing this article. Honestly, there are tons of reasons for it to be popular and widely adopted, but I'm not going to go into that rabbit hole for today (I've done it many times already 😎). Instead, I'll walk you through a series of questions (don't worry, I'll answer them with you) to explain it better.
+
+> **Disclaimer**: When I say for beginners I mean beginners in **Next.js**. This article is meant for developers who have been doing React for a while and who want to get serious in Application development with React. So, if you don't know the fundamentals React, reading up [React Docs](https://reactjs.org/docs/getting-started.html) instead would be a good idea.
+
+If you've decided to proceed, let's get the party started.
+
+<img width="100%" src="https://media.giphy.com/media/blSTtZehjAZ8I/giphy.gif" />
+
+---
+
+## What's Next.js?
+**Next.js** is a React _framework_ that provides additional optimizations and configurations out-of-the-box for developers. 
+
+<img width="100%" src="https://media.giphy.com/media/QfzMP70zmNQiDf5sGP/giphy.gif" />
+
+But, what does that mean?
+
+To answer this better, we should answer another question first.
+
+### Why is Next.js?
+
+The answer to this question starts with "What is React?", (_man, now you're just going in circles_), bear with me, my friend.
+
+> React is a _library_ for building web applications in a declarative fashion.
+
+React does many things for us. It also has great community and support but it lacks "opinion". It's a _library_, so it's minimal by definition and leaves a lot of heavy lifting on the developers like routing, asset management, and optimizations like code splitting. While this gives a lot of flexibility, it also leads to bad choices and poor application organization.
+
+This is where **Next.js** comes into the picture. It gives the right set of tools and guides you with a process to make the most out of them.
+
+It provides built-in support for
+- Directory-based routing
+- Pre-rendering to HTML for SEO (Search engine optimization)
+  - SSR (server-side rendering at request time)
+  - SSG (static site generation at build time)
+- API routes
+- Middlewares
+- Image optimization
+- Code splitting
+
+to name a few.
+
+It does all of this while keeping
+- developer experience optimal
+- maintenance overhead to a minimum
+
+---
+## How's Next.js?
+
+Wait, wait... before you get started about my bad English (_because you didn't watch Avengers: Infinity War_), I'd request you to watch [this video](https://www.youtube.com/watch?v=VIoYMIDB_iU) so you get the joke (that's really important, to me 😅).
+
+Coming back to the question, well **Next.js** does it by covering up the things developers want while building upon what React has provided. For example, React is excellent at developing applications with declarative code but it lacks routing (_as it doesn't have its own_), **Next.js** provides a perfect solution for path-based routing.
+
+**Next.js** became quite popular by solving the SEO problem with client-side applications including React. 
+
+Ideally React applications are rendered on the client/browser, which has a couple of drawbacks like
+- slow initial load due to large bundle size and JavaScript execution on the client
+- bad SEO due to client-side rendering
+- unnecessary network calls from client side leading to network waterfall
+
+**Next.js** solves this by pre-rendering React applications before sending the response to the user. 
+
+> Pre-rendering is compiling React components into their HTML layout on the server side. 
+
+Pre-rendering makes the user experience better as
+- it delivers a smaller JavaScript bundle, which reduces the time to download and process it on the client-side
+- rendering on the server is fast because of better computing power
+- data-fetching on the server saves us from network calls waterfall on the client. On top of that it'll be much faster if the data source is the **Next.js** API routes
+
+**Next.js** provides two methods of doing pre-rendering: _SSR_, which generates the HTML at the request time (good for pages using live data), and _SSG_, which produces the HTML at the build time (better for static pages).
+
+The below diagram explains the difference between _CSR_ (Client Side Rendering) versus _SSR_ (Server Side Rendering) versus _SSG_ (Static Site Generation)
+
+![CSR-SSR-SSG](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/pseksvb0vu4u48vyy053.png)
+
+Both _SSR_ and _SSG_ enable us to leverage the simplicity of React without compromising on user experience. **Next.js** being the great framework, picks the best rendering strategy for you based on how you've structured your page-making **Next.js** a robust framework for delivering production-ready applications with React.
+
+You can already see my love for **Next.js** (_very hard to hide_). I'll be unleashing this love by continuing this **Next.js** beginners course in articles and [YouTube](https://medium.com/r/?url=https%3A%2F%2Fwww.youtube.com%2FAnshumanBhardwaj) videos. 
+We'll discuss **Next.js** fundamentals in detail and build a production-ready application with **Next.js**, including development and deployment. So, make sure to follow me to get the latest updates.
+
+---
+
+I hope you find this article helpful! Should you have any feedback or questions, you can put them in the comments below. For more such articles, follow me on [Twitter](https://twitter.com/sun_anshuman)
+
+> Until next time
+
+ 
+    

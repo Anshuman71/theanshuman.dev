@@ -1,132 +1,175 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://theanshuman.dev/</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/services</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/about</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/free-cron-jobs-with-github-actions-31d6</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/asynchronous-loops-in-javascript-using-foreach-vs-map-vs-for-loop-5020</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/what-the-heck-is-ssg-static-site-generation-explained-with-nextjs-5cja</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/creating-a-read-progress-bar-in-react-and-tailwindcss-g1n</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/3-array-methods-every-javascript-developer-should-know-868</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/create-your-own-url-shortener-with-nextjs-and-mongodb-in-10-minutes-4fg</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/write-better-code-with-these-5-javascript-features-22km</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/nextjs-explained-for-beginners-c2g</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/3-ways-to-declare-variables-in-javascript-var-let-and-const-explained-45am</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/3-worst-things-to-do-in-an-interview-j01</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/the-right-way-to-use-localstorage-in-javascript-41a0</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/5-string-methods-every-javascript-developer-should-know-o2d</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/memoization-the-what-why-and-how-3ccn</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/4-ways-of-finding-elements-in-a-javascript-array-5g09</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/become-persistent-by-keeping-up-with-the-streak-166</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/create-a-live-twitter-profile-banner-to-show-followers-count-3k2h</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/automatically-tweet-popular-article-from-dev-246f</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/which-one-is-better-tld-4ila</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/my-first-100-followers-on-dev-193p</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://theanshuman.dev/articles/built-in-methods-of-promise-object-in-javascript-the-all-allsettled-any-and-race-explained-27p4</loc>
-  <lastmod>2022-08-07T08:58:59+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
-</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>https://theanshuman.dev/</loc>
+        <lastmod>2023-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://theanshuman.dev/articles</loc>
+        <lastmod>2023-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://theanshuman.dev/services</loc>
+        <lastmod>2023-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://theanshuman.dev/about</loc>
+        <lastmod>2023-01-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.80</priority>
+    </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/sending-login-notifications-to-users-using-auth0-actions-153e</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/nextjs-explained-for-beginners-c2g</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/3-ways-to-declare-variables-in-javascript-var-let-and-const-explained-45am</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/3-worst-things-to-do-in-an-interview-j01</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/the-right-way-to-use-localstorage-in-javascript-41a0</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/what-the-heck-is-ssg-static-site-generation-explained-with-nextjs-5cja</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/create-your-own-url-shortener-with-nextjs-and-mongodb-in-10-minutes-4fg</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/5-string-methods-every-javascript-developer-should-know-o2d</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/memoization-the-what-why-and-how-3ccn</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/4-ways-of-finding-elements-in-a-javascript-array-5g09</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/3-array-methods-every-javascript-developer-should-know-868</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/creating-a-read-progress-bar-in-react-and-tailwindcss-g1n</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/free-cron-jobs-with-github-actions-31d6</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/become-persistent-by-keeping-up-with-the-streak-166</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/create-a-live-twitter-profile-banner-to-show-followers-count-3k2h</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/automatically-tweet-popular-article-from-dev-246f</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/which-one-is-better-tld-4ila</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/write-better-code-with-these-5-javascript-features-22km</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/my-first-100-followers-on-dev-193p</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/built-in-methods-of-promise-object-in-javascript-the-all-allsettled-any-and-race-explained-27p4</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+       <url>
+            <loc>https://theanshuman.dev/articles/asynchronous-loops-in-javascript-using-foreach-vs-map-vs-for-loop-5020</loc>
+            <lastmod>2023-01-21</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+       </url>
+     
+   </urlset>
+ 

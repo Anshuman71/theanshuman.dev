@@ -1,0 +1,130 @@
+---
+title: 5 String methods every JavaScript developer should know
+cover: https://res.cloudinary.com/practicaldev/image/fetch/s--TBeFvViF--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tctr0e8et2ycy1eugtyl.png
+description: Dealing with Strings is inevitable in all programming languages, so it's great to know that...
+published_at: Mon Mar 07 2022
+reading_time_in_minutes: 3
+tags: javascript, beginners, webdev, programming
+---
+
+Dealing with Strings is inevitable in all programming languages, so it's great to know that JavaScript provides some amazing String manipulation functions right out of the box.
+
+Today we are going to see five such string methods to make your life easy as a developer.
+
+## includes
+
+One of the most common problems is to check if a string contains certain words or symbols. For example, checking if the user's email is from Gmail or Hotmail.
+
+The `includes` method checks if the string contains the occurrence of provided sub-string. It returns a boolean value.
+
+```ts
+
+let email = 'hi@theanshuman.dev'
+
+email.includes('gmail') // false
+
+email = 'sundar@gmail.com'
+
+email.includes('gmail') // true
+
+```
+
+> Tip: We can use the `endsWith` method for the above use case to make it more efficient.
+
+---
+
+## match
+
+The `match` method returns the occurrences of the sub-strings matching the Regex pattern provided.
+
+It is useful when we don't know the exact string but know the pattern of the string we are looking for. For example, we don't know the user's email but know that there will be one email mentioned in the string.
+
+![match-email](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ws80xd8gcj2zke8740i4.png)
+ 
+Another good case is to use it for matching groups from a Regex. For example, we have an unsubscribe URL that contains the **type** of newsletter and user auth **token**.
+
+The `match` method makes it super easy to extract the matching groups from the string, as named values.
+
+```js
+  
+const unsubscribeUrlPattern = /unsubscribe\/(?<type>[^/]+)\/(?<token>[^/]+)/
+
+const { type, token } = url.match(unsubscribeUrlPattern)?.groups ?? {}
+
+```
+
+![match-with-groups](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jcum9ilb8f5spohfr3ue.png)
+
+---
+
+## replaceAll
+
+You must have come across a use case where you want to update the text before rendering it to the user's view. For example, you got some _Jira_ ticket numbers in this release notes and you want to make the links so users can click on it to check them out.
+
+Well, that's exactly what `replaceAll` can help you with. It replaces all the instances of the given sub-string/regex with the second argument.
+
+```ts
+
+let notes = 'Please checkout TS-4550 for more details. Also, TS-5589 will have test instructions.'
+
+notes = notes.replaceAll(/TS-[0-9]+/g, '<a href="https://jira.com/$&" />')
+
+// $& is used to insert the matched substring i.e. TS-4550
+
+```
+
+![replaceAll](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iej2m78hqq0lyivgl0jc.png)
+
+---
+
+## trim
+
+The `trim` method is super handy when you're validating form inputs, user's tend to leave unnecessary white spaces in text inputs. 
+
+The `trim` method removes white space from both ends of a string and returns a new string, without modifying the original string.
+
+![Trim](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ifevno7yuzqy1eks0at4.png)
+
+---
+
+## toLowerCase
+
+You might already know this, but string comparison can be painful when you don't know whether the values coming from the other side are case-neutral or not.
+
+The best way to go about this is by making the values lowercase, so both values adhere to the same case. It comes very handy when comparing values on the server or client-side like user inputs with database values.
+
+```ts
+
+const userEmail = // value from input
+
+validateSignIn(userEmail.toLowerCase()) // to avoid case 
+// sensitive mis-match
+
+
+function validateSignIn(email) {
+    // check if email is available on back end
+}
+
+```
+
+In the above example, if we always send lowercase emails to the back end on both sign-up and sign-in, then we can avoid case-sensitive value bugs from the user's end.
+
+---
+
+That's it for today. I hope you find this article helpful!
+These are my top five picks, if you feel I missed some important methods, please feel free to comment below.
+
+For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
+
+> Until next time
+
+ 
+
+---
+
+## Resources
+
+[MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+
+    

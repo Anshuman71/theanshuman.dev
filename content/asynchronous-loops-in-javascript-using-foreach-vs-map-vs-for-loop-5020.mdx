@@ -1,0 +1,144 @@
+---
+title: Asynchronous loops in Javascript - using forEach, map, and for loop
+cover: https://res.cloudinary.com/practicaldev/image/fetch/s--uYBkJXWG--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/az0429ibcsk0iwgx5b4l.jpg
+description: Asynchronous operations are crucial when working with web applications. We can all agree how easy...
+published_at: Mon Jan 03 2022
+reading_time_in_minutes: 3
+tags: javascript, typescript, webdev, programming
+---
+
+Asynchronous operations are crucial when working with web applications. We can all agree how easy async/await has made our lives while dealing with asynchronous operations. 
+
+In this post, we are going to see how to use loops with async/await. 
+
+Before we dive into it, here are the utility functions I used for the demo
+
+```js
+
+// creates a logger function to print logs with function name
+function getLogger(fnName) {
+  return function logger(value, diffInMS) {
+    return console.log(
+      `${fnName}: Item ${value} finished waiting ${Math.round(
+        diffInMS / 1000
+      )} seconds later.`
+    );
+  };
+}
+
+// simulates an async flow, a network request for example
+async function waitFor(seconds) {
+  // used to create the fancy waterfall
+  fetch("https://random-data- 
+         api.com/api/stripe/random_stripe" + Math.random());
+
+  // the fake asynchronous task
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+}
+
+```
+
+---
+
+
+## The classic For loop
+
+```js
+const list = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10];
+
+export async function mainWithFor() {
+  const start = Date.now();
+  const logger = getLogger("mainWithFor");
+  for (const item of list) {
+    await waitFor(2);
+    const later = Date.now();
+    logger(item, later - start);
+  }
+}
+```
+
+Runs the code sequentially, one by one. Waiting for each `waitFor` to finish before proceeding to the next iteration.
+
+The image below shows a nice waterfall demonstration, look how each green section starts 2 seconds after the previous one. (don't worry about their duration, as it's a random endpoint. Only for the sake of waterfall depiction)
+
+![waterfall-for-loop](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/uuylmsiknaw9kn3ywdtf.png)
+
+You'll also notice that the logs appear at a 2-second difference, one by one. 
+
+![console-logs-sequence-for](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z4s9vhv19vfh5zps2dui.png)
+
+> A good use case for this approach would be to run sequential operations, where you want the next operation to run once the former has finished.
+
+---
+
+## The forEach higher-order method
+
+```js
+export async function mainWithForEach() {
+  const start = Date.now();
+  const logger = getLogger("mainWithForEach");
+  list.forEach(async (item) => {
+    await waitFor(2);
+    const later = Date.now();
+    logger(item, later - start);
+  });
+}
+
+```
+The `forEach` loop acts differently than the `for` loop, while the `for` loop `await` the iteration before moving further, the `forEach` loop executes all of the iterations simultaneously. So all the ten executions start at the same point and log after 2 seconds.
+
+![console-logs-forEach-loop](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5yfao6h9tg615n3nkuwy.png)
+
+We can also observe the same using a waterfall diagram, look how they all began at the same time. (Again please ignore the duration of each execution, it's random-api).
+
+![waterfall-forEach-loop](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/wgd5d76t4w1k6oa5yiph.png) 
+
+> A good use case for this approach would be to run parallel operations, where you don't care if the previous one finished or not. It's much faster compared to `for` loop. But there is a caveat to this approach: if the api you're requesting has some sort of rate-limiting setup then making simultaneous requests can backfire. 
+
+---
+
+## The map higher-order method
+
+```js
+export async function mainWithMap() {
+  const start = Date.now();
+  const logger = getLogger("mainWithMap");
+  const promises = list.map(async (item) => {
+    await waitFor(2);
+    const later = Date.now();
+    logger(item, later - start);
+  });
+  const finalAnswer = await Promise.all(promises)
+}
+```
+
+The `map` function behaves exactly the same as `forEach` in terms of async operations, meaning all of the callbacks start at the same time and log exactly after 2 seconds.
+
+On top of this, the `.map` returns an array of promises, (one promise per execution, in the same order). 
+
+Later we can do a `await Promise.all(promises)` to get the final answer array from it.
+
+_It should be noted that the Promise.all will reject completely if even a single one of the promises from the input array rejects._
+
+> `map` should be used at places where you would need to return some data based on each async operation. If that's not the case, sticking with `forEach` wouldn't be a bad choice.
+
+---
+
+Here is the link to [codesandbox](https://codesandbox.io/s/async-await-loops-4brdl), in case you want to try this out yourself. 
+
+I have also created a [YouTube video](https://www.youtube.com/watch?v=Ce1ywrKeStI) giving hands-on explanation to this post,
+
+---
+
+_I hope you enjoyed reading this article as much as I enjoyed writing it!_
+
+For more such posts, please follow me on [Twitter](https://twitter.com/sun_anshuman)
+
+> Until next time
+
+ 
+
+
+    
