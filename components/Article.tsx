@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArticleInList } from "../types";
 import Image from "next/image";
 import { randomNumberBetween } from "../constants";
+import ExternalLink from "../public/external.svg";
 
 const gradientColors = [
   "from-[#D4145A] to-[#FBB03B]",
@@ -42,12 +43,10 @@ export default function Article({ article }: { article: ArticleInList }) {
       <a
         target={isExternal ? "_blank" : ""}
         key={article.slug}
-        className={`group flex flex-col p-1 ${
-          gradients[randomNumberBetween(0, 3)]
-        } ${gradientColor} hover:bg-none focus:bg-none rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-blue-400`}
+        className={`group flex flex-col p-1  hover:bg-none focus:bg-none rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-blue-400`}
       >
-        <div className="h-full overflow-hidden">
-          <div className="relative rounded-t-lg overflow-hidden object-cover h-[45vw] w-full md:h-52 xl:h-40">
+        <div className="h-full overflow-hidden rounded-b-lg">
+          <div className="relative rounded-t-lg overflow-hidden h-[45vw] w-full md:h-52 xl:h-40">
             <Image
               alt="cover image"
               src={
@@ -61,7 +60,8 @@ export default function Article({ article }: { article: ArticleInList }) {
           <div className="bg-gray-800 p-4 h-full rounded-md rounded-t-none">
             <span className="flex flex-col flex-1 justify-between mb-4">
               <span className="text-xl block font-medium tracking-wider group-hover:underline">
-                {article.title}
+                {article.title}{" "}
+                {isExternal && <ExternalLink className="w-4 h-4 mb-1 inline" />}
               </span>
               <span className={"flex flex-col text-sm my-2 text-gray-400"}>
                 <span className="mr-4 text-gray-300">
@@ -77,13 +77,7 @@ export default function Article({ article }: { article: ArticleInList }) {
                     className="p-1 px-2 rounded bg-dark mr-2 mb-2"
                     key={item}
                   >
-                    <span
-                      className={`text-sm text-transparent bg-clip-text ${
-                        gradients[randomNumberBetween(0, 3)]
-                      } ${gradientColor} `}
-                    >
-                      {item}
-                    </span>
+                    <span className={`text-sm  text-blue-400`}>{item}</span>
                   </span>
                 ))}
               </span>
