@@ -26,7 +26,7 @@ export const experiences: LinkInformationType[] = [
 
 export const projects: LinkInformationType[] = [
   {
-    name: "Glossary",
+    name: "Glossary—bot for Slack",
     url: "https://useglossary.com",
   },
 ];
