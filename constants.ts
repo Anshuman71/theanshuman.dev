@@ -189,7 +189,7 @@ export const NUM_TO_WORD: { [k: number]: string } = {
   9: "nine",
 };
 
-function randomNumberBetween(min: number, max: number): number {
+export function randomNumberBetween(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 

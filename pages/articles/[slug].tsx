@@ -10,6 +10,7 @@ import { ArrowLeftIcon } from "@heroicons/react/outline";
 import hljs from "highlight.js/lib/core";
 import typescript from "highlight.js/lib/languages/typescript";
 import "highlight.js/styles/github-dark.css";
+import Script from "next/script";
 
 hljs.registerLanguage("typescript", typescript);
 
@@ -61,6 +62,12 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
           keywords={(article?.tag_list as string) || ""}
           readingTime={article.reading_time_minutes}
         />
+        <Script
+          async
+          id="convertkit-box"
+          data-uid="c1109ee281"
+          src="https://anshuman-bhardwaj.ck.page/c1109ee281/index.js"
+        />
         {error ? (
           <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
             No articles found
@@ -74,7 +81,7 @@ const Article: NextPage<PageProps> = ({ article, error }) => {
               {article?.tags &&
                 article?.tags?.map((item) => (
                   <span
-                    className="mr-2 mb-2 text-sm text-yellow-400 bg-slate-700 p-1 px-2 rounded"
+                    className="mr-2 mb-2 text-sm text-gray-200 bg-slate-700 p-1 px-2 rounded"
                     key={item}
                   >
                     #{item}

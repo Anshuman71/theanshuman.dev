@@ -5,7 +5,7 @@ export default function SectionHeading({
   className,
 }: PropsWithChildren<any>) {
   return (
-    <h2 className={`text-2xl lg:text-4xl mb-4 tracking-wider ${className}`}>
+    <h2 className={`text-3xl lg:text-5xl mb-8 tracking-wider ${className}`}>
       {children}
     </h2>
   );
