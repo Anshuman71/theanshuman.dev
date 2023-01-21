@@ -149,7 +149,7 @@ const Home: NextPage<PageProps> = (props) => {
             ))}
           </div>
           <Link passHref href={"/articles"}>
-            <a className="mt-10 self-center p-2 px-4 text-md bg-slate-800 rounded text-yellow-400 hover:underline">
+            <a className="mt-10 self-center p-2 px-4 text-md bg-slate-800 rounded text-blue-400 underline underline-offset-4">
               View More
             </a>
           </Link>
