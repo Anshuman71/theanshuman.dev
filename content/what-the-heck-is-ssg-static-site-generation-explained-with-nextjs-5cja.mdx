@@ -1,13 +1,16 @@
 ---
-title: What the heck is SSG—Static site generation explained with Next.js
+title: What the heck is SSG— Static site generation explained with Next.js
 cover: https://res.cloudinary.com/practicaldev/image/fetch/s--g6ZYxBnm--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n3fmh16nvurk3ct1ewen.png
-description: If you are a web developer and you don't live under a rock, you must have come across this
+description: If you are a web developer &amp;&amp; you don't live under a rock, you must have come across this...
 published_at: Mon Mar 21 2022
 reading_time_in_minutes: 5
+positive_reactions_count: 35
+page_views_count: 7791
 tags: javascript, nextjs, react, beginners
+canonical_url: https://theanshuman.dev/articles/what-the-heck-is-ssg-static-site-generation-explained-with-nextjs-5cja
 ---
 
-If you are a web developer && you don't live under a rock, you must have come across this buzzword called "SSG".
+If you are a web developer && you don't live under a rock, you must have come across this buzzword called "SSG". 
 
 In the next 5 minutes, we will learn it down to the basics.
 
@@ -15,7 +18,8 @@ In the next 5 minutes, we will learn it down to the basics.
 
 ## What is SSG?
 
-Static Site Generation a.k.a. SSG is pre-rendering your React app into HTML at build time.
+Static Site Generation a.k.a. SSG is pre-rendering your React app into HTML at build time. 
+
 
 ![SSGvsSSRvsCSR](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2xl0ekycmhny49mns4a1.png)
 
@@ -25,18 +29,16 @@ Pre-rendering to HTML means that we will convert the React Component to an HTML 
 
 That's what server-side rendering is, you might be wondering.
 
-Yes, it is, the **Static** in SSG comes from the fact that this whole process doesn't happen for each user request (like SSR) instead of at the build time, making SSG even faster than Server-side rendering.
+Yes, it is, the **Static** in  SSG comes from the fact that this whole process doesn't happen for each user request (like SSR) instead of at the build time, making SSG even faster than Server-side rendering.
 
 In short, SSG will make the HTML pages out of a React app at the build time so it doesn't have to do it for every request, and neither does the browser have to do it on the client-side.
 
----
-
+--- 
 ## Why do we need SSG?
 
 SSG exists to serve a specific use case, serving dynamic pages built in React as HTML.
 
 What's the benefit you ask?
-
 - **SEO**, search engine optimisation is one of the top benefits of doing SSG as it make indexing the pages easy for the crawlers.
 - **Speed**: As you can guess, serving an HTML page is much faster for the end-user because the browser doesn't have to do much processing upfront. The pre-rendering makes it easy for the browser to fetch the HTML and render it straight up.
 - **Caching with CDNs**: Building HTML pages opens the possibility for CDN caching to show its charm. The pages are stored closer to the user globally and hence can be accessed much faster. Every request doesn't have to wait for the server to render the page, it just receives the page from CDN, saving us compute resources and money.
@@ -52,7 +54,6 @@ While you can use SSG in any scenario as long as the page can be rendered at the
 > Tip: An easy way to know if you should use SSG is by answering: "Can you pre-render the page ahead of a user's request?" If the answer is yes, then you should choose Static Generation.
 
 ---
-
 ## Using Next.js for SSG
 
 Building Static pages with Next.js is simple. It works pretty similarly to building any other page i.e by creating a new file in the `pages` directory.
@@ -80,10 +81,15 @@ export async function getStaticProps() {
 }
 
 const FirstSSG = ({ data }) => {
-  return <main>{/* more html content */}</main>;
-};
+ return (
+      <main>
+        {/* more html content */}
+      </main>
+ )
+}
 
 export default FirstSSG;
+
 ```
 
 > Note: `getStaticProps` does not have access to the incoming request (such as query parameters or HTTP headers) because it runs at the build time and not at the request time.
@@ -94,7 +100,7 @@ Let's create a dynamic route `./pages/[id].tsx`
 
 Apart from the `getStaticProps` for page-specific data, Next.js now also needs to figure out what are all the possible paths for this route, because Next.js will have to render the pages for these paths at the build time.
 
-For this purpose, Next.js expects a `getStaticPaths` method which will list down all the possible paths for a dynamic route at the build time. For example, if it is a dynamic blog page we will need to list down all the available blogs as paths.
+For this purpose, Next.js expects a `getStaticPaths` method which will list down all the possible paths for a dynamic route at the build time. For example, if it is a dynamic blog page we will need to list down all the available blogs as paths. 
 
 The `paths` returned by `getStaticPaths` contains a `params` object which will be passed to the `getStaticProps`. You can use the `params` to pass the data about the path, like the blog slug or id, which can later be used by the `getStaticProps` to get data for the page.
 
@@ -137,7 +143,6 @@ That's all you need to do in order to build a Static website using Next.js.
 It can't be all rosy, can it? Let's talk about some pitfalls.
 
 ---
-
 ## Pitfalls
 
 1. One of the biggest drawbacks of this approach is the build time. If you have thousands of pages, building all of them will take a lot of time. I know there are solutions like _Incremental Static Regeneration_ and `fallback` prop, which can be used in conjunction to get around this. We'll see this in a bit.
@@ -146,7 +151,6 @@ It can't be all rosy, can it? Let's talk about some pitfalls.
 ---
 
 ## The `fallback` option
-
 As we discussed above, there is a `fallback` option that can be returned from the `getStaticPaths` and it is used for the paths which were not in the `paths` list returned from `getStaticPaths`.
 
 ![fallback option explained](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kt4w697pe91v2em6wxxx.png)
@@ -160,7 +164,6 @@ The `fallback` option can be extremely useful for apps with thousands of pages, 
 ## Why Next.js?
 
 I prefer Next.js because it provides both the options,
-
 1. Server-side rendering
 2. Static site generation
 
@@ -173,3 +176,7 @@ It also provides great integration with the Vercel cloud platform which allows e
 That's it for this one. I'll be writing another article explaining _Incremental Static Regeneration_ soon. I hope you find this article helpful! Should you have any feedback or questions, please feel free to put them in the comments below. For more such articles, please follow me on [Twitter](https://twitter.com/sun_anshuman)
 
 > Until next time
+
+ 
+
+    

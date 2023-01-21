@@ -1,4 +1,6 @@
-import { DEV_API } from "./constants";
+import { ArticleInList } from "./types";
+import { readdir, readFile } from "fs/promises";
+import matter from "gray-matter";
 
 export function removeDevLinks(markdown: string): string {
   let finalString = markdown;
@@ -18,11 +20,14 @@ export function removeDevLinks(markdown: string): string {
   return finalString;
 }
 
-export async function getDevArticles() {
-  const res = await fetch(`${DEV_API.baseUrl}/articles/me/published`, {
-    headers: {
-      "api-key": DEV_API.key,
-    },
+export async function getArticles() {
+  const res = await readdir("./content");
+  const articles = await Promise.all(
+    res.map((item) => readFile(`./content/${item}`, { encoding: "utf8" }))
+  );
+  return articles.map((item) => {
+    const data = matter(item).data;
+    data.tag_list = data.tags.split(", ");
+    return data as ArticleInList;
   });
-  return res.json();
 }

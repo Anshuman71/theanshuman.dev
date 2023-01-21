@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import MetaData from "../../components/MetaData";
 import { ArticleInList } from "../../types";
-import { getDevArticles } from "../../utils";
+import { getArticles } from "../../utils";
 import Footer from "../../components/Footer";
 import { useState } from "react";
 import Article from "../../components/Article";
@@ -24,7 +24,7 @@ enum SORT_TYPE {
 }
 
 export async function getStaticProps() {
-  const data = await getDevArticles();
+  const data = await getArticles();
   if (!data) {
     return {
       notFound: true,

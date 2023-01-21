@@ -13,7 +13,7 @@ import SectionHeading from "../components/SectionHeading";
 import Section from "../components/Section";
 import MetaData from "../components/MetaData";
 import Footer from "../components/Footer";
-import { getDevArticles } from "../utils";
+import { getArticles } from "../utils";
 import { ArticleInList } from "../types";
 import Article from "../components/Article";
 import Link from "next/link";
@@ -26,7 +26,7 @@ interface PageProps {
 
 export async function getStaticProps() {
   try {
-    const data = await getDevArticles();
+    const data = await getArticles();
     const topArticlesFromDev = data
       .sort(
         (a: ArticleInList, b: ArticleInList) =>

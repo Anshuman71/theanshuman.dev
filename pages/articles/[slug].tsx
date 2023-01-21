@@ -1,8 +1,6 @@
 import type { GetStaticPropsContext, NextPage } from "next";
 import Link from "next/link";
 import MetaData from "../../components/MetaData";
-import { DEV_API } from "../../constants";
-import markdownToHtml, { getDevArticles, removeDevLinks } from "../../utils";
 import { Article } from "../../types";
 import Footer from "../../components/Footer";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
