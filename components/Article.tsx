@@ -74,10 +74,10 @@ export default function Article({ article }: { article: ArticleInList }) {
               <span className="flex flex-row flex-wrap mt-2">
                 {article.tag_list.slice(0, 3).map((item) => (
                   <span
-                    className="p-1 px-2 rounded bg-dark mr-2 mb-2"
+                    className="p-1 px-2 rounded bg-zinc-900 mr-2 mb-2"
                     key={item}
                   >
-                    <span className={`text-sm  text-yellow-500`}>{item}</span>
+                    <span className={`text-sm text-yellow-600`}>{item}</span>
                   </span>
                 ))}
               </span>

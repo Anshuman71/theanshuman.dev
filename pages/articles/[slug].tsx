@@ -129,7 +129,7 @@ const Article: NextPage<PageProps> = ({ error, source }) => {
               {frontmatter?.tags &&
                 frontmatter?.tags.split(", ")?.map((item: string) => (
                   <span
-                    className="mr-2 mb-2 text-sm text-gray-200 bg-slate-700 p-1 px-2 rounded"
+                    className="mr-2 mb-2 text-sm text-yellow-600 bg-zinc-800 p-1 px-2 rounded"
                     key={item}
                   >
                     #{item}
