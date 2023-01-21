@@ -4,6 +4,7 @@ import {
   externalArticles,
   mainVariants,
   NUM_TO_WORD,
+  projects,
   publishers,
 } from "../constants";
 import ExternalLink from "../components/ExternalLink";
@@ -109,6 +110,17 @@ const Home: NextPage<PageProps> = (props) => {
           </p>
           <div>
             {experiences.map((exp) => (
+              <ExternalLink key={exp.url} {...exp} />
+            ))}
+          </div>
+        </Section>
+        <Section>
+          <SectionHeading>Indie hacking</SectionHeading>
+          <p className="text-lg">
+            Early morning I focus on my indie projects and try new technologies.
+          </p>
+          <div>
+            {projects.map((exp) => (
               <ExternalLink key={exp.url} {...exp} />
             ))}
           </div>

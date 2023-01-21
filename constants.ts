@@ -24,6 +24,13 @@ export const experiences: LinkInformationType[] = [
   },
 ];
 
+export const projects: LinkInformationType[] = [
+  {
+    name: "Glossary",
+    url: "https://useglossary.com",
+  },
+];
+
 export const publishers: LinkInformationType[] = [
   {
     name: "Auth0 Ambassador",
