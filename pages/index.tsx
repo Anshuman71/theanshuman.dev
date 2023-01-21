@@ -16,7 +16,8 @@ import { getDevArticles } from "../utils";
 import { ArticleInList } from "../types";
 import Article from "../components/Article";
 import Link from "next/link";
-
+import Image from "next/image";
+import Me from "../public/me.jpeg";
 interface PageProps {
   counter: number;
   articles: ArticleInList[];
@@ -53,21 +54,21 @@ const Home: NextPage<PageProps> = (props) => {
       <MetaData />
       <motion.main variants={mainVariants} className={"content-container"}>
         <Section>
-          <h1 className={"text-gray-100 text-3xl md:text-5xl overflow-hidden"}>
-            Hi, I&apos;m{" "}
-            {"Anshuman".split("").map((char, index) => (
-              <motion.p
-                key={char + index}
-                className={"inline-block text-yellow-400"}
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                transition={{ delay: 0.3 + index * 0.15, duration: 0.35 }}
-              >
-                {char}
-              </motion.p>
-            ))}
-          </h1>
-          <p className={"text-gray-200 text-lg mt-4 leading-loose"}>
+          <div className="flex flex-row justify-between items-center">
+            <h1 className={"text-gray-100 font-medium text-3xl md:text-6xl"}>
+              👋 Hi, I&apos;m <br />
+              <span className="block my-4">Anshuman Bhardwaj</span>
+            </h1>
+            <Image
+              alt="Anshuman Bhardwaj"
+              width={192}
+              placeholder="blur"
+              className="rounded-full"
+              height={192}
+              src={Me}
+            />
+          </div>
+          <p className={"text-gray-200 text-lg mt-10 leading-loose"}>
             {" "}
             I&apos;m a creative Software Engineer with more than{" "}
             <b>{experienceInYears}</b> years of experience in software

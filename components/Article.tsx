@@ -44,7 +44,7 @@ export default function Article({ article }: { article: ArticleInList }) {
         key={article.slug}
         className={`group flex flex-col p-1 ${
           gradients[randomNumberBetween(0, 3)]
-        } ${gradientColor} rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-blue-400`}
+        } ${gradientColor} hover:bg-none focus:bg-none rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-blue-400`}
       >
         <div className="h-full overflow-hidden">
           <div className="relative rounded-t-lg overflow-hidden object-cover h-[45vw] w-full md:h-52 xl:h-40">

@@ -8,9 +8,8 @@ import { useState } from "react";
 import Article from "../../components/Article";
 import { SearchIcon } from "@heroicons/react/outline";
 import { externalArticles, publishers } from "../../constants";
-import SectionHeading from "../../components/SectionHeading";
+import Script from "next/script";
 import ExternalLink from "../../components/ExternalLink";
-import Section from "../../components/Section";
 
 interface PageProps {
   articles: ArticleInList[];
@@ -58,6 +57,12 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
     <>
       <main className="content-container">
         <MetaData title={`Blog | Anshuman Bhardwaj`} />
+        <Script
+          async
+          id="convertkit-box"
+          data-uid="c1109ee281"
+          src="https://anshuman-bhardwaj.ck.page/c1109ee281/index.js"
+        />
         <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>
           Recent Articles
         </h1>
@@ -122,7 +127,7 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
           {filteredArticles.length ? (
             <div
               className={
-                "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 gap-y-6"
+                "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 gap-y-10"
               }
             >
               {filteredArticles.map((article) => (

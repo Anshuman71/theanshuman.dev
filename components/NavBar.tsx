@@ -25,30 +25,24 @@ const NavLinks = [
 export default function NavBar() {
   const completion = useReadingProgress();
   const router = useRouter();
+  console.log(router.pathname);
   return (
-    <nav className="print:hidden sticky z-50 top-0 backdrop-blur-3xl py-3">
+    <nav className="print:hidden sticky z-50 top-0 bg-inherit py-3">
       <span
         style={{
           transform: `translateX(${completion - 100}%)`,
         }}
-        className={`absolute bottom-0 w-full h-1 bg-yellow-400`}
+        className={`absolute bottom-0 w-full h-0.5 bg-blue-400`}
       />
       <div className="w-full flex flex-row items-end px-6 lg:px-0 lg:w-3/4 xl:max-w-[990px] mx-auto ">
-        <h2
-          className={
-            "hidden self-start text-yellow-400 lg:inline-block text-3xl"
-          }
-        >
-          Anshuman Bhardwaj
-        </h2>
-        <div className="w-full sm:w-auto flex flex-row justify-between mx-auto sm:justify-start lg:mr-0 lg:ml-16">
+        <div className="w-full sm:w-auto flex flex-row justify-between sm:justify-start">
           {NavLinks.map((item) => (
             <Link passHref key={item.url} href={item.url}>
               <a
                 className={clsx(
-                  "sm:mr-24 last:mr-0 outline-none text-lg rounded p-1 px-4 first:pl-0 last:pr-0 sm:first:pl-4 sm:last:pr-4 hover:text-yellow-400 focus:text-yellow-400 focus:ring-2 ring-yellow-400",
+                  "sm:mr-12 text-gray-400 last:mr-0 outline-none text-lg rounded p-1 px-4 first:pl-0 last:pr-0 sm:first:pl-4 sm:last:pr-4 hover:text-blue-400 focus:text-blue-400 focus:ring-2 ring-blue-400",
                   {
-                    "text-yellow-400": router.pathname === item.url,
+                    "text-blue-400 font-medium": router.pathname === item.url,
                   }
                 )}
               >
