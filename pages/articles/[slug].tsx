@@ -103,7 +103,7 @@ const Article: NextPage<PageProps> = ({ error, source }) => {
         <MetaData
           title={`${frontmatter?.title} | Anshuman Bhardwaj`}
           description={frontmatter?.description || ""}
-          imageUrl={frontmatter?.cover}
+          imageUrl={frontmatter?.cover_image}
           keywords={(frontmatter?.tags as string) || ""}
           readingTime={frontmatter?.reading_time_minutes}
         />
@@ -134,9 +134,9 @@ const Article: NextPage<PageProps> = ({ error, source }) => {
                   </span>
                 ))}
             </div>
-            {frontmatter?.cover && (
+            {frontmatter?.cover_image && (
               <img
-                src={frontmatter?.cover}
+                src={frontmatter?.cover_image}
                 alt="cover image"
                 className="w-full my-4 lg:my-10 rounded"
               />
