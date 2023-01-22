@@ -16,7 +16,8 @@ Scheduling tasks can be a handy way to automate work, and Cron Jobs is the way t
 Cron jobs are meant for performing regularly scheduled actions such as backups, report generation, and so on. Each of those tasks should be configured to recur indefinitely (for example: once a day/week/month); you can define the point in time within that interval when the job should start.
 
 ## What is a Cron job?
-A cron job is a task that runs periodically on a given schedule, defined by the Cron expression (* * * * *).
+
+A cron job is a task that runs periodically on a given schedule, defined by the Cron expression (\* \* \* \* \*).
 
 ```
 # ┌────────── minute (0 - 59)
@@ -24,7 +25,7 @@ A cron job is a task that runs periodically on a given schedule, defined by the 
 # │ │ ┌────────── day of the month (1 - 31)
 # │ │ │ ┌────────── month (1 - 12)
 # │ │ │ │ ┌────────── day of the week (0 - 6)
-# │ │ │ │ │                                  
+# │ │ │ │ │
 # │ │ │ │ │
 # │ │ │ │ │
 # * * * * *
@@ -36,30 +37,35 @@ Don't worry about the syntax, we can use [Crontab Guru](https://crontab.guru/) t
 
 There are a lot of ways to set up Cron Jobs
 
-### at the OS level
+### At the OS level
 
 1. You can use the inbuilt [Windows scheduler](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)
 2. If you are on Ubuntu, you can use the [Cron Utility](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-ubuntu-1804)
 
 But most of the time, you would want to keep it away from OS, and closer to your application for that, we can use
 
-### at the Application level
+### At the Application level
+
 1. use packages like [Cron](https://www.npmjs.com/package/cron) to create a cron job in your NodeJS application, but this cannot run on a serverless stack
-2. use a serverless solution like [AWS Lambda]( https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html), but it requires a lot of setup and credit card
+2. use a serverless solution like [AWS Lambda](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/RunLambdaSchedule.html), but it requires a lot of setup and credit card
 3. use Firebase cloud functions with scheduling, it is a lot simpler than AWS but requires credit card.
 4. use a SAAS tool like [EasyCron](https://www.easycron.com)
 
-
 ### Our Winner (GitHub actions)
+
 While all of the above are good solutions, the simplest way to do this for hobby projects would be to use GitHub actions because it
+
 1. is easy to set up through code and coupled with the application code itself
 2. is free for public repos
 3. provides up to 4000 minutes/month for private repos (extremely hard to consume)
 4. allows us to create unlimited jobs and schedules
 
-I am sure by now you must be asking 
+I am sure by now you must be asking
 
-<img width="100%" src="https://media.giphy.com/media/jskVGCYTsc3lGM1zpB/giphy.gif" />
+<img
+  className="w-96 h-96"
+  src="https://media.giphy.com/media/jskVGCYTsc3lGM1zpB/giphy.gif"
+/>
 
 ## How do GitHub Actions help?
 
@@ -67,24 +73,25 @@ GitHub Actions makes it easy to automate all your software workflows, now with w
 
 Now to set up your own Cron job using GitHub actions,
 
-1. Go to your GitHub repository (create one if required).  
+1. Go to your GitHub repository (create one if required).
 2. Go to the Actions tab and create a new action workflow.
    ![Create new action](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p2j6r78ekmgp9919pu35.png)
- 
+
 3. Add your Cron schedule and task to it. Commit the change.
-   
+
 ```yaml
-   # This is a basic workflow to help you get started with Actions
+# This is a basic workflow to help you get started with Actions
 
-name: First Cron Job
+name:
+  First Cron Job
 
-       # Controls when the workflow will run
+  # Controls when the workflow will run
 on:
   # Triggers the workflow every 5 minutes
   schedule:
     - cron: "*/5 * * * *"
 
-     # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+      # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "cron"
   cron:
@@ -99,8 +106,8 @@ jobs:
 ```
 
 This will run a job to echo "Hello, world!" every 5 minutes.
-   
-Go to the Actions tab and wait for the log to show up. When you click on any execution you'll see details like this          
+
+Go to the Actions tab and wait for the log to show up. When you click on any execution you'll see details like this  
 ![Execution details](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6j2sodmnw7ye6l897bd.png)
 
 That is how you can schedule a Cron job using GitHub actions.
@@ -113,11 +120,11 @@ See how the job scheduled to run every 5 minutes was delayed a couple of times. 
 
 ## How do I use Cron Jobs with GitHub Actions?
 
-I use GitHub Actions to regularly update my Twitter banner with the latest DEV follower count and Tweet milestones like 500 views on an article or reaching 100 followers on my DEV account. 
+I use GitHub Actions to regularly update my Twitter banner with the latest DEV follower count and Tweet milestones like 500 views on an article or reaching 100 followers on my DEV account.
 
 You can read my articles explaining the above use cases [here](https://dev.to/anshuman_bhardwaj/automatically-tweet-popular-article-from-dev-246f).
 
-You can find the GitHub repo [here](https://github.com/Anshuman71/tweet-my-articles). Feel free to fork and use for your profile. 
+You can find the GitHub repo [here](https://github.com/Anshuman71/tweet-my-articles). Feel free to fork and use for your profile.
 
 ---
 
@@ -132,6 +139,3 @@ That's it for now. I hope you find this article helpful! Should you have any fee
 For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
 
 > Until next time
-
- 
-    

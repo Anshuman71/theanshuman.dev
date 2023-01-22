@@ -11,17 +11,21 @@ tags: javascript, webdev, beginners, react
 canonical_url: https://theanshuman.dev/articles/3-ways-to-declare-variables-in-javascript-var-let-and-const-explained-45am
 ---
 
-At the time of writing this article there are only _two_ popular ways of declaring variables in JavaScript: `let` and `const`, poor `var` is long lost in the darkness of misunderstood principles. 
+At the time of writing this article there are only _two_ popular ways of declaring variables in JavaScript: `let` and `const`, poor `var` is long lost in the darkness of misunderstood principles.
 
 The idea behind writing this article is to try and clear up the air around why new developers are sceptical about using `var` and every time I ask this question in an interview all I get to hear is "var is bad", "var makes global variables" bla, bla.
 
 ## tldr;
+
 - `var` is function scoped, that is it'll only be accessible in the scope of the function it's declared in.
 - `let` and `const` are block-scoped, that is they'll only be accessible in the scope of the block they're declared in.
 
 Those who are looking for a deeper explanation should continue reading.
 
-<img width="100%" src="https://media.giphy.com/media/3oKIPbNb1vWdftiVLq/giphy.gif" />
+<img
+  className="w-96 h-96"
+  src="https://media.giphy.com/media/3oKIPbNb1vWdftiVLq/giphy.gif"
+/>
 
 ## var
 
@@ -45,9 +49,10 @@ because the interpreter sees this code like
 ```ts
 var test; // undefined is the default value
 console.log(test); // undefined
-test = "512"
+test = "512";
 console.log(test); // 512
 ```
+
 ---
 
 ## const and let
@@ -73,14 +78,10 @@ console.log(test);
 
 ## Conclusion
 
-> Every tool is build for serving some purpose, we should utilise for it's goodness and not just follow the herd criticising it. 
+> Every tool is build for serving some purpose, we should utilise for it's goodness and not just follow the herd criticising it.
 
-I'll be writing another article explaining how we can best use these tools. 
+I'll be writing another article explaining how we can best use these tools.
 
 That's it for this one. I hope you find this article helpful! Should you have any feedback or questions, please feel free to put them in the comments below. For more such articles, please follow me on [Twitter](https://twitter.com/sun_anshuman)
 
 > Until next time
-
- 
-
-    

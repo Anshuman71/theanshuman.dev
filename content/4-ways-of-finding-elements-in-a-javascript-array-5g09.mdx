@@ -15,11 +15,15 @@ Arrays are the building blocks for data-based web apps. We can store and manipul
 
 Today, we are going to see 4 ways to find an element in an Array, along with some use cases explained with examples.
 
-<img width="100%" src="https://media.giphy.com/media/CjmvTCZf2U3p09Cn0h/giphy-downsized.gif" />
+<img
+  className="w-96 h-96"
+  src="https://media.giphy.com/media/CjmvTCZf2U3p09Cn0h/giphy-downsized.gif"
+/>
 
 I know, I know...
 
 ---
+
 ## find
 
 the `find` method returns the first item that returns true for the passed callback condition, otherwise returns `undefined` if all items return false for the callback condition.
@@ -27,21 +31,23 @@ the `find` method returns the first item that returns true for the passed callba
 ```ts
 const numbers = [1, 3, 4, 6, 10];
 
-numbers.find(element => element > 6); // 10
+numbers.find((element) => element > 6); // 10
 
-numbers.find(element => element > 10); // undefined
+numbers.find((element) => element > 10); // undefined
 ```
 
 ---
+
 ## findIndex
+
 the `findIndex` method returns the index of the first item that returns true for the passed callback condition, otherwise returns `-1` if all items return false for the callback condition.
 
 ```ts
 const numbers = [1, 3, 4, 6, 10];
 
-numbers.findIndex(element => element > 6); // 4
+numbers.findIndex((element) => element > 6); // 4
 
-numbers.findIndex(element => element > 10); // -1
+numbers.findIndex((element) => element > 10); // -1
 ```
 
 > The find methods are useful when you don't know exactly what you're looking for, but you know a way to identify it. For instance, you know the user's email but not the complete object.
@@ -63,8 +69,10 @@ numbers.indexOf(16); // -1
 > The `indexOf` uses the same comparison logic as `===`. Hence, using it on an array of Object will not be a good idea.
 
 ---
+
 ## lastIndexOf
-the `lastIndexOf` methods similar to `indexOf` we saw above, the only difference being it starts the look up from the tail end of the array. 
+
+the `lastIndexOf` methods similar to `indexOf` we saw above, the only difference being it starts the look up from the tail end of the array.
 
 So, it's a good idea to use `lastIndexOf` if you know that the element has a higher chance of being in the latter half.
 
@@ -76,10 +84,10 @@ numbers.lastIndexOf(10); // 4
 numbers.lastIndexOf(16); // -1
 ```
 
-
 > The `indexOf` methods are useful when you know exactly what you're looking for. For instance, it's best to use them for primitive data types like number or strings.
 
 ---
+
 ## Summary
 
 To summarise, I would suggest using
@@ -98,10 +106,8 @@ For more such articles, please follow me on [Twitter](https://twitter.com/sun_an
 
 > Until next time
 
- 
-
 ---
+
 ## Resources
 
 [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-    
