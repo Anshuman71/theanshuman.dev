@@ -2,6 +2,7 @@ const { writeFileSync } = require("fs");
 const PROD_URL = "https://theanshuman.dev";
 const { format } = require("date-fns");
 const axios = require("axios");
+const { readdir } = require("fs/promises");
 require("dotenv").config();
 
 const DEV_API = {
@@ -20,9 +21,8 @@ async function getDevArticles() {
 }
 
 async function generateSiteMap() {
-  let blogs = await getDevArticles();
-
-  blogs = blogs.map((item) => item.slug);
+  let blogs = await readdir(`./content`);
+  blogs = blogs.map((item) => item.replace(".mdx", ""));
   const lastModified = format(new Date(), "yyyy-MM-dd");
   const file = `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
