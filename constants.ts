@@ -29,6 +29,10 @@ export const projects: LinkInformationType[] = [
     name: "Glossary—bot for Slack",
     url: "https://useglossary.com",
   },
+  {
+    name: "Crux—summarize your Slack conversations",
+    url: "https://getcrux.app",
+  },
 ];
 
 export const publishers: LinkInformationType[] = [
@@ -213,6 +217,20 @@ function randomLikes() {
 }
 
 export const externalArticles: ArticleInList[] = [
+  {
+    canonical_url: "https://clerk.dev/blog/conditional-rendering-react",
+    slug: "conditional-rendering-react",
+    title: "Guide to Conditional Rendering in React",
+    description:
+      "Learn how conditional rendering is used to show a personalized UI, complete a user flow without changing routes, or show a loading or error state.",
+    cover_image:
+      "https://clerk.dev/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fe1ql88v4%2Fproduction%2F92684dd335bfba1c2d2b73a657e146eb7c4a93ed-1200x630.png%3Ffit%3Dmax%26auto%3Dformat&w=1200&q=75",
+    tag_list: ["React", "Clerk"],
+    reading_time_minutes: 7,
+    published_at: "Thu Jan 26 2023",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
   {
     canonical_url: "https://hygraph.com/blog/build-elearning-platform",
     slug: "build-elearning-platform",
