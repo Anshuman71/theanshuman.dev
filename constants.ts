@@ -26,7 +26,7 @@ export const experiences: LinkInformationType[] = [
 
 export const projects: LinkInformationType[] = [
   {
-    name: "Glossary—bot for Slack",
+    name: "Glossary—acronyms in Slack",
     url: "https://useglossary.com",
   },
   {
@@ -217,6 +217,20 @@ function randomLikes() {
 }
 
 export const externalArticles: ArticleInList[] = [
+  {
+    canonical_url:
+      "https://www.courier.com/guides/facebook-like-notification-system",
+    slug: "facebook-like-notification-system",
+    title: "How To Implement a Facebook-Like Web Notification System",
+    description:
+      "Create a web notification system like Facebook's using JavaScript. This step-by-step tutorial covers all the necessary steps.",
+    cover_image: "",
+    tag_list: ["React", "Courier", "Notification"],
+    reading_time_minutes: 7,
+    published_at: "Thu Feb 16 2023",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
   {
     canonical_url: "https://clerk.dev/blog/conditional-rendering-react",
     slug: "conditional-rendering-react",

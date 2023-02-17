@@ -3,6 +3,7 @@ import { ArticleInList } from "../types";
 import Image from "next/image";
 import { randomNumberBetween } from "../constants";
 import ExternalLink from "../public/external.svg";
+import DefaultImage from "../public/assets/default.jpg";
 
 const gradientColors = [
   "from-[#D4145A] to-[#FBB03B]",
@@ -49,10 +50,7 @@ export default function Article({ article }: { article: ArticleInList }) {
           <div className="relative rounded-t-lg overflow-hidden h-[45vw] w-full md:h-52 xl:h-40">
             <Image
               alt="cover image"
-              src={
-                article.cover_image ||
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-              }
+              src={article.cover_image || DefaultImage}
               layout={"fill"}
               objectFit={"cover"}
             />
