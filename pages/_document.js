@@ -6,11 +6,11 @@ class MyDocument extends Document {
       <Html lang={"en"}>
         <Head />
         <script
-          async
           defer
-          data-website-id="adce9dab-0e15-44be-919e-5fb06b21e6b4"
-          src="https://umami.theanshuman.dev/umami.js"
+          data-domain="theanshuman.dev"
+          src="https://plausible.theanshuman.dev/js/script.js"
         ></script>
+        <script>{`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}</script>
         <body>
           <Main />
           <NextScript />
