@@ -12,6 +12,7 @@ module.exports = {
   },
   images: {
     domains: [
+      "retool.com",
       "res.cloudinary.com",
       "cdn.jsdelivr.net",
       "hygraph.com",

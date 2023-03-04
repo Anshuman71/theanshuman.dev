@@ -219,6 +219,20 @@ function randomLikes() {
 export const externalArticles: ArticleInList[] = [
   {
     canonical_url:
+      "https://retool.com/blog/building-an-sql-server-admin-panel-in-retool/",
+    slug: "building-an-sql-server-admin-panel-in-retool",
+    title: "Building an SQL Server Admin Panel in Retool",
+    description:
+      "Create a web notification system like Facebook's using JavaScript. This step-by-step tutorial covers all the necessary steps.",
+    cover_image: "https://retool.com/blog/content/images/2023/03/MSSQL.jpg",
+    tag_list: ["Retool", "SQL Server", "Dashboard"],
+    reading_time_minutes: 11,
+    published_at: "Wed Mar 1 2023",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
+    canonical_url:
       "https://www.courier.com/guides/facebook-like-notification-system",
     slug: "facebook-like-notification-system",
     title: "How To Implement a Facebook-Like Web Notification System",
