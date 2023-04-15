@@ -218,6 +218,34 @@ function randomLikes() {
 
 export const externalArticles: ArticleInList[] = [
   {
+    canonical_url: "https://clerk.com/blog/adding-jwt-authentication-to-react",
+    slug: "adding-jwt-authentication-to-react",
+    title: "Adding JWT Authentication to React",
+    description:
+      "Learn how to implement JSON Web Token (JWT) authentication in a React app using a standard flow, and how Clerk can make the process even easier.",
+    cover_image:
+      "https://clerk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fe1ql88v4%2Fproduction%2Fda729e04fbc27fdd77a16e35b8109c4545b55801-2400x1260.png%3Ffit%3Dmax%26auto%3Dformat&w=3840&q=75",
+    tag_list: ["Clerk", "JWT", "React"],
+    reading_time_minutes: 11,
+    published_at: "Fri Apr 14 2023",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
+    canonical_url: "https://clerk.com/blog/implementing-recaptcha-in-react",
+    slug: "implementing-recaptcha-in-react",
+    title: "Implementing reCAPTCHA in React",
+    description:
+      "Learn how to protect your React app from spam and abuse using reCAPTCHA. Follow this tutorial to create a sign-up form with reCAPTCHA validation.",
+    cover_image:
+      "https://clerk.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fe1ql88v4%2Fproduction%2F9233784b390539b0d29eb6d9e3d11173aa481d59-2400x1260.png%3Ffit%3Dmax%26auto%3Dformat&w=3840&q=75",
+    tag_list: ["Clerk", "ReCaptcha", "React"],
+    reading_time_minutes: 7,
+    published_at: "Fri Apr 14 2023",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
     canonical_url:
       "https://retool.com/blog/building-an-sql-server-admin-panel-in-retool/",
     slug: "building-an-sql-server-admin-panel-in-retool",
