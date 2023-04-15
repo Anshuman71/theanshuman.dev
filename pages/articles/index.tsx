@@ -57,12 +57,6 @@ const BlogHome: NextPage<PageProps> = ({ articles }) => {
     <>
       <main className="content-container">
         <MetaData title={`Blog | Anshuman Bhardwaj`} />
-        <Script
-          async
-          id="convertkit-box"
-          data-uid="c1109ee281"
-          src="https://anshuman-bhardwaj.ck.page/c1109ee281/index.js"
-        />
         <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>
           Recent Articles
         </h1>

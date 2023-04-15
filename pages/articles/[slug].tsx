@@ -107,12 +107,6 @@ const Article: NextPage<PageProps> = ({ error, source }) => {
           keywords={(frontmatter?.tags as string) || ""}
           readingTime={frontmatter?.reading_time_minutes}
         />
-        <Script
-          async
-          id="convertkit-box"
-          data-uid="c1109ee281"
-          src="https://anshuman-bhardwaj.ck.page/c1109ee281/index.js"
-        />
 
         {error ? (
           <h1 className="text-3xl lg:text-5xl mb-6 font-bold">
