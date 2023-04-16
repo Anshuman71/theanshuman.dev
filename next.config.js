@@ -17,6 +17,7 @@ module.exports = {
       "cdn.jsdelivr.net",
       "hygraph.com",
       "clerk.dev",
+      "clerk.com",
       "imgur.com",
       "blog.logrocket.com",
       "images.ctfassets.net",
