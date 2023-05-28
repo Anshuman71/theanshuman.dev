@@ -8,7 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@docsly/react": "^1.7.0",
+    "@docsly/react": "^1.8.2",
     "@heroicons/react": "^1.0.5",
     "@mdx-js/loader": "^2.2.1",
     "@mdx-js/react": "^2.2.1",
