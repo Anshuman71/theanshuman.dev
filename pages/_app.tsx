@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </MDXProvider>
       <Docsly
-        baseURL="https://public.docsly.dev/api/v1.8"
         pathname={asPath}
         publicId="public_aiLJByn9Q503I1PfzZ8YTvrW0YNuVnLc2J5pDq5EgoI4Z3RfUMNsJTa33YpDVbE6"
       />
