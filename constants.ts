@@ -224,7 +224,7 @@ export const externalArticles: ArticleInList[] = [
     description:
       "Learn the process of scheduling emails in a user's timezone using QStash and Upstash Redis in a Next.js application.",
     cover_image:
-      "https://upstash.com/api/og/blog?slug=timezone-scheduling-emails",
+      "",
     tag_list: ["Upstash", "docsly", "QStash", "Next.js"],
     reading_time_minutes: 8,
     published_at: "Thu Aug 10 2023",
