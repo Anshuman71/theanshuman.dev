@@ -218,6 +218,20 @@ function randomLikes() {
 
 export const externalArticles: ArticleInList[] = [
   {
+    canonical_url: "https://upstash.com/blog/timezone-scheduling-emails",
+    slug: "timezone-scheduling-emails",
+    title: "Scheduling emails in the user's timezone using QStash",
+    description:
+      "Learn the process of scheduling emails in a user's timezone using QStash and Upstash Redis in a Next.js application.",
+    cover_image:
+      "https://upstash.com/api/og/blog?slug=timezone-scheduling-emails",
+    tag_list: ["Upstash", "docsly", "QStash", "Next.js"],
+    reading_time_minutes: 8,
+    published_at: "Thu Aug 10 2023",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
     canonical_url: "https://clerk.com/blog/adding-jwt-authentication-to-react",
     slug: "adding-jwt-authentication-to-react",
     title: "Adding JWT Authentication to React",
