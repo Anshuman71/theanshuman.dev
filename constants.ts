@@ -33,6 +33,14 @@ export const projects: LinkInformationType[] = [
     name: "Crux—summarize your Slack conversations",
     url: "https://getcrux.app",
   },
+  {
+    name: "docsly-feedback for documentation",
+    url: "https://www.docsly.dev",
+  },
+  {
+    name: "huddle-Collaboration on preview deployments",
+    url: "https://www.huddle.run",
+  },
 ];
 
 export const publishers: LinkInformationType[] = [
