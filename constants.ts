@@ -231,8 +231,7 @@ export const externalArticles: ArticleInList[] = [
     title: "Scheduling emails in the user's timezone using QStash",
     description:
       "Learn the process of scheduling emails in a user's timezone using QStash and Upstash Redis in a Next.js application.",
-    cover_image:
-      "",
+    cover_image: "",
     tag_list: ["Upstash", "docsly", "QStash", "Next.js"],
     reading_time_minutes: 8,
     published_at: "Thu Aug 10 2023",
@@ -274,7 +273,8 @@ export const externalArticles: ArticleInList[] = [
     title: "Building an SQL Server Admin Panel in Retool",
     description:
       "Create a web notification system like Facebook's using JavaScript. This step-by-step tutorial covers all the necessary steps.",
-    cover_image: "https://retool.com/blog/content/images/2023/03/MSSQL.jpg",
+    cover_image:
+      "https://retool-blog.ghost.io/blog/content/images/2023/03/MSSQL.jpg",
     tag_list: ["Retool", "SQL Server", "Dashboard"],
     reading_time_minutes: 11,
     published_at: "Wed Mar 1 2023",
@@ -398,22 +398,21 @@ export const externalArticles: ArticleInList[] = [
     page_views_count: randomPageViews() * 1.5,
     positive_reactions_count: randomLikes() * 1.5,
   },
-  {
-    canonical_url:
-      "https://blog.tigrisdata.com/http2-websockets-future-of-real-time",
-    slug: "http2-websockets-future-of-real-time",
-    title:
-      "HTTP/2, WebSockets, and the Future of Real-Time Client-Server Interactions",
-    description:
-      "Real-time client-server interactions will only become more vital as  applications and use cases continue to evolve. Though both the WebSocket and  HTTP/2 protocols can work well for real-time communication, HTTP/2 is the  better option in certain situations.",
-    cover_image: "https://imgur.com/qsOEaIn.png",
-    tag_list: ["tigris", "tigris data", "real-time", "http/2", "websockets"],
-    reading_time_minutes: 11,
-    published_at: "Wed Sep 26 2022",
-    page_views_count: randomPageViews(),
-    positive_reactions_count: randomLikes(),
-  },
-
+  // {
+  //   canonical_url:
+  //     "https://blog.tigrisdata.com/http2-websockets-future-of-real-time",
+  //   slug: "http2-websockets-future-of-real-time",
+  //   title:
+  //     "HTTP/2, WebSockets, and the Future of Real-Time Client-Server Interactions",
+  //   description:
+  //     "Real-time client-server interactions will only become more vital as  applications and use cases continue to evolve. Though both the WebSocket and  HTTP/2 protocols can work well for real-time communication, HTTP/2 is the  better option in certain situations.",
+  //   cover_image: "https://imgur.com/qsOEaIn.png",
+  //   tag_list: ["tigris", "tigris data", "real-time", "http/2", "websockets"],
+  //   reading_time_minutes: 11,
+  //   published_at: "Wed Sep 26 2022",
+  //   page_views_count: randomPageViews(),
+  //   positive_reactions_count: randomLikes(),
+  // },
   {
     canonical_url: "https://www.tiny.cloud/blog/bootstrap-image-upload/",
     slug: "tiny-mce-bootstrap-image-upload",
