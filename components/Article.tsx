@@ -49,7 +49,7 @@ export default function Article({ article }: { article: ArticleInList }) {
         <div className="h-full overflow-hidden rounded-b-lg">
           <div className="relative rounded-t-lg overflow-hidden h-[45vw] w-full md:h-52 xl:h-40">
             <Image
-              alt="cover image"
+              alt={article.title}
               src={article.cover_image || DefaultImage}
               layout={"fill"}
               objectFit={"cover"}

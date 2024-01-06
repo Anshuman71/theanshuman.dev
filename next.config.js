@@ -23,6 +23,7 @@ module.exports = {
       "images.ctfassets.net",
       "uploads-ssl.webflow.com",
       "handsontable.com",
+      "retool-blog.ghost.io",
     ],
   },
 };
