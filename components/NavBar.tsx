@@ -43,7 +43,7 @@ export default function NavBar() {
               <a
                 key={item.url}
                 className={clsx(
-                  "sm:mr-12 last:mr-0 font-medium outline-none text-lg rounded p-1 px-4 first:pl-0 hover:text-yellow-500 focus:text-yellow-500 focus:ring-2 ring-yellow-500",
+                  "sm:mr-12 last:mr-0 font-medium outline-none text-lg rounded p-1 px-4 first:pl-0 hover:text-yellow-500 focus:text-yellow-500 ",
                   {
                     "text-yellow-500": router.pathname === item.url,
                     "text-gray-400": router.pathname !== item.url,

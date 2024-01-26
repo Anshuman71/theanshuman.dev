@@ -25,6 +25,7 @@ export const projects: LinkInformationType[] = [
     name: "docsly - feedback for docs",
     description: "A user feedback tool crafted for your documentation.",
     url: "https://docsly.dev",
+    imageKey: "docsly",
   },
 
   {
@@ -32,18 +33,21 @@ export const projects: LinkInformationType[] = [
     description:
       "Add acronyms in Slack and relieve your brain from the burden of remembering everything.",
     url: "https://useglossary.com",
+    imageKey: "useglossary",
   },
   {
     name: "huddle - realtime collaboration",
     description:
       "Realtime collaboration on preview deployments with any cloud platform.",
     url: "https://huddle.run",
+    imageKey: "huddle",
   },
   {
     name: "Habit Journal - get better everyday",
     description:
       "Journal your habits. Track, visualize, and share with your progress online.",
     url: "https://habitjournal.fun",
+    imageKey: "habitjournal",
   },
 ];
 

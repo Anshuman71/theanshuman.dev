@@ -19,6 +19,18 @@ import Article from "../components/Article";
 import Link from "next/link";
 import Image from "next/image";
 import Me from "../public/me.jpeg";
+import habitjournal from "../public/assets/habitjournal.png";
+import docsly from "../public/assets/docsly.png";
+import huddle from "../public/assets/huddle.png";
+import useglossary from "../public/assets/useglossary.png";
+
+const projectImages: { [k: string]: any } = {
+  habitjournal: habitjournal,
+  docsly: docsly,
+  huddle: huddle,
+  useglossary: useglossary,
+};
+
 interface PageProps {
   counter: number;
   articles: ArticleInList[];
@@ -116,12 +128,24 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <Section>
           <SectionHeading>Solo adventures</SectionHeading>
-          <p className="text-lg my-4">
+          <p className="text-lg mt-2">
             Early morning I focus on my indie projects and try new technologies.
           </p>
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 gap-y-12 mt-10">
             {projects.map((exp) => (
-              <ExternalLink key={exp.url} {...exp} />
+              <a href={exp.url} target="_blank" rel="noreferrer" key={exp.name}>
+                <Image
+                  src={projectImages[exp?.imageKey || "habitjournal"]}
+                  width={360}
+                  height={190}
+                  objectFit="cover"
+                  objectPosition={"top"}
+                  className="rounded-md"
+                  alt={exp.name}
+                />
+                <p className="text-lg mt-2 mb-1">{exp.name}</p>
+                <p className="opacity-80 text-md w-[90%]">{exp.description}</p>
+              </a>
             ))}
           </div>
         </Section>

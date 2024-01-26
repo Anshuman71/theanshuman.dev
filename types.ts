@@ -2,7 +2,7 @@ export type LinkInformationType = {
   name: string;
   url: string;
   description?: string;
-  thumbnail?: string;
+  imageKey?: string;
   sameTab?: boolean;
 };
 

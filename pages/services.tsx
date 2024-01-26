@@ -9,7 +9,7 @@ const Services: NextPage = () => {
     <>
       <main className="content-container">
         <MetaData title={`Services | Anshuman Bhardwaj`} />
-        <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>Services</h1>
+        <h1 className={"text-gray-100 text-3xl md:text-6xl mb-4"}>Services</h1>
         <hr />
         <Section className="mt-10">
           <SectionHeading>Writing</SectionHeading>
