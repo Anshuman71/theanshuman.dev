@@ -103,7 +103,7 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <Section>
           <SectionHeading>What so far?</SectionHeading>
-          <p className="text-lg">
+          <p className="text-lg my-4">
             I&apos;ve worked with some great people around the world on projects
             such as <i>next-generation electric vehicles</i> and{" "}
             <i>large scale eCommerce solution</i>.
@@ -115,8 +115,8 @@ const Home: NextPage<PageProps> = (props) => {
           </div>
         </Section>
         <Section>
-          <SectionHeading>Indie hacking</SectionHeading>
-          <p className="text-lg">
+          <SectionHeading>Solo adventures</SectionHeading>
+          <p className="text-lg my-4">
             Early morning I focus on my indie projects and try new technologies.
           </p>
           <div>
@@ -127,7 +127,7 @@ const Home: NextPage<PageProps> = (props) => {
         </Section>
         <Section>
           <SectionHeading>Publishers</SectionHeading>
-          <p className="text-lg">
+          <p className="text-lg my-4">
             I&apos;m big on developer advocacy and part of the following
             programmes:
           </p>
@@ -141,7 +141,7 @@ const Home: NextPage<PageProps> = (props) => {
           <SectionHeading>Featured articles</SectionHeading>
           <div
             className={
-              "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 gap-y-10"
+              "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12"
             }
           >
             {props.articles.map((article) => (

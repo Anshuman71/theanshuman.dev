@@ -1,6 +1,8 @@
 export type LinkInformationType = {
   name: string;
   url: string;
+  description?: string;
+  thumbnail?: string;
   sameTab?: boolean;
 };
 

@@ -18,28 +18,32 @@ export const experiences: LinkInformationType[] = [
     name: "Jynx",
     url: "https://jynxit.us",
   },
-  {
-    name: "CollegeBasket",
-    url: "https://collegebasket.now.sh",
-  },
 ];
 
 export const projects: LinkInformationType[] = [
   {
-    name: "Glossary—acronyms in Slack",
+    name: "docsly - feedback for docs",
+    description: "A user feedback tool crafted for your documentation.",
+    url: "https://docsly.dev",
+  },
+
+  {
+    name: "Glossary - acronyms for Slack",
+    description:
+      "Add acronyms in Slack and relieve your brain from the burden of remembering everything.",
     url: "https://useglossary.com",
   },
   {
-    name: "Crux—summarize your Slack conversations",
-    url: "https://getcrux.app",
+    name: "huddle - realtime collaboration",
+    description:
+      "Realtime collaboration on preview deployments with any cloud platform.",
+    url: "https://huddle.run",
   },
   {
-    name: "docsly-feedback for documentation",
-    url: "https://www.docsly.dev",
-  },
-  {
-    name: "huddle-Collaboration on preview deployments",
-    url: "https://www.huddle.run",
+    name: "Habit Journal - get better everyday",
+    description:
+      "Journal your habits. Track, visualize, and share with your progress online.",
+    url: "https://habitjournal.fun",
   },
 ];
 

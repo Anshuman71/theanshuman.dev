@@ -4,7 +4,7 @@
 
 @layer components {
   .content-container {
-    @apply flex-1 p-6 md:py-10 lg:px-0 w-full lg:w-[80%] xl:max-w-[1378px] mx-auto;
+    @apply flex-1 p-6 md:py-10 lg:px-0 w-full max-w-5xl mx-auto;
   }
 
   .markdown {

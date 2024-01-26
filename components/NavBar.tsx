@@ -36,7 +36,7 @@ export default function NavBar() {
         }}
         className={`absolute bottom-0 w-full h-0.5 bg-yellow-500`}
       />
-      <div className="w-full flex flex-row justify-between items-end px-6 lg:px-0 lg:w-3/4 xl:max-w-[990px] mx-auto ">
+      <div className="w-full flex flex-row justify-between items-end px-6 lg:px-0 max-w-5xl mx-auto ">
         <div className="w-full sm:w-auto flex flex-row justify-between sm:justify-start">
           {NavLinks.map((item) => (
             <Link passHref key={item.url} href={item.url}>

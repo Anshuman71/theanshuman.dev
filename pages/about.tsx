@@ -32,7 +32,6 @@ const About: NextPage = () => {
         <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>About me</h1>
         <hr />
         <Section className="mt-10">
-          <SectionHeading>Personal life</SectionHeading>
           <p className="text-lg">
             I&apos;m a {age} year <i>not so old</i> guy, passionate about
             writing and teaching. I like to listen to slow and calming music
