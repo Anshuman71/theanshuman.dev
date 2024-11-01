@@ -4,14 +4,12 @@ description: What is Memoization?   Imagine, I'm your Math teacher and I gave yo
 cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--BJvdyUKu--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b81fuwwy26s6n68pglko.png
 slug: memoization-the-what-why-and-how-3ccn
 published_at: Mon Feb 28 2022
-reading_time_in_minutes: 3
+reading_time_minutes: 3
 positive_reactions_count: 28
 page_views_count: 566
 tags: javascript, beginners, webdev, programming
 canonical_url: https://theanshuman.dev/articles/memoization-the-what-why-and-how-3ccn
 ---
-
-
 
 ## What is Memoization?
 
@@ -42,21 +40,20 @@ this can be simplified using the following formula
 ```
  fib(n) = fib(n - 1) + fib(n - 2)
 ```
+
 As you can see, this equation can be written as a recursive function
 
 ```ts
-
 // return nth number from Fibonacci series
 function fib(n) {
-    if (n === 0) {
-        return 0
-    }
-    if (n === 1) {
-        return 1
-    }
-    return fib(n - 1) + fib(n - 2)
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+  return fib(n - 1) + fib(n - 2);
 }
-
 ```
 
 Now let's try our code: `node index.js <n>`
@@ -69,9 +66,9 @@ Well, this looks all good you might say.
 
 Not so fast. Let's try with some bigger numbers.
 
-![Big Fibonacci](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/spcv60suiwk07dpjbs8c.png) 
+![Big Fibonacci](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/spcv60suiwk07dpjbs8c.png)
 
-I guess, by now you can see what the problem is. The computation takes exponentially longer as we increase the number. 
+I guess, by now you can see what the problem is. The computation takes exponentially longer as we increase the number.
 
 ---
 
@@ -81,7 +78,7 @@ Before we solve the problem, let's see what the problem is.
 
 ![Fibonacci tree](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8gunyjgp5ot1uw5ijnu1.png)
 
-Looking at the above execution tree, we can see that problems are repeated more and more as we go down the tree. 
+Looking at the above execution tree, we can see that problems are repeated more and more as we go down the tree.
 
 So, the problem is we are doing the same computations multiple times.
 
@@ -92,21 +89,19 @@ Let's make the same `fib` a memoized function `memoFib`.
 It's actually very simple to do so, we just need to introduce a cache.
 
 ```ts
-
-const cache = {}
+const cache = {};
 
 function memoFib(n) {
-    if (cache[n]) return cache[n]
-    if (n === 0) {
-        return 0
-    }
-    if (n === 1) {
-        return 1
-    }
-    cache[n] = memoFib(n - 1) + memoFib(n - 2)
-    return cache[n]
+  if (cache[n]) return cache[n];
+  if (n === 0) {
+    return 0;
+  }
+  if (n === 1) {
+    return 1;
+  }
+  cache[n] = memoFib(n - 1) + memoFib(n - 2);
+  return cache[n];
 }
-
 ```
 
 Time for the verdict:
@@ -116,15 +111,14 @@ Time for the verdict:
 And we have a clear winner! The `memoFib` took almost constant time for all of these computations. While the `fib` went crazy.
 
 Hence, it's evident how important Memoization is.
- 
 
 ## How can I Memoize?
 
-Well, if you have been writing code for a while you must have done it in one way or the other. 
+Well, if you have been writing code for a while you must have done it in one way or the other.
 
 The simplest way to do it is to cache function calls using a dictionary-like structure e.g. a Map or an Object in JavaScript.
 
-If you're a React developer, you might have come across hooks like `useMemo` or `useCallback`. Both of these hooks are an implementation of Memoization. 
+If you're a React developer, you might have come across hooks like `useMemo` or `useCallback`. Both of these hooks are an implementation of Memoization.
 
 These hooks Memoize the returned value, so the value is not computed on every render of the React Component. Hence, making your apps faster.
 
@@ -137,6 +131,3 @@ That's it for now. I hope you find this article helpful! Should you have any fee
 For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
 
 > Until next time
-
- 
-    

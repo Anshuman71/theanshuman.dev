@@ -282,7 +282,7 @@ export const externalArticles: ArticleInList[] = [
     description:
       "Create a web notification system like Facebook's using JavaScript. This step-by-step tutorial covers all the necessary steps.",
     cover_image:
-      "https://retool-blog.ghost.io/blog/content/images/2023/03/MSSQL.jpg",
+      "https://retool.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fbclf52sw%2Fproduction%2F809377786a2f5416f9e35fc89c8a4d37ce5171bc-2000x781.webp&w=3840&q=75",
     tag_list: ["Retool", "SQL Server", "Dashboard"],
     reading_time_minutes: 11,
     published_at: "Wed Mar 1 2023",

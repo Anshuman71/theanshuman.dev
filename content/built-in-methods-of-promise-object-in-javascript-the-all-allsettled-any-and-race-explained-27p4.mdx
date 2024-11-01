@@ -4,7 +4,7 @@ description: If you've been a JavaScript developer for a while you must have com
 cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--WzmSGmxe--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/r8ocqoohy3a3dlhdrdsh.jpg
 slug: built-in-methods-of-promise-object-in-javascript-the-all-allsettled-any-and-race-explained-27p4
 published_at: Mon Jan 10 2022
-reading_time_in_minutes: 6
+reading_time_minutes: 6
 positive_reactions_count: 46
 page_views_count: 1562
 tags: javascript, webdev, beginners, tutorial
@@ -34,7 +34,7 @@ const someItemsReject = [
 ];
 const allItemsReject = [
   { settleAfterSeconds: 1, shouldReject: true },
-  { settleAfterSeconds: 1, shouldReject: true }
+  { settleAfterSeconds: 1, shouldReject: true },
 ];
 const itemsWillResolveAtDifferentTime = [
   { settleAfterSeconds: 1, shouldReject: false },
@@ -65,15 +65,17 @@ As you can guess from the utils, we will run these four scenarios using each of 
 ---
 
 ## Promise.all()
-The `Promise.all` takes an iterable of promises as input and then returns a single promise that'll resolve into an array of the results of the input promises. 
+
+The `Promise.all` takes an iterable of promises as input and then returns a single promise that'll resolve into an array of the results of the input promises.
 
 However, the returned promise will reject even if a single promise from the input array rejects. The rejection message/error will be that of the first rejected item.
 
 Let's see its behavior through our examples.
 
-![output of withAll](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3lbroaadhnzb6wmcu1fh.png) 
+![output of withAll](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3lbroaadhnzb6wmcu1fh.png)
 
 As we can observe in the image above,
+
 1. the `allItemsWillResolve` config resolves to an array of two string messages.
 2. the `someItemsReject` config fails with the second promise rejection as that's the first one to fail.
 3. the `allItemsReject` config fails with the first promise rejection as that's the first one to fail.
@@ -92,15 +94,17 @@ Here the operations are **dependent** on each other i.e. we only care if all the
 ---
 
 ## Promise.allSettled()
+
 The `Promise.allSettled` takes an iterable of promises as the input and returns a single promise that resolves after all of the given promises have either been resolved or rejected, with an array of objects that each describes the outcome of each promise using `value` or `reason`.
 
 Let's see its behavior through our examples.
 
 ![output from withAllSettled](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ldurzblsxexoqwctaqqc.png)
- 
+
 As we can observe in the image above,
-1. the `allItemsWillResolve` config resolves to an array of two objects, each having a `status` and a `value`. 
-2. the `someItemsReject` config doesn't reject this time, instead it returns an array of 3 objects, the second of which has a `status` as "rejected" and `reason` as `error message`. It's worth noticing that the second item is missing the key named `value`. 
+
+1. the `allItemsWillResolve` config resolves to an array of two objects, each having a `status` and a `value`.
+2. the `someItemsReject` config doesn't reject this time, instead it returns an array of 3 objects, the second of which has a `status` as "rejected" and `reason` as `error message`. It's worth noticing that the second item is missing the key named `value`.
 3. the `allItemsReject` config returns both items with `status` as "rejected".
 4. the `itemsWillResolveAtDifferentTime` config takes two seconds to resolve as it works like `Promise.all`.
 
@@ -111,6 +115,7 @@ A good use case for `Promise.allSettled`, would be to show our user _(from the `
 ---
 
 ## Promise.any()
+
 The `Promise.any` takes an array of promises as input and returns a single promise that resolves as soon as **one** of the promises in the array fulfills, with the value of the fulfilled promise.
 
 > Promise.any is only available from Node version 15 and above
@@ -120,6 +125,7 @@ Let's see its behavior through our examples.
 ![output from withAny](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/l2u0abka9kmfwcqjy30z.png)
 
 As we can observe in the image above,
+
 1. the `allItemsWillResolve` config resolves to the first item's promise.
 2. the `someItemsReject` config resolves to the first item's promise.
 3. the `allItemsReject` config returns an [AggregateError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError) as all of the promises are rejected.
@@ -132,6 +138,7 @@ A good use case for `Promise.any`, would be to request the same resource from mu
 ---
 
 ## Promise.race
+
 The `Promise.race` takes an array of promises as input and returns a single promise that fulfills or rejects as soon as one of the promises in an array fulfills or rejects, with the value or reason from that promise.
 
 Let's see its behavior through our examples.
@@ -139,40 +146,46 @@ Let's see its behavior through our examples.
 ![output from withRace](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rggpf6jbqrsqtwhjiaxv.png)
 
 As we can observe in the image above,
+
 1. the `allItemsWillResolve` config resolves to the first item's promise.
 2. the `someItemsReject` config resolves to the first item's promise.
 3. the `allItemsReject` config returns the error from the first promise's rejection.
 4. the `itemsWillResolveAtDifferentTime` config takes one second to resolve because out of the two promises we provided, the first one took only one second to resolve.
 
 Some important points
+
 1. If the iterable passed is empty, the promise returned will be forever pending.
 2. If the iterable contains one or more non-promise values and/or an already settled promise, then Promise.race will resolve to the first of these values found in the iterable.
 
-> Also, unlike `Promise.any()`, which returns the first fulfilled value, this method returns the first settled (fulfilled or rejected) value. 
+> Also, unlike `Promise.any()`, which returns the first fulfilled value, this method returns the first settled (fulfilled or rejected) value.
 
 ### Use case
 
 A good use case for `Promise.race`, would be to set a cutoff timer for operations such that if the given operation doesn't finish in x seconds we throw an error.
+
 ```js
 // wait for "seconds" before rejecting promise (throws error)
 function rejectAfter(seconds) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => reject(`Request couldn't resolve in ${seconds}`), seconds * 1000)
-  })
+    setTimeout(
+      () => reject(`Request couldn't resolve in ${seconds}`),
+      seconds * 1000
+    );
+  });
 }
 
 // this will throw an error if the request doesn't resolve in // 5 seconds
 function testCutoff() {
-  return Promise.race([testPromise, waitFor(5)])
+  return Promise.race([testPromise, waitFor(5)]);
 }
 ```
+
 ---
+
 ## Video tutorial and example
 
 You can also watch the [Youtube video]
 (https://www.youtube.com/watch?v=1Mc4cFuJ224) to see the examples in action
-
-
 
 You can also fork and play around with the codesandbox [here](https://codesandbox.io/s/promises-by-anshuman-4v17s).
 
@@ -184,11 +197,8 @@ For more such content, please follow me on [Twitter](https://twitter.com/sun_ans
 
 > Until next time
 
- 
-
 ---
 
 ## Resources used
-I followed [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) while researching for this post.
 
-    
+I followed [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) while researching for this post.

@@ -63,7 +63,7 @@ export default function Article({ article }: { article: ArticleInList }) {
               </span>
               <span className={"flex flex-col text-sm my-2 text-gray-400"}>
                 <span className="mr-4 text-gray-300">
-                  {article.reading_time_minutes} minute read
+                  {article.reading_time_minutes} minutes read
                 </span>{" "}
                 <span className="mr-4 mt-1 text-gray-300">
                   Published: {new Date(article.published_at).toDateString()}

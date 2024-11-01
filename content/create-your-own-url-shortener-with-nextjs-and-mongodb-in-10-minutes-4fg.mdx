@@ -4,7 +4,7 @@ description: Motivation   A few weeks back, I was working on a Twitter bot to po
 cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--X9D2wQDO--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fjhm3pew8twv7suf3cin.png
 slug: create-your-own-url-shortener-with-nextjs-and-mongodb-in-10-minutes-4fg
 published_at: Mon Mar 14 2022
-reading_time_in_minutes: 4
+reading_time_minutes: 4
 positive_reactions_count: 107
 page_views_count: 3194
 tags: javascript, beginners, webdev, nextjs
@@ -13,11 +13,12 @@ canonical_url: https://theanshuman.dev/articles/create-your-own-url-shortener-wi
 
 ## Motivation
 
-A few weeks back, I was working on a Twitter bot to post my popular articles and I realized that links of some articles are not parsed well in the Tweet. However, shortening them using [Rebrandly](https://www.rebrandly.com/) worked well. 
+A few weeks back, I was working on a Twitter bot to post my popular articles and I realized that links of some articles are not parsed well in the Tweet. However, shortening them using [Rebrandly](https://www.rebrandly.com/) worked well.
 
 So, I decided to make a URL shortener for myself.
 
 ---
+
 ## Breakdown
 
 We need a
@@ -29,6 +30,7 @@ We need a
 As always, **Next.js** was my first choice for building the complete service and **MongoDB** for storing links.
 
 ---
+
 ## Development
 
 Now that we have figured out the steps, let's work on them one by one
@@ -84,7 +86,6 @@ export default async function connectToDatabase(): Promise<Db> {
   cachedDB = db;
   return cachedDB;
 }
-
 ```
 
 ### Add create-short-link service
@@ -92,10 +93,10 @@ export default async function connectToDatabase(): Promise<Db> {
 Go ahead and add a `./api/create-link.ts` file to create a REST endpoint for this service.
 
 Couple of things we need to be aware of
+
 1. A unique Hash is required to make short URLs. I used `nanoid` to generate a random short hash for the long URL.
 2. This endpoint should only be accessed by the POST method.
 3. We should set up an API-KEY authentication to secure the endpoint. This can be done by generating a long string and using it as an API-KEY header.
-
 
 ```ts
 // ./api/create-link.ts
@@ -165,7 +166,6 @@ export default async function CreateLink(
     });
   }
 }
-
 ```
 
 ### Redirect short links to destination
@@ -217,17 +217,18 @@ const HashPage: NextPage = () => {
 };
 
 export default HashPage;
-
 ```
 
 This page will redirect the user to the destination if the `hash` value is available in the database otherwise, it'll show the "Link not found" message.
 
 ---
+
 ## Hosting
 
-Hosting this project is a piece of cake because Next.js integration with Vercel is excellent. 
+Hosting this project is a piece of cake because Next.js integration with Vercel is excellent.
 
 A simplified list of steps:
+
 1. Push your Next.js project to a GitHub repository
 2. Go to https://vercel.app and login with your GitHub account
 3. Import the `url-shortener` repository by clicking on the "New Project" button on the Vercel dashboard.
@@ -236,7 +237,7 @@ You can also read about this in detail [here](https://vercel.com/docs/concepts/p
 
 Once done with the above steps, head to project settings and add the environment variables we defined in our `.env.local` file to the Vercel project's environment variables.
 
-> You can also connect your custom domain to this project from the settings. 
+> You can also connect your custom domain to this project from the settings.
 
 🎉 Tada! Your URL shortener is ready and hosted now.
 
@@ -254,7 +255,7 @@ You can clone this project from this [GitHub Repo](https://github.com/Anshuman71
 
 ---
 
-This article is not meant to be followed in production and should only be taken for learning purposes. 
+This article is not meant to be followed in production and should only be taken for learning purposes.
 
 Many optimizations can be made in the above approach like using a better database or indexing it properly to make it faster.
 
@@ -263,7 +264,3 @@ I hope you find this article helpful! Should you have any feedback or questions,
 For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
 
 > Until next time
-
- 
-
-    

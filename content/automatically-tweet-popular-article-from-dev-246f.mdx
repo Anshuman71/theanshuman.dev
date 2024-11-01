@@ -4,7 +4,7 @@ description: Hi everyone, over last week I've built this project which will auto
 cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--LTnqQXYv--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sw095j0iszqyncabnttd.jpg
 slug: automatically-tweet-popular-article-from-dev-246f
 published_at: Mon Jan 24 2022
-reading_time_in_minutes: 4
+reading_time_minutes: 4
 positive_reactions_count: 32
 page_views_count: 976
 tags: opensource, showdev, nextjs, javascript
@@ -23,7 +23,7 @@ I am a technical blogger on DEV. Recently, my posts have been getting a lot of t
 
 At the start, it was good but, then one day Daily.dev @dailydevtips1 tagged me in this tweet.
 
-And it got me thinking that "if they can automate it, so can I". 
+And it got me thinking that "if they can automate it, so can I".
 
 And that's how my friends, I started bootstrapping this project.
 
@@ -42,14 +42,14 @@ and the API will
 
 - Fetch all published articles of the Author from DEV
 - if the article exists in the database:
-   - if a new milestone is achieved:
-      - Create and article a tweet on Twitter
-      - Update database entry with new milestone
-   - else:
-      - do nothing
+  - if a new milestone is achieved:
+    - Create and article a tweet on Twitter
+    - Update database entry with new milestone
+  - else:
+    - do nothing
 - the article does not exist in the database:
-   - create a shortUrl for article URL using Rebrandly
-   - create a new database item for the article
+  - create a shortUrl for article URL using Rebrandly
+  - create a new database item for the article
 
 ## Technical Stack
 
@@ -94,11 +94,9 @@ You can get the `API_KEY` from Settings > Account > DEV Community API Keys
 
 > This needs to be specified in Vercel Environment variables
 
-
 #### Vercel
 
 Sign up using your GitHub to allow Continuous Deployment.
-
 
 #### Twitter
 
@@ -119,7 +117,6 @@ TWITTER_ACCESS_TOKEN_SECRET=<xxxxxxxxxxxxxxxxxx>
 
 > This needs to be specified in Vercel Environment variables
 
-
 #### MongoDB Atlas
 
 [Sign up](https://www.mongodb.com/atlas/database) on Atlas, create a new cluster, click on Connect > Connect using Application
@@ -139,17 +136,16 @@ mongodb+srv://<user>:<password>@cluster0.mongodb.net/<database-name>?retryWrites
 
 > This needs to be specified in Vercel Environment variables
 
-
 #### Rebrandly
 
 Sign up and register your custom domain there. Then get an API KEY.
+
 ```
 SHORTNER_API_KEY=<xxxxxxxxxxxxxxxxxx>
 SHORTNER_DOMAIN=<xxxxxxxxxxxxxxxxxx>
 ```
 
 > This needs to be specified in Vercel Environment variables
-
 
 #### Secure API key
 
@@ -174,7 +170,6 @@ If you just want to use the tool, this is all you need to do.
 
 Copy the same credentials in a `.env.local` file for development purposes. A sample `.env.development` file is present in the repo for help.
 
-
 #### Step 5
 
 1. Run `yarn` in the repo to install dependencies.
@@ -186,10 +181,10 @@ Copy the same credentials in a `.env.local` file for development purposes. A sam
 ## FAQs
 
 1. Why do we need a link shortener?
-The default URL provided by DEV is sometimes too long for Twitter to load preview and without preview, the article doesn't look all that good. So I used a shortener to solve this issue. Rebrandly provides free custom domain usage up to 500 links which are good enough for our use case.
+   The default URL provided by DEV is sometimes too long for Twitter to load preview and without preview, the article doesn't look all that good. So I used a shortener to solve this issue. Rebrandly provides free custom domain usage up to 500 links which are good enough for our use case.
 
 2. Why not make a SAAS?
-Well, I would love to. But because this project holds a lot of sensitive information like Twitter API keys, I would feel better in letting people own their data. That way everyone is responsible for keeping their project safe.
+   Well, I would love to. But because this project holds a lot of sensitive information like Twitter API keys, I would feel better in letting people own their data. That way everyone is responsible for keeping their project safe.
 
 ---
 
@@ -200,7 +195,3 @@ _I hope you enjoyed reading this article as much as I enjoyed writing it! If so,
 For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
 
 > Until next time
-
- 
-
-    

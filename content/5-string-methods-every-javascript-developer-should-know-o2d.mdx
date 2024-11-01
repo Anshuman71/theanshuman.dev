@@ -4,7 +4,7 @@ description: Dealing with Strings is inevitable in all programming languages, so
 cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--TBeFvViF--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tctr0e8et2ycy1eugtyl.png
 slug: 5-string-methods-every-javascript-developer-should-know-o2d
 published_at: Mon Mar 07 2022
-reading_time_in_minutes: 3
+reading_time_minutes: 3
 positive_reactions_count: 12
 page_views_count: 609
 tags: javascript, beginners, webdev, programming
@@ -22,15 +22,13 @@ One of the most common problems is to check if a string contains certain words o
 The `includes` method checks if the string contains the occurrence of provided sub-string. It returns a boolean value.
 
 ```ts
+let email = "hi@theanshuman.dev";
 
-let email = 'hi@theanshuman.dev'
+email.includes("gmail"); // false
 
-email.includes('gmail') // false
+email = "sundar@gmail.com";
 
-email = 'sundar@gmail.com'
-
-email.includes('gmail') // true
-
+email.includes("gmail"); // true
 ```
 
 > Tip: We can use the `endsWith` method for the above use case to make it more efficient.
@@ -44,17 +42,15 @@ The `match` method returns the occurrences of the sub-strings matching the Regex
 It is useful when we don't know the exact string but know the pattern of the string we are looking for. For example, we don't know the user's email but know that there will be one email mentioned in the string.
 
 ![match-email](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ws80xd8gcj2zke8740i4.png)
- 
+
 Another good case is to use it for matching groups from a Regex. For example, we have an unsubscribe URL that contains the **type** of newsletter and user auth **token**.
 
 The `match` method makes it super easy to extract the matching groups from the string, as named values.
 
 ```js
-  
-const unsubscribeUrlPattern = /unsubscribe\/(?<type>[^/]+)\/(?<token>[^/]+)/
+const unsubscribeUrlPattern = /unsubscribe\/(?<type>[^/]+)\/(?<token>[^/]+)/;
 
-const { type, token } = url.match(unsubscribeUrlPattern)?.groups ?? {}
-
+const { type, token } = url.match(unsubscribeUrlPattern)?.groups ?? {};
 ```
 
 ![match-with-groups](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jcum9ilb8f5spohfr3ue.png)
@@ -68,13 +64,12 @@ You must have come across a use case where you want to update the text before re
 Well, that's exactly what `replaceAll` can help you with. It replaces all the instances of the given sub-string/regex with the second argument.
 
 ```ts
+let notes =
+  "Please checkout TS-4550 for more details. Also, TS-5589 will have test instructions.";
 
-let notes = 'Please checkout TS-4550 for more details. Also, TS-5589 will have test instructions.'
-
-notes = notes.replaceAll(/TS-[0-9]+/g, '<a href="https://jira.com/$&" />')
+notes = notes.replaceAll(/TS-[0-9]+/g, '<a href="https://jira.com/$&" />');
 
 // $& is used to insert the matched substring i.e. TS-4550
-
 ```
 
 ![replaceAll](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iej2m78hqq0lyivgl0jc.png)
@@ -83,7 +78,7 @@ notes = notes.replaceAll(/TS-[0-9]+/g, '<a href="https://jira.com/$&" />')
 
 ## trim
 
-The `trim` method is super handy when you're validating form inputs, user's tend to leave unnecessary white spaces in text inputs. 
+The `trim` method is super handy when you're validating form inputs, user's tend to leave unnecessary white spaces in text inputs.
 
 The `trim` method removes white space from both ends of a string and returns a new string, without modifying the original string.
 
@@ -98,17 +93,13 @@ You might already know this, but string comparison can be painful when you don't
 The best way to go about this is by making the values lowercase, so both values adhere to the same case. It comes very handy when comparing values on the server or client-side like user inputs with database values.
 
 ```ts
-
 const userEmail = // value from input
-
-validateSignIn(userEmail.toLowerCase()) // to avoid case 
+  validateSignIn(userEmail.toLowerCase()); // to avoid case
 // sensitive mis-match
 
-
 function validateSignIn(email) {
-    // check if email is available on back end
+  // check if email is available on back end
 }
-
 ```
 
 In the above example, if we always send lowercase emails to the back end on both sign-up and sign-in, then we can avoid case-sensitive value bugs from the user's end.
@@ -122,13 +113,8 @@ For more such content, please follow me on [Twitter](https://twitter.com/sun_ans
 
 > Until next time
 
- 
-
 ---
 
 ## Resources
 
 [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-
-
-    

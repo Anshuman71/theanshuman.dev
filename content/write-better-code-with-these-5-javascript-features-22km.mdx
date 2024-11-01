@@ -4,7 +4,7 @@ description: JavaScript is one of the most popular computer languages of all tim
 cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--ceY7-vmb--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/clb17wwqloshnwa0bvn3.jpg
 slug: write-better-code-with-these-5-javascript-features-22km
 published_at: Mon Jan 17 2022
-reading_time_in_minutes: 5
+reading_time_minutes: 5
 positive_reactions_count: 43
 page_views_count: 1681
 tags: javascript, webdev, beginners, tutorial
@@ -22,67 +22,59 @@ Today we will see some of those new features help us with writing more intuitive
 The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is `null` or `undefined`, and otherwise returns its left-hand side operand.
 
 ```js
+false || "@sun_anshuman"; // returns '@sun_anshuman'
 
-false || '@sun_anshuman' // returns '@sun_anshuman'
+false ?? "@sun_anshuman"; // returns false
 
-false ?? '@sun_anshuman' // returns false
+0 || "@sun_anshuman"; // returns '@sun_anshuman'
 
-0 || '@sun_anshuman' // returns '@sun_anshuman'
+null || "@sun_anshuman"; // returns '@sun_anshuman'
 
-null || '@sun_anshuman' // returns '@sun_anshuman'
+null ?? "@sun_anshuman"; // returns '@sun_anshuman'
 
-null ?? '@sun_anshuman' // returns '@sun_anshuman'
-
-undefined ?? '@sun_anshuman' // returns '@sun_anshuman'
-
+undefined ?? "@sun_anshuman"; // returns '@sun_anshuman'
 ```
 
 The problem with `||` is that its a boolean operator so it coerces the left-hand operand to a boolean before evaluating, hence making both 0 and '' a `false`.
 
 ### Use case by example
 
-Let's assume you are building a game where the minimum score is 0 and you consider -1 an invalid score. 
+Let's assume you are building a game where the minimum score is 0 and you consider -1 an invalid score.
 
 So before you update a user's score you would like to make sure it is set to a valid value or the defined invalid score.
 
 ```js
-
 // the server returns 0
-let score = fetchScoreFromServer(); 
+let score = fetchScoreFromServer();
 
 // we only want the score to be -1 only if the score
 // is undefined or null because 0 is a valid value
 
-const finalScore = score || -1; 
+const finalScore = score || -1;
 // but this will give us the invalid value even if,
 // the first operand (0) is a valid value, leading to a bug
-
 ```
 
 How to solve this, you ask? _(I know you know it by now, haha)_
 
 ```js
-
 let score = fetchScoreFromServer(); // returns 0 again
 
 const finalScore = score ?? -1;
-// finalScore stays score (0 in this case), 
+// finalScore stays score (0 in this case),
 // unless the server returned null or undefined
-
 ```
 
---- 
+---
 
 ## Logical nullish assignment (??=)
 
 The logical nullish assignment (x ??= y) operator only assigns if x is nullish (`null` or `undefined`).
 
 ```js
-
 let user = { name: "anshuman_bhardwaj" };
 user.twitter_name ??= "@sun_anshuman"; // assigns '@sun_anshuman'
 console.log(user); // {name: "anshuman_bhardwaj", twitter_name: "@sun_anshuman"}
-
 ```
 
 This is basically an assignment operation based on the `??` operator.
@@ -90,28 +82,24 @@ This is basically an assignment operation based on the `??` operator.
 ### Use case by example
 
 ```js
-
 // the above example can be rewritten like this
 let finalScore = fetchScoreFromServer(); // returns 0 again
 
 finalScore ??= -1;
 // keeps value of 0
-
 ```
 
-Another good place to use `??` would be while referencing object properties and using default value. In which case we can use Logical nullish assignment `??=` to give default values to `undefined` properties. 
+Another good place to use `??` would be while referencing object properties and using default value. In which case we can use Logical nullish assignment `??=` to give default values to `undefined` properties.
 
 ```js
-
-const user = { email: 'anshuman_bhardwaj@dev.to', company: '' }
+const user = { email: "anshuman_bhardwaj@dev.to", company: "" };
 
 // assign user.name to email username if it's undefined
-user.name ??= email.split("@")[0]
+user.name ??= email.split("@")[0];
 
 // make company Canoo if company not available on user
-user.company ??= 'Canoo'
+user.company ??= "Canoo";
 // this time company stays empty string
-
 ```
 
 ---
@@ -121,13 +109,11 @@ user.company ??= 'Canoo'
 The in operator returns true if the specified property is in the specified object or its prototype chain.
 
 ```js
+const user = { email: "anshuman@gmail.com" };
 
-const user = { email: 'anshuman@gmail.com' } 
+"email" in user; // return true
 
-'email' in user // return true
-
-'name' in user // return false
-
+"name" in user; // return false
 ```
 
 You remember the time you were using `undefined` values because the referenced key was missing from Object.
@@ -135,7 +121,6 @@ You remember the time you were using `undefined` values because the referenced k
 It is worth noting that,
 
 > If you set a property to undefined but do not delete it, the in operator returns true for that property.
-
 
 ### Use case by example
 
@@ -153,7 +138,7 @@ if ("email" in user) {
   if (!("name" in user)) {
     user["name"] = user.email.split("@")[0];
   } else {
-   console.log("Welcome user: " + user.name);
+    console.log("Welcome user: " + user.name);
   }
 } else {
   console.error("User does not have required property: email");
@@ -163,31 +148,27 @@ if ("email" in user) {
 Using in on an array checks if the given index is an empty slot or not
 
 ```js
+const emptyList = new Array(5);
 
-const emptyList = new Array(5)
+empties[2]; // returns undefined
+2 in empties; // returns false
 
-empties[2]    // returns undefined
-2 in empties  // returns false
-
-empties[2] = 'anshuman_bhardwaj'
-2 in empties  // returns true
-
+empties[2] = "anshuman_bhardwaj";
+2 in empties; // returns true
 ```
 
 ---
 
 ## Optional chaining (?.)
 
-The `?.` operator is like the . chaining operator, except that instead of causing an error if a reference is (null or undefined), the expression short-circuits with a return value of undefined. 
+The `?.` operator is like the . chaining operator, except that instead of causing an error if a reference is (null or undefined), the expression short-circuits with a return value of undefined.
 
 ```js
+let user = { name: "anshuman" };
 
-let user = { name: 'anshuman' }
+user.address.zipcode; // TypeError
 
-user.address.zipcode // TypeError
-
-user.addess?.zipcode // returns undefined
-
+user.addess?.zipcode; // returns undefined
 ```
 
 It is worth noting that,
@@ -198,20 +179,18 @@ It is worth noting that,
 ### Use case by examples
 
 ```js
-
 // user can be null or an Object containing email
-const user = getUserFromDev() 
+const user = getUserFromDev();
 
-// if we do this it will run fine when user is an Object 
+// if we do this it will run fine when user is an Object
 // but when user is null this will give a TypeError
-console.log(user.email)
+console.log(user.email);
 
 // we can fix this by using optional chaining
 
-console.log(user?.email)
+console.log(user?.email);
 // logs the actual user email when user is an Object
 // logs undefined if user is null but doesn't crash
-
 ```
 
 ---
@@ -223,12 +202,10 @@ The ternary operator checks whether the condition specified is true, if it's tru
 `x ? y : z`, means if x is true return y else return z.
 
 ```js
+let user = { age: 22 };
 
-let user = { age: 22 }
-
-user['status'] = user.age > 18 ? 'adult' : 'minor'
+user["status"] = user.age > 18 ? "adult" : "minor";
 // user.status is 'adult'
-
 ```
 
 This operator is not specific to JavaScript, I first used it in C++.
@@ -236,7 +213,6 @@ This operator is not specific to JavaScript, I first used it in C++.
 ### Use case by example
 
 ```js
-
 let user = { email: "anshuman_bhardwaj@dev.to" };
 
 // lets consider this code, simple enough?
@@ -248,7 +224,6 @@ if ("email" in user) {
 
 // we can make it even simpler by using ternary
 user["name"] = "email" in user ? user.email.split("@")[0] : "Anonymous";
-
 ```
 
 > Using ternary is a personal preference, it's good for doing inline expressions otherwise everything can be put as if-else
@@ -260,36 +235,32 @@ user["name"] = "email" in user ? user.email.split("@")[0] : "Anonymous";
 Here are some examples with mix and match of the above features, let's see who all can answer correctly down in the comments.
 
 ```js
-
 // consider the examples independent of each other
 
-const user = { email: 'anshuman_b@dev.to', lastName: undefined }
+const user = { email: "anshuman_b@dev.to", lastName: undefined };
 
 // 1
-user["firstName"] = "email" in user 
-                            ? user.email.split("_")[0] 
-                            : "Anonymous";
+user["firstName"] = "email" in user ? user.email.split("_")[0] : "Anonymous";
 
 // 2
-user["familyName"] ??= 'Bhardwaj'
+user["familyName"] ??= "Bhardwaj";
 
 // 3
-console.log('lastName' in user)
+console.log("lastName" in user);
 
-// 4 
-console.log('' ?? '@sun_anshuman')
-
+// 4
+console.log("" ?? "@sun_anshuman");
 ```
-----
+
+---
+
 ## Learn more
 
 You can also watch this [YouTube video](https://youtu.be/pk50LBGru_Q) where I explain these examples
 
-
-
 You can also fork the [CodeSandBox](https://codesandbox.io/s/operators-by-anshuman-51q7y?file=/src/index.js) to try out examples.
 
-----
+---
 
 _I hope you enjoyed reading this article as much as I enjoyed writing it!_
 
@@ -297,14 +268,8 @@ For more such content, please follow me on [Twitter](https://twitter.com/sun_ans
 
 > Until next time
 
- 
-
-----
+---
 
 ## Resources
 
-[MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators) 
-
-
-
-    
+[MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)

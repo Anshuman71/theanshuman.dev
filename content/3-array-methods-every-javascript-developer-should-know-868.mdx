@@ -4,7 +4,7 @@ description: Arrays are something all of us come across every day. Today I'll sh
 cover_image: https://res.cloudinary.com/practicaldev/image/fetch/s--gYvLDZ63--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ncxe6zgw9f80umm58yh7.png
 slug: 3-array-methods-every-javascript-developer-should-know-868
 published_at: Mon Feb 14 2022
-reading_time_in_minutes: 2
+reading_time_minutes: 2
 positive_reactions_count: 45
 page_views_count: 2434
 tags: javascript, beginners, webdev, programming
@@ -22,24 +22,22 @@ In JavaScript, we have to infer the data type of variables way too often, even m
 const data = { ... }
 
 // true, if arrayKey exists and the arrayKey has a length property
-(data?.arrayKey && data.arrayKey.length) 
+(data?.arrayKey && data.arrayKey.length)
 
 ```
 
 Although this works, what if I told you there is even a better way to do this?
 
-The `Array.isArray(param: any)` call checks if the passed value is indeed an array or not and returns a boolean value. 
+The `Array.isArray(param: any)` call checks if the passed value is indeed an array or not and returns a boolean value.
 
 ```ts
-
 Array.isArray([]); // true
 Array.isArray(new Array(22)); // true
 
-Array.isArray(0) // false
+Array.isArray(0); // false
 Array.isArray({}); // false
 Array.isArray(null); // false
 Array.isArray(undefined); // false
-
 ```
 
 ---
@@ -47,20 +45,21 @@ Array.isArray(undefined); // false
 For the next two, let's consider a situation
 
 You have to rate some students based on a test as follows
+
 - failed: if **all** answers were _wrong_
 - passed: if **some** answers were _correct_
 - excellent: if **all** answers were _correct_
 
 ## some
 
-The `Array.some()` methods run the provided function on each item of the array and return **true**, if the provided function returns true for **any** of them, otherwise **false**. 
+The `Array.some()` methods run the provided function on each item of the array and return **true**, if the provided function returns true for **any** of them, otherwise **false**.
 
 So in our scenarios, we can apply `Array.some()` for the second use case.
 
 ```ts
 
-function isCorrectAnswer(answer) { 
- // return true if the answer was correct, otherwise false 
+function isCorrectAnswer(answer) {
+ // return true if the answer was correct, otherwise false
 }
 
 const answers = [{ ... }]
@@ -74,27 +73,27 @@ const didStudentPass = answers.some(isCorrectAnswer)
 
 ## every
 
-The `Array.every()` methods run the provided function on each item of the array and return **true**, if the provided function returns true for **all** of them, otherwise **false**. 
+The `Array.every()` methods run the provided function on each item of the array and return **true**, if the provided function returns true for **all** of them, otherwise **false**.
 
-`Array.every()` seems like a perfect fit for the other two scenarios. 
+`Array.every()` seems like a perfect fit for the other two scenarios.
 
 ```ts
 
-function isCorrectAnswer(answer) { 
- // returns true if the answer was correct, otherwise false 
+function isCorrectAnswer(answer) {
+ // returns true if the answer was correct, otherwise false
 }
 
-function isInCorrectAnswer(answer) { 
- // returns true if the answer was wrong, otherwise false 
+function isInCorrectAnswer(answer) {
+ // returns true if the answer was wrong, otherwise false
 }
 
 const answers = [{ ... }]
 
-// didStudentFail will be true, if all of the answers were incorrect    
+// didStudentFail will be true, if all of the answers were incorrect
 
 const didStudentFail = answers.every(isInCorrectAnswer)
 
-// didStudentExcel will be true, if all of the answers were correct    
+// didStudentExcel will be true, if all of the answers were correct
 
 const didStudentExcel = answers.every(isCorrectAnswer)
 ```
@@ -106,6 +105,3 @@ That's it for now. I hope you find this article helpful! Should you have any fee
 For more such content, please follow me on [Twitter](https://twitter.com/sun_anshuman)
 
 > Until next time
-
- 
-    
