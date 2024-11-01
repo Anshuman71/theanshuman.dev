@@ -118,7 +118,7 @@ const Home: NextPage<PageProps> = (props) => {
           <p className="text-lg my-4">
             I&apos;ve worked with some great people around the world on projects
             such as <i>next-generation electric vehicles</i> and{" "}
-            <i>large scale eCommerce solution</i>.
+            <i>large scale eCommerce solutions</i>.
           </p>
           <div>
             {experiences.map((exp) => (
@@ -126,7 +126,7 @@ const Home: NextPage<PageProps> = (props) => {
             ))}
           </div>
         </Section>
-        <Section>
+        {/* <Section>
           <SectionHeading>Solo adventures</SectionHeading>
           <p className="text-lg mt-2">
             Early morning I focus on my indie projects and try new technologies.
@@ -148,7 +148,7 @@ const Home: NextPage<PageProps> = (props) => {
               </a>
             ))}
           </div>
-        </Section>
+        </Section> */}
         <Section>
           <SectionHeading>Publishers</SectionHeading>
           <p className="text-lg my-4">
