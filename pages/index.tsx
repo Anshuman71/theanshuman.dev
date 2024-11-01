@@ -61,7 +61,7 @@ export async function getStaticProps() {
 
 const Home: NextPage<PageProps> = (props) => {
   const experienceInYears =
-    NUM_TO_WORD[new Date().getFullYear() - 2018] || "decade";
+    `${NUM_TO_WORD[new Date().getFullYear() - 2020]} years` || "a decade";
   return (
     <>
       <MetaData />
@@ -84,11 +84,10 @@ const Home: NextPage<PageProps> = (props) => {
           <p className={"text-gray-200 text-lg mt-10 leading-loose"}>
             {" "}
             I&apos;m a creative Software Engineer with more than{" "}
-            <b>{experienceInYears}</b> years of experience in software
-            development ranging from being an <i>Engineering Manager</i> to
-            developing a Full Stack application on my own. I help companies
-            create valuable software and reach business goals. Some examples of
-            my contribution:
+            <b>{experienceInYears}</b> of experience in software development
+            ranging from being an <i>Engineering Manager</i> to developing a
+            Full Stack application on my own. I help companies create valuable
+            software and reach business goals. Some examples of my contribution:
           </p>
           <ul className="pl-10 text-lg mt-2">
             <li className="list-disc mb-4">
