@@ -91,6 +91,11 @@ const Home: NextPage<PageProps> = (props) => {
           </p>
           <ul className="pl-10 text-lg mt-2">
             <li className="list-disc mb-4">
+              Providing feedback to improve developer experience for the
+              commercetools Frontend customers. Also, writing and maintaining
+              the documentation for commercetools Frontend.
+            </li>
+            <li className="list-disc mb-4">
               Spearheaded effort on <i>Over-the-Air updates</i> and{" "}
               <i>connected fleet manager</i> at Canoo, developing React and
               Next.js web application.
