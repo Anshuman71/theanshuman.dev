@@ -104,7 +104,7 @@ export const contacts: LinkInformationType[] = [
   },
   {
     name: "Twitter",
-    url: "https://twitter.com/sun_anshuman",
+    url: "https://x.com/sun_anshuman",
   },
   {
     name: "Hashnode",

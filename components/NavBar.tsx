@@ -56,7 +56,7 @@ export default function NavBar() {
           ))}
         </div>
         <div className="flex">
-          <Link passHref href={"https://twitter.com/sun_anshuman"}>
+          <Link passHref href={"https://x.com/sun_anshuman"}>
             <a>
               <Twitter className="hidden sm:block transition-all duration-300 text-gray-400 hover:text-[#1d9bf0] w-6 h-6 mr-4" />
             </a>
