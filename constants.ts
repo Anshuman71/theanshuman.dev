@@ -3,6 +3,10 @@ import { ArticleInList, LinkInformationType } from "./types";
 
 export const experiences: LinkInformationType[] = [
   {
+    name: "Vercel",
+    url: "https://vercel.community",
+  },
+  {
     name: "commercetools",
     url: "https://commercetools.com",
   },
