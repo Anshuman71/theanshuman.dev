@@ -46,7 +46,7 @@ const About: NextPage = () => {
           </p>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             <ImageHolder src={bikePic} />
-            {/* <ImageHolder src={selfiePic} /> */}
+            <ImageHolder src={selfiePic} />
             <ImageHolder src={hillPic} />
           </div>
         </Section>
