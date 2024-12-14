@@ -238,6 +238,32 @@ function randomLikes() {
 
 export const externalArticles: ArticleInList[] = [
   {
+    canonical_url: "https://blog.railway.com/p/building-a-saas-application",
+    slug: "building-a-saas-application",
+    title: "Building a SaaS application on Railway",
+    description: "Zero to one, building a SaaS application on Railway.",
+    cover_image:
+      "https://og.railway.app/api/image?fileType=png&layoutName=Blog&Theme=Light&Title=Building%20a%20SaaS%20application%20on%20Railway&Author=Anshuman%20Bhardwaj",
+    tag_list: ["Railway", "Remix", "PostgreSQL"],
+    reading_time_minutes: 6,
+    published_at: "Fri Dec 13 2024",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
+    canonical_url: "https://blog.railway.com/p/scaling-a-saas-application",
+    slug: "scaling-a-saas-application",
+    title: "Scaling a SaaS application on Railway",
+    description: "Time to launch, scaling your SaaS on Railway.",
+    cover_image:
+      "https://og.railway.app/api/image?fileType=png&layoutName=Blog&Theme=Light&Title=Scaling%20a%20SaaS%20application%20on%20Railway&Author=Anshuman%20Bhardwaj",
+    tag_list: ["Railway", "Remix", "PostgreSQL"],
+    reading_time_minutes: 8,
+    published_at: "Fri Dec 13 2024",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
     canonical_url: "https://upstash.com/blog/timezone-scheduling-emails",
     slug: "timezone-scheduling-emails",
     title: "Scheduling emails in the user's timezone using QStash",

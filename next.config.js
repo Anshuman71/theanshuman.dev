@@ -25,6 +25,7 @@ module.exports = {
       "uploads-ssl.webflow.com",
       "handsontable.com",
       "retool-blog.ghost.io",
+      "og.railway.app",
     ],
   },
 };
