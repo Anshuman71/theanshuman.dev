@@ -238,14 +238,29 @@ function randomLikes() {
 
 export const externalArticles: ArticleInList[] = [
   {
-    canonical_url: "https://blog.railway.com/p/building-a-saas-application",
-    slug: "building-a-saas-application",
-    title: "Building a SaaS application on Railway",
-    description: "Zero to one, building a SaaS application on Railway.",
+    canonical_url:
+      "https://upsun.com/blog/avoid-common-mistakes-with-next-js-app-router",
+    slug: "avoid-common-mistakes-with-next-js-app-router",
+    title: "Avoid common mistakes with the Next.js App Router",
+    description:
+      "Discover common mistakes in the Next.js App Router and learn how to fix them with practical solutions and code examples",
     cover_image:
-      "https://og.railway.app/api/image?fileType=png&layoutName=Blog&Theme=Light&Title=Building%20a%20SaaS%20application%20on%20Railway&Author=Anshuman%20Bhardwaj",
-    tag_list: ["Railway", "Remix", "PostgreSQL"],
+      "https://upsun.com/static/eb61a16a3b4073f7cbc29596df3fc33b/9a9df/Avoid_common_mistakes_with_the_Next_js_App_Router_2b3b701cf9.webp",
+    tag_list: ["Upsun", "Next.js", "React"],
     reading_time_minutes: 6,
+    published_at: "Thu Jan 02 2025",
+    page_views_count: randomPageViews() * 1.5,
+    positive_reactions_count: randomLikes() * 1.5,
+  },
+  {
+    canonical_url: "https://blog.railway.com/p/scaling-a-saas-application",
+    slug: "scaling-a-saas-application",
+    title: "Scaling a SaaS application on Railway",
+    description: "Time to launch, scaling your SaaS on Railway.",
+    cover_image:
+      "https://og.railway.app/api/image?fileType=png&layoutName=Blog&Theme=Light&Title=Scaling%20a%20SaaS%20application%20on%20Railway&Author=Anshuman%20Bhardwaj",
+    tag_list: ["Railway", "Remix", "PostgreSQL"],
+    reading_time_minutes: 8,
     published_at: "Fri Dec 13 2024",
     page_views_count: randomPageViews() * 1.5,
     positive_reactions_count: randomLikes() * 1.5,

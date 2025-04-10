@@ -40,6 +40,7 @@ module.exports = {
       "handsontable.com",
       "retool-blog.ghost.io",
       "og.railway.app",
+      "upsun.com",
     ],
   },
 };
