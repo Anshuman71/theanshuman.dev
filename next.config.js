@@ -16,10 +16,10 @@ module.exports = {
       has: [
         {
           type: "host",
-          value: "www.theanshuman.dev",
+          value: "theanshuman.dev",
         },
       ],
-      destination: "https://theanshuman.dev/:path*",
+      destination: "https://www.theanshuman.dev/:path*",
       permanent: true, // This sets up a 308 redirect, which is similar to 301 but preserves the HTTP method
       statusCode: 301, // This explicitly sets a 301 status code
     },
