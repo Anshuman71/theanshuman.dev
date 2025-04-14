@@ -4,7 +4,7 @@ import { ArticleInList, LinkInformationType } from "./types";
 export const experiences: LinkInformationType[] = [
   {
     name: "Vercel",
-    url: "https://vercel.community",
+    url: "https://community.vercel.com",
   },
   {
     name: "commercetools",
