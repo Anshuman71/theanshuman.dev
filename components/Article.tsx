@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { ArticleInList } from "../types";
-import Image from "next/image";
 import { randomNumberBetween } from "../constants";
 import ExternalLink from "../public/external.svg";
-import DefaultImage from "../public/assets/default.jpg";
+import ImageWithFallback from "./ImageWithFallback";
+import BlueBg from "../public/assets/blue_bg.png";
+import PurpleBg from "../public/assets/purple_bg.png";
+import GreenBg from "../public/assets/green_bg.png";
+import OrangeBg from "../public/assets/orange_bg.png";
 
 const gradientColors = [
   "from-[#D4145A] to-[#FBB03B]",
@@ -32,10 +35,11 @@ const gradients = [
   "bg-gradient-to-tr",
 ];
 
+const fallbackImages = [BlueBg, PurpleBg, GreenBg, OrangeBg];
+
 export default function Article({ article }: { article: ArticleInList }) {
   const isExternal = !article.canonical_url.includes("theanshuman.dev");
-  const gradientColor =
-    gradientColors[randomNumberBetween(0, gradientColors.length - 1)];
+  const fallbackImage =fallbackImages[(article.title.split(" ").length + article.title.length) % 3];
   return (
     <Link
       passHref
@@ -48,11 +52,12 @@ export default function Article({ article }: { article: ArticleInList }) {
       >
         <div className="h-full overflow-hidden rounded-b-lg">
           <div className="relative rounded-t-lg overflow-hidden h-[45vw] w-full md:h-52 xl:h-40">
-            <Image
+            <ImageWithFallback
               alt={article.title}
-              src={article.cover_image || DefaultImage}
+              src={article.cover_image || fallbackImage}
               layout={"fill"}
               objectFit={"cover"}
+              fallbackSrc={fallbackImage}
             />
           </div>
           <div className="bg-zinc-800 p-4 h-full rounded-md rounded-t-none">

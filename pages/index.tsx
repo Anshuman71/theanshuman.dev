@@ -91,6 +91,12 @@ const Home: NextPage<PageProps> = (props) => {
           </p>
           <ul className="pl-10 text-lg mt-2">
             <li className="list-disc mb-4">
+              Leading the engineering engagement for Vercel Community platforms
+              by developing internal tools and integrations with Discourse.
+              Also, engaging with the developer community via live streams and
+              discussions to gather product feedback and support our customers.
+            </li>
+            <li className="list-disc mb-4">
               Providing feedback to improve developer experience for the
               commercetools Frontend customers. Also, writing and maintaining
               the documentation for commercetools Frontend.
@@ -104,16 +110,6 @@ const Home: NextPage<PageProps> = (props) => {
               Delivering the <i>&ldquo;Pre-order&rdquo;</i> landing page section
               and payment integration for Canoo Pickup truck under a tight
               deadline.
-            </li>
-            <li className="list-disc mb-4">
-              Led the mobile app development as a Product Engineer at Delightree
-              using React Native.
-            </li>
-            <li className="list-disc mb-4">
-              Designing and developing features for the mobile application using
-              ReactNative, React-navigation, and Firebase, along with writing
-              performant cloud functions for backend tasks as a Product owner at
-              Jynx.
             </li>
           </ul>
         </Section>
