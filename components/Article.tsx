@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArticleInList } from "../types";
 import { randomNumberBetween } from "../constants";
@@ -42,52 +44,47 @@ export default function Article({ article }: { article: ArticleInList }) {
   const fallbackImage =fallbackImages[(article.title.split(" ").length + article.title.length) % 3];
   return (
     <Link
-      passHref
       href={isExternal ? article.canonical_url : `/articles/${article.slug}`}
+      target={isExternal ? "_blank" : undefined}
+      className={`group flex flex-col p-1  rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-500`}
     >
-      <a
-        target={isExternal ? "_blank" : ""}
-        key={article.slug}
-        className={`group flex flex-col p-1  rounded-lg shadow-md transform duration-100 outline-none focus:ring-4 hover:ring-4 ring-yellow-500`}
-      >
-        <div className="h-full overflow-hidden rounded-b-lg">
-          <div className="relative rounded-t-lg overflow-hidden h-[45vw] w-full md:h-52 xl:h-40">
-            <ImageWithFallback
-              alt={article.title}
-              src={article.cover_image || fallbackImage}
-              layout={"fill"}
-              objectFit={"cover"}
-              fallbackSrc={fallbackImage}
-            />
-          </div>
-          <div className="bg-zinc-800 p-4 h-full rounded-md rounded-t-none">
-            <span className="flex flex-col flex-1 justify-between mb-4">
-              <span className="text-xl block font-medium tracking-wider group-hover:underline">
-                {article.title}{" "}
-                {isExternal && <ExternalLink className="w-4 h-4 mb-1 inline" />}
-              </span>
-              <span className={"flex flex-col text-sm my-2 text-gray-400"}>
-                <span className="mr-4 text-gray-300">
-                  {article.reading_time_minutes} minutes read
-                </span>{" "}
-                <span className="mr-4 mt-1 text-gray-300">
-                  Published: {new Date(article.published_at).toDateString()}
-                </span>
-              </span>{" "}
-              <span className="flex flex-row flex-wrap mt-2">
-                {article.tag_list.slice(0, 3).map((item) => (
-                  <span
-                    className="p-1 px-2 rounded bg-zinc-900 mr-2 mb-2"
-                    key={item}
-                  >
-                    <span className={`text-sm text-yellow-600`}>{item}</span>
-                  </span>
-                ))}
-              </span>
-            </span>
-          </div>
+      <div className="h-full overflow-hidden rounded-b-lg">
+        <div className="relative rounded-t-lg overflow-hidden h-[45vw] w-full md:h-52 xl:h-40">
+          <ImageWithFallback
+            alt={article.title}
+            src={article.cover_image || fallbackImage}
+            fill
+            style={{ objectFit: "cover" }}
+            fallbackSrc={fallbackImage}
+          />
         </div>
-      </a>
+        <div className="bg-zinc-800 p-4 h-full rounded-md rounded-t-none">
+          <span className="flex flex-col flex-1 justify-between mb-4">
+            <span className="text-xl block font-medium tracking-wider group-hover:underline">
+              {article.title}{" "}
+              {isExternal && <ExternalLink className="w-4 h-4 mb-1 inline" />}
+            </span>
+            <span className={"flex flex-col text-sm my-2 text-gray-400"}>
+              <span className="mr-4 text-gray-300">
+                {article.reading_time_minutes} minutes read
+              </span>{" "}
+              <span className="mr-4 mt-1 text-gray-300">
+                Published: {new Date(article.published_at).toDateString()}
+              </span>
+            </span>{" "}
+            <span className="flex flex-row flex-wrap mt-2">
+              {article.tag_list.slice(0, 3).map((item) => (
+                <span
+                  className="p-1 px-2 rounded bg-zinc-900 mr-2 mb-2"
+                  key={item}
+                >
+                  <span className={`text-sm text-yellow-600`}>{item}</span>
+                </span>
+              ))}
+            </span>
+          </span>
+        </div>
+      </div>
     </Link>
   );
 }

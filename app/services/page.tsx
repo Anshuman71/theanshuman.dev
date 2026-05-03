@@ -1,14 +1,16 @@
-import { NextPage } from "next/types";
-import Footer from "../components/Footer";
-import MetaData from "../components/MetaData";
-import Section from "../components/Section";
-import SectionHeading from "../components/SectionHeading";
+import Footer from "@/components/Footer";
+import Section from "@/components/Section";
+import SectionHeading from "@/components/SectionHeading";
+import type { Metadata } from "next";
 
-const Services: NextPage = () => {
+export const metadata: Metadata = {
+  title: "Services | Anshuman Bhardwaj",
+};
+
+export default function ServicesPage() {
   return (
     <>
       <main className="content-container">
-        <MetaData title={`Services | Anshuman Bhardwaj`} />
         <h1 className={"text-gray-100 text-3xl md:text-6xl mb-4"}>Services</h1>
         <hr />
         <Section className="mt-10">
@@ -27,7 +29,6 @@ const Services: NextPage = () => {
             education, career plans and even do a brainstorming session.
           </p>
         </Section>
-
         <Section className="mt-10">
           <SectionHeading>Startup consultancy</SectionHeading>
           <p className="text-lg">
@@ -55,6 +56,4 @@ const Services: NextPage = () => {
       <Footer />
     </>
   );
-};
-
-export default Services;
+}

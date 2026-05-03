@@ -1,46 +1,58 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
-  swcMinify: false,
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
+      },
+    },
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
-
     return config;
   },
-  redirects: [
-    {
-      source: "/:path*",
-      has: [
-        {
-          type: "host",
-          value: "theanshuman.dev",
-        },
-      ],
-      destination: "https://www.theanshuman.dev/:path*",
-      permanent: true, // This sets up a 308 redirect, which is similar to 301 but preserves the HTTP method
-      statusCode: 301, // This explicitly sets a 301 status code
-    },
-  ],
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "theanshuman.dev",
+          },
+        ],
+        destination: "https://www.theanshuman.dev/:path*",
+        permanent: true,
+        statusCode: 301,
+      },
+    ];
+  },
   images: {
-    domains: [
-      "media2.dev.to",
-      "retool.com",
-      "res.cloudinary.com",
-      "cdn.jsdelivr.net",
-      "hygraph.com",
-      "clerk.dev",
-      "clerk.com",
-      "imgur.com",
-      "blog.logrocket.com",
-      "images.ctfassets.net",
-      "uploads-ssl.webflow.com",
-      "handsontable.com",
-      "retool-blog.ghost.io",
-      "og.railway.app",
-      "upsun.com",
+    remotePatterns: [
+      { protocol: "https", hostname: "media2.dev.to" },
+      { protocol: "https", hostname: "retool.com" },
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "cdn.jsdelivr.net" },
+      { protocol: "https", hostname: "hygraph.com" },
+      { protocol: "https", hostname: "clerk.dev" },
+      { protocol: "https", hostname: "*.clerk.dev" },
+      { protocol: "https", hostname: "clerk.com" },
+      { protocol: "https", hostname: "imgur.com" },
+      { protocol: "https", hostname: "blog.logrocket.com" },
+      { protocol: "https", hostname: "images.ctfassets.net" },
+      { protocol: "https", hostname: "uploads-ssl.webflow.com" },
+      { protocol: "https", hostname: "handsontable.com" },
+      { protocol: "https", hostname: "retool-blog.ghost.io" },
+      { protocol: "https", hostname: "og.railway.app" },
+      { protocol: "https", hostname: "upsun.com" },
+      { protocol: "https", hostname: "media.giphy.com" },
     ],
   },
 };
+
+module.exports = nextConfig;

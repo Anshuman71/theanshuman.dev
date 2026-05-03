@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+"use client";
+
 import HighLightedText from "./HighlightedText";
 
 export default function HitCounter({ counter }: { counter: number }) {
