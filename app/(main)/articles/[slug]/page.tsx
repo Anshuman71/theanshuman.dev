@@ -1,9 +1,8 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { readdir, readFile } from "fs/promises";
-import Footer from "@/components/Footer";
+import Footer from "@/components/new/Footer";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/outline";
-import { generateMetadata as generateMeta } from "@/components/MetaData";
 import type { Metadata } from "next";
 import matter from "gray-matter";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -23,13 +22,23 @@ export async function generateMetadata({
   try {
     const rawContent = await readFile(`./content/${slug}.mdx`, "utf-8");
     const { data: fm } = matter(rawContent);
-    return generateMeta({
+
+    return {
       title: `${fm?.title || ""} | Anshuman Bhardwaj`,
-      description: fm?.description || "",
-      keywords: (fm?.tags as string) || "",
-      imageUrl: fm?.cover_image,
-      readingTime: fm?.reading_time_minutes,
-    });
+      description: (fm?.description as string) || "",
+      openGraph: {
+        type: "article",
+        title: (fm?.title as string) || "Article",
+        description: (fm?.description as string) || "",
+        images: fm?.cover_image ? [{ url: fm.cover_image as string }] : [],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: (fm?.title as string) || "Article",
+        description: (fm?.description as string) || "",
+        images: fm?.cover_image ? [fm.cover_image as string] : [],
+      },
+    };
   } catch {
     return { title: "Article | Anshuman Bhardwaj" };
   }

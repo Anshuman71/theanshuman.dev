@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const footerLinks = {
   column1: [
-    { name: "Home", href: "/new/home" },
+    { name: "Home", href: "/" },
     {
       name: "Newsletter",
       href: "https://www.getrevue.co/profile/anshuman_bhardwaj",
@@ -20,7 +20,7 @@ const footerLinks = {
     },
   ],
   column2: [
-    { name: "Blog", href: "/new/feed" },
+    { name: "Articles", href: "/articles" },
     { name: "DEV", href: "https://dev.to/anshuman_bhardwaj" },
     { name: "Twitter", href: "https://x.com/sun_anshuman" },
     {

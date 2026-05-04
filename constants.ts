@@ -82,7 +82,7 @@ export const contacts: LinkInformationType[] = [
   },
   {
     name: "Blog",
-    url: "/blog",
+    url: "/articles",
     sameTab: true,
   },
   {

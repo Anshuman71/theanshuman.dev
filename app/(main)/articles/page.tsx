@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { externalArticles, publishers } from "@/constants";
+import { externalArticles } from "@/constants";
 import { getArticles } from "@/utils";
 import { ArticleInList } from "@/types";
-import ArticlesList from "@/components/ArticlesList";
-import Footer from "@/components/Footer";
-import ExternalLink from "@/components/ExternalLink";
+import TopAppBar from "@/components/new/TopAppBar";
+import FeedContent from "@/components/new/FeedContent";
+import Footer from "@/components/new/Footer";
+import BottomNavBar from "@/components/new/BottomNavBar";
 
 export const metadata: Metadata = {
-  title: "Blog | Anshuman Bhardwaj",
+  title: "Articles | Anshuman Bhardwaj",
+  description:
+    "Explore articles, tutorials, and insights on web development, React, Next.js, and more.",
 };
 
 export default async function ArticlesPage() {
@@ -15,25 +18,16 @@ export default async function ArticlesPage() {
   try {
     const data = await getArticles();
     articles = [...externalArticles, ...data];
-  } catch {}
+  } catch {
+    articles = [...externalArticles];
+  }
 
   return (
-    <main className="content-container">
-      <h1 className={"text-gray-100 text-3xl md:text-5xl mb-4"}>
-        Recent Articles
-      </h1>
-      <p className="text-lg">
-        I&apos;m big on developer advocacy and part of the following programmes:
-      </p>
-      <div>
-        {publishers.map((exp) => (
-          <ExternalLink key={exp.url} {...exp} />
-        ))}
-      </div>
-      <br />
-      <hr />
-      <ArticlesList articles={articles} />
+    <>
+      <TopAppBar currentRoute="feed" />
+      <FeedContent articles={articles} />
       <Footer />
-    </main>
+      <BottomNavBar />
+    </>
   );
 }

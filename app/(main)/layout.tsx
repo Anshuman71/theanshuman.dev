@@ -1,4 +1,11 @@
-import NavBar from "@/components/NavBar";
+import { Epilogue } from "next/font/google";
+
+const epilogue = Epilogue({
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "800", "900"],
+  variable: "--font-epilogue",
+  display: "swap",
+});
 
 export default function MainLayout({
   children,
@@ -6,9 +13,17 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-zinc-900 flex flex-col min-h-screen text-gray-200">
-      <NavBar />
-      {children}
-    </div>
+    <>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+      />
+      <div
+        className={`${epilogue.variable} bg-background text-on-background min-h-screen`}
+        style={{ fontFamily: "var(--font-epilogue), sans-serif" }}
+      >
+        {children}
+      </div>
+    </>
   );
 }

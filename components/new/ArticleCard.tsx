@@ -15,6 +15,32 @@ export function getArticleFallbackImage(index: number) {
   return fallbackImages[index % fallbackImages.length];
 }
 
+function getArticleHref(article: ArticleInList) {
+  try {
+    const url = new URL(article.canonical_url);
+    const isInternalHost =
+      url.hostname === "theanshuman.dev" ||
+      url.hostname === "www.theanshuman.dev";
+
+    if (isInternalHost) {
+      return {
+        href: `/blog/${article.slug}`,
+        isExternal: false,
+      };
+    }
+  } catch {
+    return {
+      href: `/blog/${article.slug}`,
+      isExternal: false,
+    };
+  }
+
+  return {
+    href: article.canonical_url,
+    isExternal: true,
+  };
+}
+
 export default function ArticleCard({
   article,
   fallbackIndex,
@@ -24,7 +50,7 @@ export default function ArticleCard({
   fallbackIndex: number;
   variant?: "hero";
 }) {
-  const href = article.canonical_url || `/articles/${article.slug}`;
+  const { href, isExternal } = getArticleHref(article);
   const fallback = getArticleFallbackImage(fallbackIndex);
   const isHero = variant === "hero";
 
@@ -66,8 +92,8 @@ export default function ArticleCard({
         </p>
         <Link
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
           className="inline-flex items-center gap-2 font-label-bold uppercase text-primary transition-transform hover:translate-x-1"
         >
           Read More

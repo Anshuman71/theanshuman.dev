@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 const navLinks = [
-  { name: "Home", href: "/new/home", key: "home" },
-  { name: "Feed", href: "/new/feed", key: "feed" },
+  { name: "Home", href: "/", key: "home" },
+  { name: "Articles", href: "/articles", key: "feed" },
 ];
 
 const socialLinks = [
@@ -50,7 +50,7 @@ export default function TopAppBar({
 
   return (
     <header className="bg-white border-b-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sticky top-0 z-50">
-      <div className="flex items-center w-full px-8 py-6 max-w-screen-2xl mx-auto justify-end">
+      <div className="flex items-center w-full px-8 py-6 max-w-screen-2xl mx-auto justify-start">
         <nav className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
             <Link
@@ -81,7 +81,7 @@ export default function TopAppBar({
           </div>
         </nav>
         <button
-          className="md:hidden text-stone-900 transition-transform duration-200 data-[open=true]:rotate-90"
+          className="ml-auto md:hidden text-stone-900 transition-transform duration-200 data-[open=true]:rotate-90"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           data-open={mobileMenuOpen}
           aria-expanded={mobileMenuOpen}
