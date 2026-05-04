@@ -54,6 +54,7 @@ export default function Article({ article }: { article: ArticleInList }) {
             alt={article.title}
             src={article.cover_image || fallbackImage}
             fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
             style={{ objectFit: "cover" }}
             fallbackSrc={fallbackImage}
           />

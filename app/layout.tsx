@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import "../styles/globals.css";
-import NavBar from "../components/NavBar";
 
 export const metadata: Metadata = {
   title: "Anshuman Bhardwaj | Software Engineer",
@@ -39,10 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-zinc-900 flex flex-col min-h-screen text-gray-200">
-        <NavBar />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
