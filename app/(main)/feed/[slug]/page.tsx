@@ -108,13 +108,13 @@ export default async function ArticlePage({
         src="https://media.giphy.com/media/kRkJXYahXjSE0/giphy.gif"
       />
       <Link
-        href={"/articles"}
+        href={"/feed"}
         className={
           "mt-8 py-2 underline underline-offset-4 text-yellow-500 tracking-wider inline-block"
         }
       >
         <ArrowLeftIcon className={"mr-2 h-4 inline"} />
-        Return to All Articles
+        Return to Feed
       </Link>
       <Footer />
     </main>

@@ -21,9 +21,9 @@
     @apply prose-p:text-on-surface prose-p:leading-8;
     @apply prose-a:font-bold prose-a:text-tertiary prose-a:underline prose-a:decoration-4 prose-a:underline-offset-4;
     @apply prose-strong:text-on-surface prose-code:rounded-sm prose-code:bg-black prose-code:px-1 prose-code:py-0.5 prose-code:text-primary-container prose-code:before:content-none prose-code:after:content-none;
-    @apply prose-pre:border-[3px] prose-pre:border-black prose-pre:bg-[#1f1f1f] prose-pre:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)];
+    @apply prose-pre:border-4 prose-pre:border-black prose-pre:bg-[#1f1f1f] prose-pre:neubrutal-shadow-md;
     @apply prose-blockquote:border-l-0 prose-blockquote:border-r-[12px] prose-blockquote:border-sky-500 prose-blockquote:bg-sky-100 prose-blockquote:px-8 prose-blockquote:py-6 prose-blockquote:text-on-surface prose-blockquote:shadow-[8px_8px_0px_0px_rgba(56,189,248,0.25)];
-    @apply prose-img:my-8 prose-img:w-full prose-img:rounded-none prose-img:border-[3px] prose-img:border-black prose-img:bg-white prose-img:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)];
+    @apply prose-img:my-8 prose-img:w-full prose-img:rounded-none prose-img:border-4 prose-img:border-black prose-img:bg-white prose-img:neubrutal-shadow-lg;
     @apply prose-hr:border-black prose-hr:border-t-4;
     @apply prose-ul:pl-6 prose-ol:pl-6;
   }
@@ -47,8 +47,14 @@
   .neubrutal-shadow {
     box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
   }
+  .neubrutal-shadow-md {
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  }
   .neubrutal-shadow-lg {
     box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  }
+  .neubrutal-shadow-xl {
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
   }
   .neubrutal-shadow-sm {
     box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 1);

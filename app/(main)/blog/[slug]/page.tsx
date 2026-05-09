@@ -170,16 +170,17 @@ export default async function BlogArticlePage({
         <div className="relative mx-auto flex w-full max-w-screen-2xl flex-col gap-16 px-6 py-10 md:px-8 md:py-16">
           <section className="space-y-8">
             <Link
-              href="/articles"
+href="/feed"
+
               className="inline-flex items-center gap-3 border-2 border-black bg-white px-4 py-2 text-sm font-black uppercase tracking-[0.08em] neubrutal-shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary-container"
             >
               <span className="material-symbols-outlined text-xl">
                 arrow_back
               </span>
-              Back to articles
+              Back to feed
             </Link>
 
-            <div className="border-4 border-black bg-primary-container p-6 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] md:p-10">
+            <div className="border-4 border-black bg-primary-container p-6 neubrutal-shadow-xl md:p-10">
               <div className="mb-6 flex flex-wrap gap-3">
                 {tags.map((tag, index) => {
                   const accentClass =
@@ -230,7 +231,7 @@ export default async function BlogArticlePage({
 
           {frontmatter.cover_image ? (
             <figure className="space-y-4">
-              <div className="overflow-hidden border-4 border-black bg-white shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]">
+              <div className="overflow-hidden border-4 border-black bg-white neubrutal-shadow-xl">
                 <img
                   src={frontmatter.cover_image}
                   alt={frontmatter.title || "Article cover image"}
@@ -244,7 +245,7 @@ export default async function BlogArticlePage({
           ) : null}
 
           <section className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_320px]">
-            <article className="border-4 border-black bg-white p-6 shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] md:p-10">
+            <article className="border-4 border-black bg-white p-6 neubrutal-shadow-xl md:p-10">
               <div className="blog-prose">
                 <MDXRemote
                   source={content}
@@ -309,7 +310,7 @@ export default async function BlogArticlePage({
                   workflow are in the archive.
                 </p>
                 <Link
-                  href="/articles"
+                  href="/feed"
                   className="mt-6 inline-flex items-center gap-2 border-2 border-white bg-primary-container px-4 py-3 text-sm font-black uppercase tracking-[0.1em] text-black transition-all hover:-translate-y-0.5 hover:bg-white"
                 >
                   Explore archive

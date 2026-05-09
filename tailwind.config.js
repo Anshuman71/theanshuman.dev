@@ -18,9 +18,6 @@ module.exports = {
     extend: {
       colors: {
         dark: "#0d1117",
-        yellow: {
-          400: "#F1C40F",
-        },
         background: "#f9f9f9",
         "on-background": "#1b1b1b",
         primary: "#705d00",
@@ -67,6 +64,10 @@ module.exports = {
         "inverse-primary": "#e9c400",
         outline: "#7e775f",
         "outline-variant": "#d0c6ab",
+        "dark-surface": "#1a1816",
+        "on-dark-surface": "#f4efe8",
+        "accent-hover": "#f6d36b",
+        "accent-red": "#ff5a4f",
         "surface-tint": "#705d00",
       },
       fontFamily: {

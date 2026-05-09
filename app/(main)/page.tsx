@@ -50,7 +50,7 @@ export default async function HomePage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/articles"
+                href="/feed"
                 className="bg-primary-container text-stone-900 font-headline-md px-10 py-4 border-4 border-black neubrutal-shadow-lg btn-interact uppercase text-xl"
               >
                 Read Articles
@@ -82,7 +82,7 @@ export default async function HomePage() {
               Personal Projects
             </h2>
             <Link
-              href="/articles"
+              href="/feed"
               className="font-label-bold uppercase underline decoration-4 underline-offset-4 decoration-primary-container"
             >
               View all articles
@@ -207,7 +207,7 @@ export default async function HomePage() {
               Latest Articles
             </h2>
             <Link
-              href="/articles"
+              href="/feed"
               className="group inline-flex w-fit items-center gap-3 border-4 border-black bg-white px-6 py-3 font-label-bold uppercase neubrutal-shadow transition-all hover:-translate-y-1 hover:bg-primary-container"
             >
               View all articles
@@ -227,100 +227,7 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Technical Advocacy Section */}
-        <section className="bg-stone-900 text-white border-4 border-black p-12 neubrutal-shadow-lg relative overflow-hidden">
-          <div className="absolute -right-20 -top-20 text-[200px] font-black text-white/10 select-none uppercase">
-            ADVOCACY
-          </div>
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <h2 className="font-headline-lg text-headline-lg uppercase text-primary-container">
-                Technical Advocacy
-              </h2>
-              <p className="font-body-lg text-lg text-stone-300">
-                I believe in technical storytelling. My goal is to break down the
-                most intimidating technologies into digestible, actionable content
-                for the modern developer.
-              </p>
-              <div className="space-y-4">
-                <a
-                  href="https://auth0.com/ambassador-program/ambassadors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-4 border-2 border-white/20 hover:border-primary-container transition-colors group"
-                >
-                  <span className="material-symbols-outlined text-4xl text-primary-container">
-                    verified
-                  </span>
-                  <div>
-                    <h4 className="font-bold uppercase">Auth0 Ambassador</h4>
-                    <p className="text-sm text-stone-400">Ambassador Program</p>
-                  </div>
-                </a>
-                <a
-                  href="https://blog.logrocket.com/author/anshumanbhardwaj/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-4 border-2 border-white/20 hover:border-primary-container transition-colors group"
-                >
-                  <span className="material-symbols-outlined text-4xl text-primary-container">
-                    description
-                  </span>
-                  <div>
-                    <h4 className="font-bold uppercase">LogRocket</h4>
-                    <p className="text-sm text-stone-400">Published Author</p>
-                  </div>
-                </a>
-                <a
-                  href="https://portal.draft.dev/writers/recHFWSYFJ2b2wPCs"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-4 border-2 border-white/20 hover:border-primary-container transition-colors group"
-                >
-                  <span className="material-symbols-outlined text-4xl text-primary-container">
-                    edit_note
-                  </span>
-                  <div>
-                    <h4 className="font-bold uppercase">Draft.dev</h4>
-                    <p className="text-sm text-stone-400">Technical Writer</p>
-                  </div>
-                </a>
-                <a
-                  href="https://javascript.plainenglish.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-6 p-4 border-2 border-white/20 hover:border-primary-container transition-colors group"
-                >
-                  <span className="material-symbols-outlined text-4xl text-primary-container">
-                    podcasts
-                  </span>
-                  <div>
-                    <h4 className="font-bold uppercase">JavaScript in Plain English</h4>
-                    <p className="text-sm text-stone-400">Publications</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="flex flex-col justify-center bg-white/5 p-8 border-4 border-primary-container neubrutal-shadow">
-              <div className="text-center space-y-6">
-                <h3 className="font-headline-md text-headline-md uppercase italic">
-                  Ready to scale your developer community?
-                </h3>
-                <p className="text-stone-300">
-                  I help engineering teams reach their audience through strategic
-                  content, workshops, and open-source contributions.
-                </p>
-                <a
-                  href="mailto:hi@theanshuman.dev"
-                  className="block w-full bg-primary-container text-black font-black py-4 border-4 border-black neubrutal-shadow uppercase hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all text-center"
-                >
-                  Book a Consultation
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+        </main>
 
       <Footer />
       <BottomNavBar />

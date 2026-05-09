@@ -8,12 +8,12 @@ import Footer from "@/components/new/Footer";
 import BottomNavBar from "@/components/new/BottomNavBar";
 
 export const metadata: Metadata = {
-  title: "Articles | Anshuman Bhardwaj",
+  title: "Feed | Anshuman Bhardwaj",
   description:
     "Explore articles, tutorials, and insights on web development, React, Next.js, and more.",
 };
 
-export default async function ArticlesPage() {
+export default async function FeedPage() {
   let articles: ArticleInList[] = [];
   try {
     const data = await getArticles();

@@ -32,7 +32,7 @@ async function generateSiteMap() {
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>${PROD_URL}/articles</loc>
+        <loc>${PROD_URL}/feed</loc>
         <lastmod>${lastModified}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.80</priority>
@@ -53,7 +53,7 @@ async function generateSiteMap() {
        .map((url) => {
          return `
        <url>
-            <loc>${`${PROD_URL}/articles/${url}`}</loc>
+            <loc>${`${PROD_URL}/feed/${url}`}</loc>
             <lastmod>${lastModified}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.80</priority>

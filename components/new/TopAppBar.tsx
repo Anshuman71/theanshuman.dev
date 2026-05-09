@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const navLinks = [
   { name: "Home", href: "/", key: "home" },
-  { name: "Articles", href: "/articles", key: "feed" },
+  { name: "Feed", href: "/feed", key: "feed" },
 ];
 
 const socialLinks = [
@@ -49,7 +49,7 @@ export default function TopAppBar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white border-b-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sticky top-0 z-50">
+    <header className="bg-white border-b-4 border-black neubrutal-shadow sticky top-0 z-50">
       <div className="flex items-center w-full px-8 py-6 max-w-screen-2xl mx-auto justify-start">
         <nav className="hidden md:flex gap-8 items-center">
           {navLinks.map((link) => (
@@ -58,8 +58,8 @@ export default function TopAppBar({
               href={link.href}
               className={`font-bold uppercase tracking-tight transition-all px-2 ${
                 currentRoute === link.key
-                  ? "bg-yellow-400 text-black"
-                  : "text-stone-600 hover:bg-yellow-400 hover:text-black"
+? "bg-primary-container text-black"
+                    : "text-stone-600 hover:bg-primary-container hover:text-black"
               }`}
             >
               {link.name}
@@ -72,7 +72,7 @@ export default function TopAppBar({
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 border-2 border-black bg-white text-black ${link.hoverBg} shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all`}
+                className={`p-2 border-2 border-black bg-white text-black ${link.hoverBg} neubrutal-shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all`}
                 aria-label={link.name}
               >
                 {link.icon}
@@ -107,7 +107,7 @@ export default function TopAppBar({
                 href={link.href}
                 className={`block border-b-2 px-3 py-2 font-bold uppercase tracking-tight transition-colors ${
                   currentRoute === link.key
-                    ? "border-black bg-yellow-400 text-black"
+                    ? "border-black bg-primary-container text-black"
                     : "border-stone-200 text-stone-600 hover:bg-stone-100"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
@@ -122,7 +122,7 @@ export default function TopAppBar({
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-2 border-2 border-black bg-white text-black ${link.hoverBg} shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all`}
+                  className={`p-2 border-2 border-black bg-white text-black ${link.hoverBg} neubrutal-shadow-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all`}
                   aria-label={link.name}
                 >
                   {link.icon}

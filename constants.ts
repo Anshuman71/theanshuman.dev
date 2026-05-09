@@ -14,14 +14,6 @@ export const experiences: LinkInformationType[] = [
     name: "Canoo",
     url: "https://canoo.com",
   },
-  {
-    name: "Delightree",
-    url: "https://delightree.com",
-  },
-  {
-    name: "Jynx",
-    url: "https://jynxit.us",
-  },
 ];
 
 export const projects: LinkInformationType[] = [
@@ -82,7 +74,7 @@ export const contacts: LinkInformationType[] = [
   },
   {
     name: "Blog",
-    url: "/articles",
+    url: "/feed",
     sameTab: true,
   },
   {

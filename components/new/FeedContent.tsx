@@ -136,7 +136,7 @@ export default function FeedContent({
                 <span className="material-symbols-outlined">sort</span>
               </button>
               {showSort && (
-                <div className="absolute right-0 top-full z-10 mt-2 w-56 max-w-[calc(100vw-4rem)] bg-white border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="absolute right-0 top-full z-10 mt-2 w-56 max-w-[calc(100vw-4rem)] bg-white border-4 border-black neubrutal-shadow">
                   {sortOptions.map((option) => (
                     <button
                       key={option.value}
@@ -195,7 +195,7 @@ export default function FeedContent({
             No articles found matching your criteria.
           </p>
           <button
-            className="bg-primary-container border-4 border-black px-6 py-3 font-label-bold uppercase neubrutal-shadow hover:bg-yellow-400 transition-all"
+            className="bg-primary-container border-4 border-black px-6 py-3 font-label-bold uppercase neubrutal-shadow hover:bg-primary-fixed transition-all"
             onClick={() => {
               setSearch("");
               setActiveTag(null);
@@ -247,7 +247,7 @@ export default function FeedContent({
 function SubscribeCTA() {
   return (
     <div className="bg-tertiary border-4 border-black p-8 neubrutal-shadow text-white flex flex-col items-center text-center justify-center relative overflow-hidden h-full">
-      <div className="absolute -top-10 -right-10 w-32 h-32 bg-yellow-400 rotate-12 border-4 border-black" />
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary-container rotate-12 border-4 border-black" />
       <h3 className="font-headline-md text-headline-md text-white mb-6 uppercase relative z-10">
         SUBSCRIBE TO THE FEED.
       </h3>
@@ -256,7 +256,7 @@ function SubscribeCTA() {
         placeholder="YOUR@EMAIL.COM"
         type="email"
       />
-      <button className="w-full bg-primary-container text-black font-label-bold py-4 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-1 active:translate-y-1 active:shadow-none uppercase">
+      <button className="w-full bg-primary-container text-black font-label-bold py-4 border-4 border-black neubrutal-shadow active:translate-x-1 active:translate-y-1 active:shadow-none uppercase">
         JOIN THE CLUB
       </button>
     </div>
